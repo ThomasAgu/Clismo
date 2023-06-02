@@ -4,6 +4,17 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  --backGround: #504746;
+  --light: #FCF7F8;
+  --accent-green: #4ED0A2;
+  --accent-pink: #DC7F9B;
+  --accent-orange: #FFA62B;
+
+  --title: 'Montserrat', sans-serif;
+  --subtitles: 'Lato', sans-serif;
+  --textNunito: 'Nunito', sans-serif;
+  --textRoboto: 'Roboto', sans-serif;
 }
 
 a {
@@ -15,9 +26,9 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
   body {
     color: white;
