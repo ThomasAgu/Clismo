@@ -4,7 +4,6 @@ import Image from 'next/image'
 //components
 import NavBar from './components/NavBar'
 import InputComponent from './components/InputComponent'
-import RadioSelectComponent from './components/RadioSelectComponent'
 import logo from '../public/images/Logo.png'
 import { useRouter } from 'next/router';
 import styles from '../styles/Register.module.css'
