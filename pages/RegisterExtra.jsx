@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouter } from 'next/router';
 //components
 import NavBar from './components/NavBar'
-import SelectComponent from './components/SelectComponent';
 import InputComponent from './components/InputComponent';
 
 const RegisterExtra = () => {
@@ -20,7 +19,6 @@ const RegisterExtra = () => {
           </div>
           <div className='flex-row'>
             <InputComponent label={'Peso'} type={'number'}/>
-            <SelectComponent options={[':D', 'D:']} label={'genero'}/>
           </div>
         </form>
 
