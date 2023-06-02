@@ -7,7 +7,7 @@ const SelectComponent = ({options, label}) => {
         <select class="form-select" aria-label="Default select example">
             {options.map((op) =>{
                 return (
-                  <div>
+                  <div key={op}>
                     <option value={op}>{op}</option>
                     <label htmlFor="" for={op}/>
                   </div>
