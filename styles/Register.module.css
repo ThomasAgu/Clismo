@@ -6,7 +6,7 @@
 
 #mainContent{
     position: relative;
-    top: 10%;
+    top: 2%;
 }
 
 #logo{
@@ -16,7 +16,8 @@
 #content{
     border-radius: 20px;
     box-shadow: 0px 2px 20px ;
-    height: 60vh;
+    height: 80vh;
+    width: 80vw;
     background-color: var(--light);
     border: 0.2px solid var(--backGround);
 }
@@ -53,6 +54,13 @@
     font-family: var(--textRoboto);
     margin: auto;
     
+}
+
+#labelForRol{
+    color: var(--backGround);
+    margin-bottom: 1vh;
+    font-size: 1.2rem;
+    font-family: var(--roboto);
 }
 
 #registrarseBtn{

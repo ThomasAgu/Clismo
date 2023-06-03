@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import Image from 'next/image'
 import { useRouter } from 'next/router';
 //components
@@ -9,6 +10,27 @@ import  styles from '../styles/Login.module.css'
 //image
 import logo from '../public/images/Logo.png'
 const Login = () => {
+
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChangeUserName = (e) => {
+    setUserName(userName => e.target.value);
+  }
+
+  const handleChangePassword = (e) =>{
+    setPassword(password => e.target.value);
+  }
+
+  const handleIniciarSesion = (e) =>{
+    e.preventDefault();
+    console.log('aca hacer el llamado a la API')
+    console.log('Chequear que este el usuario y sino devolver credenciales erroneas')
+    console.log('Si esta todo bien setear la sesion iniciada')
+
+    console.log(userName, password)
+  }
+
 
   const router = useRouter();
 
@@ -26,9 +48,9 @@ const Login = () => {
             <h3 id={styles.contentTitle}>Clismo</h3>
             <div id={styles.formDiv}>
               <form id={styles.form} className='d-flex flex-column justify-content-center'>
-                <InputComponent label={'Nombre de usuario'} type={'text'} />
-                <InputComponent label={'Contraseña'} type={'password'} />
-                <button className='' id={styles.iniciarBtn}>Iniciar Sesion</button>
+                <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName}/>
+                <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword}/>
+                <button className='' id={styles.iniciarBtn} onClick={handleIniciarSesion} >Iniciar Sesion</button>
               </form>
           </div>
           <hr />

@@ -31,12 +31,13 @@ const Register = () => {
               <InputComponent label={'Nombre de usuario'} type={'text'}/>
               <InputComponent label={'Contraseña'} type={'password'}/>
               <InputComponent label={'Repetir contraseña'} type={'password'}/>
-              <div className='d-flex w-100 justify-content-center mt-3'>
+              <label htmlFor="" className='pt-3' id={styles.labelForRol}>Rol</label>
+              <div className='d-flex w-100 justify-content-center  pb-3'>
                 <input type="radio" id="opcion1" name="opciones" value="opcion1" className={styles.radio}/>
-                <label for="opcion1" className={styles.labelRadio}>Opción 1</label>
+                <label for="opcion1" className={styles.labelRadio}>Alumno</label>
 
                 <input type="radio" id="opcion2" name="opciones" value="opcion2" className={styles.radio}/>
-                <label for="opcion2" className={styles.labelRadio}>Opción 2</label>
+                <label for="opcion2" className={styles.labelRadio}>Profesor</label>
 
               </div>
             </form>
