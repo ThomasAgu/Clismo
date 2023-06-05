@@ -28,15 +28,14 @@ const Register = () => {
           <h3 id={styles.contentTilte}>Clismo</h3>
           <div id={styles.formDiv}>
             <form id={styles.form} className='d-flex flex-column justify-content-center'>
-              <InputComponent label={'Nombre de usuario'} type={'text'}/>
-              <InputComponent label={'Contraseña'} type={'password'}/>
-              <InputComponent label={'Repetir contraseña'} type={'password'}/>
-              <label htmlFor="" className='pt-3' id={styles.labelForRol}>Rol</label>
+              <InputComponent label={'Nombre de usuario'} type={'text'} tabIndex={4} ariaLabel={'Ingresa tu nombre de usuario'}/>
+              <InputComponent label={'Contraseña'} type={'password'} tabIndex={5} ariaLabel={'Ingresa tu contraseña'}/>
+              <InputComponent label={'Repetir contraseña'} type={'password'} tabIndex={6} ariaLabel={'Repetir contraseña'}/>
+              <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={7} ariaLabel={'Selecciona tu rol'}>Rol</label>
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <input type="radio" id="opcion1" name="opciones" value="opcion1" className={styles.radio}/>
+                <input type="radio" id="opcion1" name="opciones" value="opcion1" className={styles.radio} tabIndex='8' aria-label='Rol de alumno'/>
                 <label for="opcion1" className={styles.labelRadio}>Alumno</label>
-
-                <input type="radio" id="opcion2" name="opciones" value="opcion2" className={styles.radio}/>
+                <input type="radio" id="opcion2" name="opciones" value="opcion2" className={styles.radio} tabIndex='9' aria-label='Rol de profesor'/>
                 <label for="opcion2" className={styles.labelRadio}>Profesor</label>
 
               </div>

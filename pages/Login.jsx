@@ -48,8 +48,8 @@ const Login = () => {
             <h3 id={styles.contentTitle}>Clismo</h3>
             <div id={styles.formDiv}>
               <form id={styles.form} className='d-flex flex-column justify-content-center'>
-                <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName}/>
-                <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword}/>
+                <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName} tabIndex={4} ariaLabel={'Ingresa tu nombre de usuario'}/>
+                <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword} tabIndex={5} ariaLabel={'Ingresa tu contraseña'}/>
                 <button className='' id={styles.iniciarBtn} onClick={handleIniciarSesion} >Iniciar Sesion</button>
               </form>
           </div>

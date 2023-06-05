@@ -1,6 +1,7 @@
 #NavBar{
     position: sticky;
     top: 0;
+    z-index: 4500;
     background-color: var(--backGround);
     height: 5vh;
     box-shadow: 0 2px 4px var(--backGround);
@@ -15,6 +16,17 @@
     font-weight: 100;
 }
 
+#navBarDiv{
+    width: 25%;
+}
+
+@media screen and (max-width: 800px) {
+    #navBarDiv{
+        width: 50%;
+    }
+}
+
+
 #loginBtn{
     height: 4vh;
     width: 45%;
@@ -24,7 +36,8 @@
     color: var(--light);
     font-family: var(--textRoboto);
     box-shadow: none;
-
+    text-align: center;
+    flex-wrap: wrap;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 

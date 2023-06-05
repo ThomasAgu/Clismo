@@ -1,0 +1,47 @@
+#label{
+    text-align: center;
+    width: 100%;
+    font-family: var(--title);
+    font-size: 1.3rem;
+    color: var(--backGround);
+}
+#input{
+    background: transparent;
+    background: var(--none);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    
+}
+
+#input::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-green);
+    border-radius: 50%;
+  }
+  
+  #input::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-green);
+    border-radius: 50%;
+  }
+  
+  #input::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-green);
+    border-radius: 50%;
+  }
+
+.showValue{
+    width: 100%;
+    text-align: start;
+    font-family: var(--textRoboto);
+    font-size: 2rem;
+    color: var(--backGround);
+}
