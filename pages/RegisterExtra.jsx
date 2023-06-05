@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 //components
@@ -9,7 +10,16 @@ import RangeComponent from './components/RangeComponent'
 import logo from '../public/images/Logo.png'
 //styles
 import styles from '../styles/RegisterExtra.module.css'
+import { registerExtra } from './api/ApiRegister';
 const RegisterExtra = () => {
+
+  
+  const handleClickOptionalData = (e) =>{
+    e.preventDefault();
+    //const response = registerExtra({peso: peso, edad: edad, altura: altura})
+    //console.log({peso: peso, edad: edad, altura: altura})
+    router.push('/')
+  }
 
   const router = useRouter();
   return (
@@ -29,13 +39,13 @@ const RegisterExtra = () => {
             </div>
           <div id={styles.formDiv}>
             <form className='d-flex flex-column justify-content-center' id={styles.form}>
-                <RangeComponent label={'Edad'} min={'10'} max={'100'}  type={'Años'}/>
-                <RangeComponent label={'Altura'} min={'140'} max={'300'}  type={'Cm'}/>
-                <RangeComponent label={'Peso'} min={'30'} max={'200'}  type={'Kgr.'}/>
+                <RangeComponent label={'Edad'} min={'10'} max={'100'}  type={'Edad'} />
+                <RangeComponent label={'Altura'} min={'60'} max={'300'}  type={'cm'}/>
+                <RangeComponent label={'Peso'} min={'40'} max={'190'}  type={'kgr'}/>
             </form>
 
             <hr />
-            <div className=' d-flex justify-content-center'><button onClick={() => router.push('/')} id={styles.registrarseBtn} >Registrarse</button></div>
+            <div className=' d-flex justify-content-center'><button onClick={handleClickOptionalData} id={styles.registrarseBtn} >Registrarse</button></div>
           </div>
         </div>
         <p className='text-center pt-3'>Ninguno de estos datos se compartiran con otras personas mas que el profesor.</p>

@@ -9,6 +9,8 @@ import InputComponent from './components/InputComponent'
 import  styles from '../styles/Login.module.css'
 //image
 import logo from '../public/images/Logo.png'
+//API
+import { login } from './api/ApiLogin';
 const Login = () => {
 
   const [userName, setUserName] = useState('');
@@ -27,7 +29,7 @@ const Login = () => {
     console.log('aca hacer el llamado a la API')
     console.log('Chequear que este el usuario y sino devolver credenciales erroneas')
     console.log('Si esta todo bien setear la sesion iniciada')
-
+    //const response = login({user: userName, pass: password})
     console.log(userName, password)
   }
 
