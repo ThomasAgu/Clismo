@@ -11,10 +11,15 @@ import  styles from '../styles/Login.module.css'
 import logo from '../public/images/Logo.png'
 //API
 import { login } from './api/ApiLogin';
+//Store
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../store/actions/actions';
 const Login = () => {
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleChangeUserName = (e) => {
     setUserName(userName => e.target.value);
@@ -31,6 +36,9 @@ const Login = () => {
     console.log('Si esta todo bien setear la sesion iniciada')
     //const response = login({user: userName, pass: password})
     console.log(userName, password)
+    const user ={ username: userName }
+    dispatch(loginSuccess(user));
+    router.push('/Home')
   }
 
 
