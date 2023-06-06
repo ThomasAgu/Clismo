@@ -18,7 +18,7 @@ const Grupos = () => {
             <h4>Mis grupos</h4>
                 <p>Aca poner los grupos a los que formo parte </p>
             <h4>Grupos publicos</h4>
-                {grupos.map((g) => <GrupoCard />)}
+                {grupos.map((g) => <GrupoCard key={g.nombre} />)}
                 <p>Aca va el listado de los grupos publicos. Agregar boton para dificultad (itermedio, principiante, avanzado)</p>
             
             <button>Agregar Grupo</button>
