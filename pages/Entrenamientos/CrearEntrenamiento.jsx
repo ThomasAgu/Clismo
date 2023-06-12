@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 //store
 import { useDispatch } from 'react-redux'
 import { agregarEntrenamiento } from '../../store/actions/actions'
@@ -27,6 +27,18 @@ const CrearEntrenamiento = () => {
 
   const [pasos, setPasos] = useState(1)
   const [activate, setActivate] =useState(false)
+
+  const [ejercicios, setEjercicios] = useState([])
+  // Guardar el total de ejercicios de la rutina y duracion
+  const [cantEjercicios, setCantEjercicios] = useState()
+  const [duracionTotal, setDuracionTotal] = useState()
+
+  useEffect(() => {
+    setCantEjercicios(ejercicios.length)
+    setDuracionTotal(ejercicios.reduce(function(acc, ex) {
+      return acc + Number(ex.parametros.duracion)
+    }, 0))
+  },[ejercicios])
 
   const handleChangeName = (e) =>{
     setName(name => e.target.value)
@@ -86,13 +98,22 @@ const CrearEntrenamiento = () => {
                 </div>
                 {/* Radio de privacidad */}
             </form>
-            <ElegirEntrenamientos activate={activate} pasos={pasos} />
-          
+            <ElegirEntrenamientos activate={activate} pasos={pasos} ejercicios={ejercicios} setEjercicios={setEjercicios} />
+            
+            {/* Mostrar los ejercicios que vamos agregando*/}
+            {ejercicios.map((ex) => {
+              return (
+                <div>{ex.nombre}</div>
+              )
+            })}
+
             {(pasos < 2) ?
               <button onClick={handleClickSiguiente} id='btn-sig'>Siguiente</button>
               :
               <button onClick={handleClickAddEntrenamiento}> Finalizar </button>
             }
+            <p>Total ejercicios {cantEjercicios}</p>
+            <p>duracion total {duracionTotal} minutos</p>
             <p> {pasos} / 2</p>
         </div>
     </div>
