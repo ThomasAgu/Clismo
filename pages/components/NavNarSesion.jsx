@@ -7,7 +7,6 @@ const NavNarSesion = () => {
 
 
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
-    console.log(isLoggedIn + "Estalogueado")
     const router = useRouter();
     if (!isLoggedIn){
       return (<></>)

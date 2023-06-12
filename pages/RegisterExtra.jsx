@@ -10,7 +10,6 @@ import RangeComponent from './components/RangeComponent'
 import logo from '../public/images/Logo.png'
 //styles
 import styles from '../styles/RegisterExtra.module.css'
-import { registerExtra } from './api/ApiRegister';
 const RegisterExtra = () => {
 
   
@@ -18,7 +17,7 @@ const RegisterExtra = () => {
     e.preventDefault();
     //const response = registerExtra({peso: peso, edad: edad, altura: altura})
     //console.log({peso: peso, edad: edad, altura: altura})
-    router.push('/')
+    router.push('/Home')
   }
 
   const router = useRouter();

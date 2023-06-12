@@ -9,8 +9,13 @@ import { useRouter } from 'next/router';
 import styles from '../styles/Register.module.css'
 const options = [{name: "profesor", label: "profesor"}, {name: "alumno", label: "alumno"}]
 import { register } from './api/ApiRegister'
+//Store
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../store/actions/actions';
 
 const Register = () => {
+
+  const dispatch = useDispatch();
 
   const router = useRouter();
 
@@ -38,6 +43,9 @@ const Register = () => {
   const handleClickRegister = () =>{
     //const response = register({user: userName, pass: password, role: role })
     //chequear si no existe 
+    const user ={ username: userName }
+    //const response = login({user: userName, pass: password})
+    dispatch(loginSuccess(user));
     router.push('/RegisterExtra')
   }
 

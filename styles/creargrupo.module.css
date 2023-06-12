@@ -1,0 +1,36 @@
+#labelForRol{
+    color: var(--backGround);
+    margin-bottom: 1vh;
+    font-size: 1.2rem;
+    font-family: var(--roboto)
+}
+
+.radio{
+    /* Ocultar los radio buttons por defecto */
+  display: none;
+}
+
+
+.labelRadio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+    width: 20%;
+    background-color: var(--backGround);
+    color: var(--accent-green);
+    text-align: center;
+    border-radius: 20px;
+    height: 3rem;
+    box-shadow: 0px 2px 2px var(--backGround);
+    font-family: var(--textNunito);
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+  }
+  
+  .radio:checked + .labelRadio{
+      color: var(--light);
+      background-color: var(--accent-green); /* Cambiar el color del texto cuando está seleccionado */
+      box-shadow: 0px 2px 10px var(--accent-green);
+  }

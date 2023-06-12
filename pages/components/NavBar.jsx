@@ -14,9 +14,6 @@ const NavBar = () => {
   const UserProfile = () => {
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
     const user = useSelector((state) => state.login.user);
-    
-    (console.log('Usuario logeado'))
-    console.log(useSelector((state) => state.login.isLoggedIn))
     if (isLoggedIn) {
       return (
         <div className='d-flex justify-content-end align-items-end me-3' id={styles.navBarDiv}>

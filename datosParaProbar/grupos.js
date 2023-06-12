@@ -10,7 +10,7 @@ const grupos = [
     {
       "nombre": "Club de lectura",
       "descripcion": "Grupo de lectura mensual para discutir y compartir opiniones sobre libros.",
-      "privacidad": "público",
+      "privacidad": "privado",
       "cantidad_integrantes": 12,
       "capacidad": 15,
       "dificultad": "principiante"
@@ -66,7 +66,7 @@ const grupos = [
     {
       "nombre": "Grupo de debate",
       "descripcion": "Grupo de debate sobre temas actuales y controversiales. Reuniones semanales.",
-      "privacidad": "público",
+      "privacidad": "privado",
       "cantidad_integrantes": 15,
       "capacidad": 20,
       "dificultad": "avanzado"
