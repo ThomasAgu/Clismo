@@ -22,7 +22,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
           <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@200;300;400&family=Nunito:ital,wght@0,200;0,400;1,200&family=Roboto:wght@300;400&display=swap" rel="stylesheet"/>
           {/* Fontawesome  ICONS*/}
-          <script src="https://kit.fontawesome.com/c321b0e5bf.js" crossorigin="anonymous"></script>
+          <script src="https://kit.fontawesome.com/c321b0e5bf.js" crossorigin="anonymous" async></script>
         </Head>
         <body>
           <Main />

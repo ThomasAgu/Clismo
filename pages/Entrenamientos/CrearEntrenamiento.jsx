@@ -103,7 +103,7 @@ const CrearEntrenamiento = () => {
             {/* Mostrar los ejercicios que vamos agregando*/}
             {ejercicios.map((ex) => {
               return (
-                <div>{ex.nombre}</div>
+                <div key={ex.nombre}>{ex.nombre}</div>
               )
             })}
 
