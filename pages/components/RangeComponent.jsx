@@ -11,7 +11,7 @@ const RangeComponent = ({label, min, max, type}) => {
     }
    return (
     <div>
-        <label for="customRange1" class="form-label" id={styles.label}>{label}</label>
+        <label for="customRange1" class="form-label text-start" id={styles.label}>{label}</label>
         <input type="range" class="form-range" id={styles.input} min={min} max={max} step='1' value={value} onChange={handleChangeValue} />
         <p className={styles.showValue}>{value} {type}</p>
     </div>

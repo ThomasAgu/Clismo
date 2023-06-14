@@ -80,3 +80,25 @@
     height: 6vh;
     color: var(--light);
 }
+
+
+@media screen and (max-width: 767px){
+
+    #content{
+        width: 95vw;
+    }
+    #registrarseBtn{
+        font-size: 1.2rem ;
+        width: 90%;
+    }
+
+    #registrarseBtn:hover{
+        font-size: 1.4rem;
+    }
+
+    #formDiv{
+        width: 90%;
+    }
+
+
+}

@@ -3,10 +3,12 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang='es'>
         <Head>
           {/* Agrega aquí los enlaces a tus fuentes personalizadas */}
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+          {/* Language */}
+          <meta charset="UTF-8" />
           {/* EL bootstrap */}
           <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"

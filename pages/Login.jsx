@@ -61,11 +61,11 @@ const Login = () => {
               <form id={styles.form} className='d-flex flex-column justify-content-center'>
                 <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName} tabIndex={4} ariaLabel={'Ingresa tu nombre de usuario'}/>
                 <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword} tabIndex={5} ariaLabel={'Ingresa tu contraseña'}/>
-                <button className='' id={styles.iniciarBtn} onClick={handleIniciarSesion} >Iniciar Sesion</button>
+                <div className=' d-flex justify-content-center align-items-center mt-4'><button className='' id={styles.iniciarBtn} onClick={handleIniciarSesion} >Iniciar Sesion</button></div>
               </form>
           </div>
           <hr />
-            <div className=' d-flex justify-content-center'><button id={styles.registrarseBtn} onClick={() => router.push('/Register')}>Registrarse</button></div>
+            <div className=' d-flex justify-content-center align-items-center'><button id={styles.registrarseBtn} onClick={() => router.push('/Register')}>Registrarse</button></div>
         </div>
       </div>
     </div>

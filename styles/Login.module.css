@@ -22,11 +22,6 @@
     background-color: var(--light);
 }
 
-@media screen and (min-width: 1200px) {
-    #content{
-        width: 40vw;
-    }
-}
 
 
 
@@ -61,13 +56,13 @@
     height: 4vh;
     color: var(--light);
     font-size: 1.4em;
-    margin-top: 4vh;
     box-shadow: 0px 2px 2px var(--backGround);
     width: 100%;
     outline: none;
-
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
-} 
+}
+
+
 
 #iniciarBtn:hover{
     box-shadow: 0px 2px 10px var(--accent-green);
@@ -76,7 +71,6 @@
 }
 
 #registrarseBtn{
-    margin: auto;
     width: 70%;
     background-color: var(--backGround);
     border-radius: 20px;
@@ -87,7 +81,6 @@
     box-shadow: 0px 2px 2px var(--backGround);
     outline: none;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
-
 }
 
 #registrarseBtn:hover{
@@ -97,3 +90,41 @@
     height: 6vh;
     color: var(--backGround);
 }
+
+
+
+@media screen and (min-width: 1200px) {
+    #content{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 767px){
+
+    #content{
+        width: 95vw;
+    }
+
+    #iniciarBtn{
+        font-size: 1.2rem ;
+    }
+
+    #iniciarBtn:hover{
+        font-size: 1.4rem;
+    }
+
+    #registrarseBtn{
+        font-size: 1.2rem ;
+        width: 90%;
+    }
+
+    #registrarseBtn:hover{
+        font-size: 1.4rem;
+    }
+
+    #formDiv{
+        width: 90%;
+    }
+}
+
+

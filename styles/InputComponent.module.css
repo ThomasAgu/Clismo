@@ -3,14 +3,12 @@
     margin-bottom: 1vh;
     font-size: 1.2rem;
     font-family: var(--roboto);
-    
 }
 
 #input{
     outline: none;
     font-family: var(--roboto);
     border: 1px solid var(--backGround);
-
     transition: all 0.2s ease ;
     border-radius: 2px;
     color: var(--backGround);
@@ -23,3 +21,14 @@
     font-size: 1.4rem;
     border-radius: 2px;
 }
+
+
+/* Estilos para pantallas más pequeñas, como dispositivos móviles */
+@media (max-width: 767px) {
+    #inputDiv{
+        
+    }
+
+    
+    /* Estilos para pantallas de hasta 767px de ancho */
+  }

@@ -17,6 +17,12 @@
     
 }
 
+#input::-webkit-slider-runnable-track {
+  background-color: var(--backGround); /* Set your desired background color for the track */
+}
+
+
+
 #input::-webkit-slider-thumb {
     appearance: none;
     width: 20px;

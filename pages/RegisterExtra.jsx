@@ -38,9 +38,9 @@ const RegisterExtra = () => {
             </div>
           <div id={styles.formDiv}>
             <form className='d-flex flex-column justify-content-center' id={styles.form}>
-                <RangeComponent label={'Edad'} min={'10'} max={'100'}  type={'Edad'} />
-                <RangeComponent label={'Altura'} min={'60'} max={'300'}  type={'cm'}/>
-                <RangeComponent label={'Peso'} min={'40'} max={'190'}  type={'kgr'}/>
+                <RangeComponent label={'Edad'} min={'0'} max={'100'}  type={'Años'} />
+                <RangeComponent label={'Altura'} min={'0'} max={'300'}  type={'Cm.'}/>
+                <RangeComponent label={'Peso'} min={'0'} max={'200'}  type={'Kgr.'}/>
             </form>
 
             <hr />
