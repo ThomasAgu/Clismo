@@ -1,0 +1,42 @@
+#popupDiv{
+    position: absolute;
+    bottom: 5%;
+    width: 100vw;
+    height: 5vh;
+  
+}
+
+#popupCartel{
+    margin: auto;
+    background-color: red;
+    width: 80%;
+    height:  100%;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#text{
+    text-align: center;
+    color: var(--light);
+}
+
+#barraAchicandose{
+    position: absolute;
+    top: 0;
+    right: 0%;
+    color: var(--light);
+    z-index: 50;
+
+    transition: all 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#closeBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-color: red;
+    color: var(--light);
+}

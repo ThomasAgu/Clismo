@@ -7,8 +7,8 @@ import InputComponent from './components/InputComponent'
 import logo from '../public/images/Logo.png'
 import { useRouter } from 'next/router';
 import styles from '../styles/Register.module.css'
-const options = [{name: "profesor", label: "profesor"}, {name: "alumno", label: "alumno"}]
 import { register } from './api/ApiRegister'
+import PopupMessage from './components/PopupMessage'
 //Store
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../store/actions/actions';
@@ -23,6 +23,8 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [repeatedPassword, setRepeatetPassword] = useState('');
   const [role, setRole] = useState();
+
+  const [popUp, setPopUp] = useState(false)
 
   const handleChangeUserName = (e) => {
     setUserName(userName => e.target.value);
@@ -43,10 +45,26 @@ const Register = () => {
   const handleClickRegister = () =>{
     //const response = register({user: userName, pass: password, role: role })
     //chequear si no existe 
-    const user ={ username: userName }
-    //const response = login({user: userName, pass: password})
-    dispatch(loginSuccess(user));
-    router.push('/RegisterExtra')
+    if(userName === ''){
+      console.log('ingrese nombre de usuario')
+    }
+    
+    else if(password === ''){
+      console.log('ingrese nombre de contrasenia')
+      //falt aocntorllar que se repita la conmtrase;a repetida
+    }
+    else{
+      const user ={ username: userName }
+      //const response = login({user: userName, pass: password})
+      const data = true; //response
+      if (data){
+        dispatch(loginSuccess(user));
+        router.push('/RegisterExtra')
+      }
+      else{  //Ya existe el usuario
+        setPopUp(true);
+      }
+    }
   }
 
 
@@ -74,7 +92,6 @@ const Register = () => {
                 <label for="opcion1" className={styles.labelRadio}>Alumno</label>
                 <input type="radio" id="opcion2" name="opciones" value="profesor" className={styles.radio} tabIndex='9' aria-label='Rol de profesor' onChange={handleChangeSetRadio}/>
                 <label for="opcion2" className={styles.labelRadio}>Profesor</label>
-
               </div>
             </form>
           </div>
@@ -85,6 +102,12 @@ const Register = () => {
           </Link>
         </div>
       </div>
+      { popUp ?
+        <PopupMessage msg={'El nombre de usuario ya existe'} todoBienOtodoMal={'todoMal'} active={popUp} setActive={setPopUp} tiempo={10}/>
+      :
+        <></>
+      }
+      
     </div>
   )
 }

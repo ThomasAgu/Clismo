@@ -54,7 +54,8 @@ const CrearGrupo = ({grupos}) => {
       setPrivacidad( privacidad => e.target.value)
     }
 
-    const handleClickSiguiente = () => {
+    const handleClickSiguiente = (e) => {
+      e.preventDefault();
       setPasos(pasos=> pasos +1)
     }
 
@@ -77,22 +78,21 @@ const CrearGrupo = ({grupos}) => {
 
   return (
     
-    <div>
-      
+    <div id={styles.content}>
       <NavBar />
       <NavNarSesion/>
       <div>
-        <div className='d-flex flex-column text-center mt-3'>
-            <h2><FontAwesomeIcon icon={faUsersLine} /> </h2>
-            <h2> Crear Grupo </h2>
+        <div className='d-flex flex-column text-center mt-3' id={styles.title}>
+            <FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> 
+            <h1> Crear Grupo </h1>
         </div>
-        <div className='w-75 m-auto'>
+        <form className='m-auto' id={styles.form}>
             <InputComponent label={'Nombre de grupo'} type={'text'} valor={groupName} setValue={handleChangeGroupName} tabIndex={4} ariaLabel={'Ingresa el nombre del nuevo grupo'}/>
             <InputComponent label={'Descripcion'} type={'text'} valor={groupDescription} setValue={handleChangeGroupDescription} tabIndex={5} ariaLabel={'Ingresa la descripcion de un nuevo grupo'}/>
             <InputComponent label={'Capacidad'} type={'number'} valor={capacidad} setValue={handleChangeCapacidad} tabIndex={5} ariaLabel={'Ingresa la capacidad maxima del grupo'}/>
             {/* Radio dificultard */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={6} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
-              <div className='d-flex w-100 justify-content-center  pb-3'>
+              <div className='' id={styles.radiogroupDificultad}>
                 <input type="radio" id="opcion1" name="dificultad" value="principiante" className={styles.radio} tabIndex='7' aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
                 <label for="opcion1" className={styles.labelRadio}>Principiante</label>
                 <input type="radio" id="opcion2" name="dificultad" value="intermedio" className={styles.radio} tabIndex='8' aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
@@ -110,11 +110,11 @@ const CrearGrupo = ({grupos}) => {
               </div>
             <ElegirHorarios pasos={pasos} horarios={horarios} setHorarios={setHorarios}/>
         {pasos < 2 ? 
-          <button onClick={handleClickSiguiente} > Elegir horarios </button>
+          <div className='d-flex justify-content-center'><button onClick={handleClickSiguiente} id={styles.horariosBtn}> Elegir horarios </button></div>
         :
-          <button onClick={handleAgregarGrupo} >Crear :D</button>
+          <div className='d-flex justify-content-center'><button onClick={handleAgregarGrupo} id={styles.crearBtn}>Crear Grupo</button></div>
         }
-        </div>
+        </form>
       </div>
     </div>
   )

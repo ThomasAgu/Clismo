@@ -14,6 +14,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 const NavBar = () => {
 
   const handleClickLogout = () =>{
+    //aca sacar la sesion si la iniciamos
     dispatch(logout())
     router.push('/')
   }

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 //components
 import NavBar from './components/NavBar'
 import InputComponent from './components/InputComponent'
+import PopupMessage from './components/PopupMessage';
 //styles
 import  styles from '../styles/Login.module.css'
 //image
@@ -18,6 +19,9 @@ const Login = () => {
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+
+  //Feedback
+  const [popUp, setPopUp] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -34,12 +38,30 @@ const Login = () => {
     console.log('aca hacer el llamado a la API')
     console.log('Chequear que este el usuario y sino devolver credenciales erroneas')
     console.log('Si esta todo bien setear la sesion iniciada')
-    
+   
     console.log(userName, password)
-    const user ={ username: userName }
-    //const response = login({user: userName, pass: password})
-    dispatch(loginSuccess(user));
-    router.push('/Home')
+    if(userName === ''){
+      console.log('ingrese nombre de usuario')
+    }
+    else 
+      if(password === ''){
+      //Input label legend ingrese constrase;a
+      console.log('ingrese nombre de contrasenia')
+      }
+      else{
+        const user ={ username: userName }
+        //const response = login({user: userName, pass: password})
+        const data = true //response
+        if (data === true){
+          dispatch(loginSuccess(user));
+          router.push('/Home')
+        }
+        else{
+          setPopUp(true)
+      }
+    }
+
+   
   }
 
 
@@ -68,6 +90,11 @@ const Login = () => {
             <div className=' d-flex justify-content-center align-items-center'><button id={styles.registrarseBtn} onClick={() => router.push('/Register')}>Registrarse</button></div>
         </div>
       </div>
+      { popUp ? 
+        <PopupMessage msg={'El usuario y/o contraseña no son validos'} todoBienOtodoMal={'todoMal'} active={popUp} setActive={setPopUp} tiempo={10}/>
+      :
+        <></>
+      }
     </div>
     
   )

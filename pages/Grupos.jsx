@@ -9,15 +9,16 @@ import NavBar from './components/NavBar';
 import NavNarSesion from './components/NavNarSesion';
 //FA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsersLine } from '@fortawesome/free-solid-svg-icons';
+import { faUsersLine, faPlus } from '@fortawesome/free-solid-svg-icons';
 //datos de prueba
 import gruposList from '../datosParaProbar/grupos';
 import GrupoCard from './components/GrupoCard';
 import CrearGrupo from './Grupos/CrearGrupo';
+//style
+import styles from '../styles/Grupos.module.css'
 const Grupos = () => {
   const grupos = useSelector(state=> state.grupos.grupos) //trae los grupos de la store
   const dispatch = useDispatch();
-
   
  
 
@@ -45,24 +46,35 @@ const Grupos = () => {
     <div>
         <NavBar/>
         <NavNarSesion/>
-        <div>
-            <h2><FontAwesomeIcon icon={faUsersLine} /> Grupos </h2>
-            <h4>Mis grupos</h4>
-              <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
-                  {misGrupos.map((g) => {
-                    return (
-                    <GrupoCard 
-                      key={g.nombre} 
-                      nombre={g.nombre} 
-                      descripcion={g.descripcion} 
-                      privacidad={g.privacidad} 
-                      cantIntegrantes={g.cantidad_integrantes} 
-                      capacidad={g.capacidad} 
-                      dificultad={g.dificultad}
-                      />)
-                    })}
+        <div  id={styles.content}>
+            <div className='d-flex flex-column text-center mt-3' id={styles.title}>
+                <FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> 
+                <h1> Grupos </h1>
+                <div id={styles.agregarGroupDiv}><button id={styles.agregarGroupBtn} onClick={()=> router.push('/Grupos/CrearGrupo')}><FontAwesomeIcon icon={faPlus}/>  Agregar Grupo </button></div>
+            </div>
+
+            {misGrupos.length !== 0? 
+              <div>
+                <h2 className={styles.subtitle}>Mis grupos</h2>
+                <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
+                    {misGrupos.map((g) => {
+                      return (
+                      <GrupoCard 
+                        key={g.nombre} 
+                        nombre={g.nombre} 
+                        descripcion={g.descripcion} 
+                        privacidad={g.privacidad} 
+                        cantIntegrantes={g.cantidad_integrantes} 
+                        capacidad={g.capacidad} 
+                        dificultad={g.dificultad}
+                        />)
+                      })}
+                  </div>
                 </div>
-            <h4>Grupos publicos</h4>
+            :
+            <></>}
+            
+            <h2 className={styles.subtitle}>Grupos publicos</h2>
               <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
                 {gruposDisponibles.map((g) => {
                     return(  
@@ -82,7 +94,6 @@ const Grupos = () => {
                   }
                 )}
               </div>
-            <button onClick={()=> router.push('/Grupos/CrearGrupo')}>Agregar Grupo</button>
         </div>
     </div>
   )
