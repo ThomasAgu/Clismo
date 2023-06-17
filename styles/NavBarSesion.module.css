@@ -25,6 +25,11 @@
     border-radius: 2px;
 }
 
+.btnNavActive{
+    background-color: var(--accent-green);
+    color: var(--backGround);
+}
+
 .btnNav:hover{
     background-color: var(--accent-green);
 
