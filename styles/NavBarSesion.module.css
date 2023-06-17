@@ -3,6 +3,9 @@
     width: 100vw;
     background-color: var(--backGround);
     height: 4vh;
+    display: flex;
+    justify-content: start;
+    align-items: end;
 }
 
 .navDiv{
@@ -33,3 +36,22 @@
     z-index: 500;
 }
 
+
+@media screen and (max-width: 768px){
+    #bigDiv{
+        justify-content: space-between;
+        height: 5vh;
+    }
+
+    .navDiv{
+        width: 25%;
+        height: 5vh;
+        font-family: var(--textRoboto);
+        font-size: 1rem;
+        align-items: center;
+    }
+
+    .btnNav{
+        height: 100%;
+    }
+}

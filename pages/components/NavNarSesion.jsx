@@ -14,7 +14,7 @@ const NavNarSesion = () => {
       else{
       return (
       
-        <nav className='d-flex justify-content-start w-100 align-items-end' id={styles.bigDiv}>
+        <nav className='' id={styles.bigDiv}>
             <div className={styles.navDiv}><button className={styles.btnNav} onClick={() => router.push('/Home')}>Inicio</button></div>
             <div className={styles.navDiv}><button className={styles.btnNav} onClick={() => router.push('/Entrenamientos')}>Entrenamientos</button></div>
             <div className={styles.navDiv}> <button className={styles.btnNav} onClick={() => router.push('/Grupos')}>Grupos</button></div>
