@@ -86,7 +86,21 @@
     display: none;
 }
 
+#divNavResponsive{
+    height: 0vh;
+    transition: all 0.2s ease;
+}
+
+.btnResponsive{
+    display: none;
+}
+
 @media screen and (max-width: 768px){
+    #navDiv{
+        position: absolute;
+        width: 100vw;
+    }
+    
     .btn{
         display: none;
     }
@@ -99,9 +113,41 @@
         color: var(--light);
         display: block;
         cursor: pointer;
-
         position: absolute;
         right: 2%;
         top: 1%;
+    }
+    #divNavResponsive{
+        height: 100vh;
+        width: 100vw;
+        top: 5vh;
+        left: 0;
+        position: absolute;
+        background-color: var(--backGround);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s ease;
+    }
+    .btnResponsive{
+       display: block;
+       background-color: var(--backGround);
+       padding: 4%;
+       border: 1px solid var(--light);
+       color: var(--accent-green);
+       border-radius: 5px;
+       margin-top: 5px;
+       width: 90%;
+       margin-left: auto;
+       margin-right: auto;
+       font-size: 1.6rem;
+       font-family: var(--title);
+       transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btnResponsive:hover{
+        box-shadow: 0px 2px 4px var(--accent-green);
+        background-color: var(--accent-green);
+        border-color: var(--accent-green);
+        color: var(--darker);
     }
 }
