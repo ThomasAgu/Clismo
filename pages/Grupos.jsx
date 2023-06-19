@@ -31,6 +31,7 @@ const Grupos = () => {
 
 
 
+
   console.log(grupos)
 
   /* const [grupos, setGrupos] = useState([])
@@ -67,6 +68,11 @@ const Grupos = () => {
                         cantIntegrantes={g.cantidad_integrantes} 
                         capacidad={g.capacidad} 
                         dificultad={g.dificultad}
+                        setMisGrupos={setMisGrupos}
+                        setGrupos={setGruposDisponibles}
+                        grupos ={gruposDisponibles}
+                        misGrupos={misGrupos}
+                        unido={true}
                         />)
                       })}
                   </div>

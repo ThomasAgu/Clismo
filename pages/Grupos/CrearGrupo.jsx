@@ -19,7 +19,7 @@ const CrearGrupo = ({grupos}) => {
 
     const [groupName, setGroupName] = useState('')
     const [groupDescription, setGroupDescription] = useState('')
-    const [capacidad, setCapacidad] = useState(0);
+    const [capacidad, setCapacidad] = useState(1);
     const [nivel, setNivel] = useState('');
     const [privacidad, setPrivacidad] = useState('');
     const [horarios, setHorarios] = useState([])
@@ -32,9 +32,6 @@ const CrearGrupo = ({grupos}) => {
     const router = useRouter();
 
     
-
-    console.log(entrenamientos)
-
     const handleChangeGroupName = (e) => {
         setGroupName(groupName => e.target.value);
     }
@@ -89,7 +86,7 @@ const CrearGrupo = ({grupos}) => {
         <form className='m-auto' id={styles.form}>
             <InputComponent label={'Nombre de grupo'} type={'text'} valor={groupName} setValue={handleChangeGroupName} tabIndex={4} ariaLabel={'Ingresa el nombre del nuevo grupo'}/>
             <InputComponent label={'Descripcion'} type={'text'} valor={groupDescription} setValue={handleChangeGroupDescription} tabIndex={5} ariaLabel={'Ingresa la descripcion de un nuevo grupo'}/>
-            <InputComponent label={'Capacidad'} type={'number'} valor={capacidad} setValue={handleChangeCapacidad} tabIndex={5} ariaLabel={'Ingresa la capacidad maxima del grupo'}/>
+            <InputComponent label={'Capacidad'} type={'number'} valor={capacidad} setValue={handleChangeCapacidad} tabIndex={5} ariaLabel={'Ingresa la capacidad maxima del grupo'} min={1}/>
             {/* Radio dificultard */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={6} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
               <div className='' id={styles.radiogroupDificultad}>

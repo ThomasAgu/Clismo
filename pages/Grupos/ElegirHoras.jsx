@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux'
 
 import styles from '../../styles/elegirHorarios.module.css'
 
-const ElegirHoras = ({dia, setDia,setHorarios}) => {
-
-    const [hora_ini, setHora_ini] = useState('')
-    const [hora_fin, setHora_fin] = useState('')
-    const [entrenamiento, setEntrenamiento] = useState('')
+const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
+    const [hora_ini, setHora_ini] = useState(horaYRutina.hora_ini)
+    const [hora_fin, setHora_fin] = useState(horaYRutina.hora_fin)
+    const [entrenamiento, setEntrenamiento] = useState(horaYRutina.entrenamiento)
 
     const entrenamientos = useSelector(state=> state.entrenamientos.entrenamientos)
 
@@ -26,13 +25,31 @@ const ElegirHoras = ({dia, setDia,setHorarios}) => {
             "hora_fin":hora_fin,
             "entrenamiento": entrenamiento,
         } 
-
-        setHorarios(horarios=>[...horarios, horario])
+        const indiceEntrenamientoExistente = horarios.findIndex((el) => el.dia === dia)
+        if(indiceEntrenamientoExistente === -1){
+            setHorarios(horarios=>[...horarios, horario])
+        }
+        else{
+            setHorarios(horarios => 
+                horarios.map((h, i) => {
+                    if( i === indiceEntrenamientoExistente){
+                        return{
+                            ...h,
+                            "hora_ini":hora_ini,
+                            "hora_fin":hora_fin,
+                            "entrenamiento": entrenamiento,
+                        };
+                    }
+                    return h;
+                })
+            )
+        }
         setHora_ini('')
         setHora_fin('')
         setDia(dia => '')
         setEntrenamiento('')
     }
+
   return (
     <div >
         {dia !== ''?
@@ -40,7 +57,7 @@ const ElegirHoras = ({dia, setDia,setHorarios}) => {
                 <div id={styles.fromContent}>
                     <div id={styles.formFistColum}>
                         <label htmlFor="">Hora inicio: </label>
-                        <input type="time" name="" id="" value={hora_ini} onChange={(e)=> setHora_ini(e.target.value)}/>
+                        <input type="time" name="" id="" value={hora_ini}  onChange={(e)=> setHora_ini(e.target.value)}/>
                         <label htmlFor="">Hora fin</label>
                         <input type="time" name="" id="" value={hora_fin}  onChange={(e)=> setHora_fin(e.target.value)}/>
                     </div>
