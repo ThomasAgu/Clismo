@@ -20,16 +20,16 @@
 }
 
 #groupName{
-    color: var(--light);
+    color: var(--textLight);
     font-size: 1.3rem;
     font-weight: 600;
     font-family: var(--title);
 }
 
 #description{
-    color: var(--light);
-    border-left: 1px solid var(--light);
-    border-right: 1px solid var(--light);
+    color: var(--textLight);
+    border-left: 1px solid var(--textLight);
+    border-right: 1px solid var(--textLight);
     margin-left: 4% ;
     margin-right: 4% ;
     font-family: var(--textRoboto)
@@ -90,7 +90,7 @@
 
 
 #horarios{
-    color: var(--light);
+    color: var(--textLight);
     font-size: 1.5rem;
     font-family: var(--title);
     margin-top: 2vh;
@@ -141,7 +141,7 @@
 }
 
 #aditionalInfo{
-    background-color: var(--light);
+    background-color: var(--text);
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
@@ -151,7 +151,7 @@
 }
 
 #textNivel{
-    color: var(--backGround);
+    color: var(--textBackGround);
     font-size: 1rem;
     font-family: var(--title);
     position: relative;
@@ -160,7 +160,7 @@
 
 
 #textCapacidad{
-    color: var(--backGround);
+    color: var(--textBackGround);
     font-size: 1rem;
     font-family: var(--title);
     display: flex;

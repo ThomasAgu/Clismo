@@ -1,13 +1,10 @@
 html,
-body {
-  padding: 0;
-  margin: 0;
 
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+:root.theme1{
   --backGround: #504746;
+  --textBackGround: #504746;
   --light: #FCF7F8;
+  --textLight: #FCF7F8;
   --accent-green: #4ED0A2;
   --accent-pink: #DC7F9B;
   --accent-orange: #FFA62B;
@@ -18,6 +15,27 @@ body {
   --textNunito: 'Nunito', sans-serif;
   --textRoboto: 'Roboto', sans-serif;
 }
+
+
+:root.theme2{
+  --backGround: #292424;
+  --textBackGround: #FCF7F8;
+  --light: #504746;
+  --textLight: #FCF7F8;
+  --accent-green: #50D9A9;
+  --accent-pink: #DC7F9B;
+  --accent-orange: #FFA62B;
+  --darker: #504746;
+}
+body {
+  padding: 0;
+  margin: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+}
+
 
 a {
   color: inherit;

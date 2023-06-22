@@ -2,6 +2,7 @@
   background-color: var(--light);
   height: 130vh;
   position: relative;
+  background-color: var(--light);
 }
 
 #icon{
@@ -11,11 +12,11 @@
 #title{
   font-size: 1.9rem;
   font-family: var(--title);
-  color: var(--backGround);
+  color: var(--textBackGround);
 }
 
 #labelForRol{
-    color: var(--backGround);
+    color: var(--textBackGround);
     margin-bottom: 1vh;
     font-size: 1.2rem;
     font-family: var(--roboto);

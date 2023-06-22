@@ -1,5 +1,6 @@
 #inputDiv{
-    color: var(--backGround);
+    color: var(--textBackGround);
+    
     margin-bottom: 1vh;
     font-size: 1.2rem;
     font-family: var(--roboto);

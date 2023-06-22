@@ -1,6 +1,8 @@
 
 #content{
    position: relative;
+   border: 1px solid var(--backGround);
+   background-color: var(--light);
 }
 #icon{
     color: var(--accent-green);
@@ -9,24 +11,20 @@
   #title{
     font-size: 1.9rem;
     font-family: var(--title);
-    color: var(--backGround);
+    color: var(--textBackGround);
   }
 
-
-
-  
 
 .subtitle{
     margin-top: 2vh;
     padding-left: 2%;
     font-size: 1.6rem;
     font-family: var(--subtitles);
-    color: var(--backGround);
+    color: var(--textBackGround);
 }
 
 #agregarGroupDiv{
   position: absolute;
-
   top: 3%;
   right: 10%;
   width: 15%;

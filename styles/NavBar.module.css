@@ -11,7 +11,7 @@
     padding-left: 2%;
     position: relative;
     top: 12%;
-    color: var(--light);
+    color: var(--textLight);
     font-family: var(--title);
     font-weight: 100;
 }
@@ -31,7 +31,7 @@
     border-radius: 2px;
     background-color: var(--backGround);
     border: 1px solid var(--accent-green);
-    color: var(--light);
+    color: var(--textLight);
     font-family: var(--textRoboto);
     box-shadow: none;
     text-align: center;
@@ -110,7 +110,7 @@
         width: 40px;
         background-color: var(--backGround);
         border:none;
-        color: var(--light);
+        color: var(--textLight);
         display: block;
         cursor: pointer;
         position: absolute;

@@ -49,8 +49,8 @@ const Login = () => {
       console.log('ingrese nombre de contrasenia')
       }
       else{
-        const user ={ username: userName }
-        //const response = login({user: userName, pass: password})
+        const user ={ username: userName, password: password }
+        const response = login({user: userName, pass: password})
         const data = true //response
         if (data === true){
           dispatch(loginSuccess(user));

@@ -26,7 +26,7 @@ class MyDocument extends Document {
           {/* Fontawesome  ICONS*/}
           <script src="https://kit.fontawesome.com/c321b0e5bf.js" crossorigin="anonymous" async></script>
         </Head>
-        <body>
+        <body id='.theme2'>
           <Main />
           <NextScript />
         </body>
