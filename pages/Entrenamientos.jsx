@@ -5,21 +5,26 @@ import NavBar from './components/NavBar';
 import NavNarSesion from './components/NavNarSesion';
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBicycle } from '@fortawesome/free-solid-svg-icons'
-
+import { faBicycle, faPlus} from '@fortawesome/free-solid-svg-icons'
+//style
+import styles from '../styles/entrenamientos.module.css'
 
 const Entrenamientos = () => {
   const router = useRouter();
 
   return (
-    <div>
+    <div id={styles.content}>
       <NavBar/>
       <NavNarSesion/>
-      <div>
-        <h2><FontAwesomeIcon icon={faBicycle}/>Entrenamientos</h2>
-        <h4>Proximo entrenamiento</h4>
-        <h4>Mis entrenamientos</h4>
-        <button onClick={()=> router.push('/Entrenamientos/CrearEntrenamiento')}>Crear Entrenamiento</button>
+      <div id={styles.mainContent}>
+        <div className='d-flex flex-column text-center mt-3' id={styles.titleDiv}>
+          <FontAwesomeIcon icon={faBicycle} id={styles.icon}/> 
+          <h1 id={styles.title}>Entrenamientos</h1>
+          <div id={styles.agregarEntrenamientoDiv}><button id={styles.agregarEntrenamientoBtn} onClick={()=> router.push('/Entrenamientos/CrearEntrenamiento')}><FontAwesomeIcon icon={faPlus}/> Crear Entrenamiento</button></div>
+        </div> 
+        <h2 className={styles.subtitle}>Proximo entrenamiento</h2>
+        <h2 className={styles.subtitle}>Historial</h2>
+        
       </div>
     </div>
   )

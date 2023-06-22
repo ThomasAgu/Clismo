@@ -73,22 +73,22 @@ const CrearEntrenamiento = () => {
   }
   
   return (
-    <div>
+    <div id={styles.content}>
         <NavBar/>
         <NavNarSesion />
         <div>
-            <div className='d-flex flex-column text-center mt-3'>
-                <h2><FontAwesomeIcon icon={faBicycle} /> </h2>
-                <h2> Crear Entrenamiento </h2>
+            <div className='d-flex flex-column text-center mt-3' id={styles.titleDiv}>
+                <FontAwesomeIcon icon={faBicycle} id={styles.icon}/> 
+                <h1 id={styles.titleDiv}> Crear Entrenamiento </h1>
             </div>
         </div>
-        <div className='w-75 m-auto'>
-            <form action="">
+        <div >
+            <form action="" className='m-auto' id={styles.form}>
                 <InputComponent label={'Nombre'} type={'text'} valor={name} setValue={handleChangeName} tabIndex={4} ariaLabel={'Ingresa el nombre del nuevo entrenamiento'}/>
                 <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={handleChangeDescription} tabIndex={5} ariaLabel={'Ingresa la descripcion del nuevo entrenamiento'}/>
                 {/* Radio dificultard */}
                 <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={6} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
-                <div className='d-flex w-100 justify-content-center  pb-3'>
+                <div className='d-flex w-100 justify-content-center  pb-3' id={styles.roleLabelsDiv}>
                     <input type="radio" id="opcion1" name="dificultad" value="principiante" className={styles.radio} tabIndex='7' aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
                     <label for="opcion1" className={styles.labelRadio}>Principiante</label>
                     <input type="radio" id="opcion2" name="dificultad" value="intermedio" className={styles.radio} tabIndex='8' aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
