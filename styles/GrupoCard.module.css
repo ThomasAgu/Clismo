@@ -21,7 +21,7 @@
 
 #groupName{
     color: var(--textLight);
-    font-size: 1.3rem;
+    font-size: var(--ft_card_title);
     font-weight: 600;
     font-family: var(--title);
 }
@@ -32,6 +32,7 @@
     border-right: 1px solid var(--textLight);
     margin-left: 4% ;
     margin-right: 4% ;
+    font-size: var(--ft_labels);
     font-family: var(--textRoboto)
 }
 
@@ -44,7 +45,7 @@
     border-radius: 5px;
     border: none;
     color: var(--light);
-    font-size: 1.5rem;
+    font-size: var(--ft_btns);
     box-shadow: 0px 2px 2px var(--backGround);
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
 }
@@ -65,7 +66,7 @@
     border-radius: 5px;
     border: none;
     color: var(--light);
-    font-size: 1.5rem;
+    font-size: var(--ft_btns);
     box-shadow: 0px 2px 2px var(--backGround);
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
 }
@@ -141,7 +142,7 @@
 }
 
 #aditionalInfo{
-    background-color: var(--text);
+    background-color: var(--light);
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
@@ -152,7 +153,7 @@
 
 #textNivel{
     color: var(--textBackGround);
-    font-size: 1rem;
+    font-size: var(--ft_footer);
     font-family: var(--title);
     position: relative;
     top: 30%;
@@ -161,7 +162,7 @@
 
 #textCapacidad{
     color: var(--textBackGround);
-    font-size: 1rem;
+    font-size: var(--ft_footer);
     font-family: var(--title);
     display: flex;
     justify-content: space-between;
@@ -210,6 +211,10 @@
         justify-content: flex-start;
     }
 
+    #description{
+        font-size: var(--card_title);
+    }
+
     #firstColumn{
         width: 100%;
         height: 20vh;
@@ -220,6 +225,7 @@
         position: absolute;
         bottom: 0;
         height: 5vh;
+        font-size: var(--ft_card_title);
         width: 100%;
     }
     

@@ -9,10 +9,10 @@
 }
 
 .navDiv{
-    width: 12vw;
+    width: 15%;
     height: 3vh;
     font-family: var(--textRoboto);
-    font-size: 1rem;
+    font-size: var(--ft_labels);
 }
 
 .btnNav{
@@ -32,7 +32,6 @@
 
 .btnNav:hover{
     background-color: var(--accent-green);
-
     width: 110%;
     border-radius: 1px;
     text-align: center;
@@ -52,7 +51,7 @@
         width: 25%;
         height: 5vh;
         font-family: var(--textRoboto);
-        font-size: 1rem;
+        font-size: var(--ft_mobile_labels);
         align-items: center;
     }
 

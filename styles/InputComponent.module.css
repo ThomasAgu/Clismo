@@ -2,7 +2,7 @@
     color: var(--textBackGround);
     
     margin-bottom: 1vh;
-    font-size: 1.2rem;
+    font-size:var(--ft_labels);
     font-family: var(--roboto);
 }
 
@@ -27,7 +27,7 @@
 /* Estilos para pantallas más pequeñas, como dispositivos móviles */
 @media (max-width: 767px) {
     #inputDiv{
-        
+        font-size: var(--ft_mobile_labels);
     }
 
     

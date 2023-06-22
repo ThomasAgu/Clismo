@@ -19,6 +19,11 @@ const NavNarSesion = () => {
       const root = document.documentElement;
       root.classList.toggle('theme2');
     }
+
+    const handleClickTamanioLetra = (e) => {
+      const root = document.documentElement;
+      root.classList.toggle('biggerText');
+    }
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
     const router = useRouter();
     if (!isLoggedIn){
@@ -34,6 +39,10 @@ const NavNarSesion = () => {
             <div className={styles.navDiv}><button onClick={handleClickSetOpcion} value={'/Yo'} className={`${styles.btnNav} ${opcion === '/Yo' ? styles.btnNavActive : ''}`}>Yo </button></div>
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"  onChange={handleClickPaleta}/>
+              <label class="form-check-label" for="flexSwitchCheckChecked" ></label>
+            </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"  onChange={handleClickTamanioLetra}/>
               <label class="form-check-label" for="flexSwitchCheckChecked" ></label>
             </div>
         </nav>
