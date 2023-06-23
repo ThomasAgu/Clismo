@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux'
 import styles from '../../styles/elegirHorarios.module.css'
 
 const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
-    const [hora_ini, setHora_ini] = useState(horaYRutina.hora_ini)
-    const [hora_fin, setHora_fin] = useState(horaYRutina.hora_fin)
-    const [entrenamiento, setEntrenamiento] = useState(horaYRutina.entrenamiento)
+    const [hora_ini, setHora_ini] = useState('')/* useState(horaYRutina.hora_ini) */
+    const [hora_fin, setHora_fin] = useState('')/* useState(horaYRutina.hora_fin) */
+    const [entrenamiento, setEntrenamiento] = useState('')/* useState(horaYRutina.entrenamiento) */
 
     const entrenamientos = useSelector(state=> state.entrenamientos.entrenamientos)
 
