@@ -21,6 +21,194 @@
   height: 100%;
   font-family: var(--roboto);
 }
+#secondPartContainer{
+  display: flex;
+  width: 100%;
+}
+
+
+#secondForm{
+  width: 95%;
+  border: 1px solid var(--backGround);
+  border-radius: 20px;
+  padding: 2%;
+  position: relative;
+}
+
+
+#secondPartFirstColumn{
+  width: 70%;
+  position: relative;
+}
+
+#newExerciseTitle{
+  font-family: var(--subtitles);
+  font-size: var(--ft_card_title);
+  color: var(--textBackGround);
+}
+#secondPartSecondColumn{
+  width: 30%;
+
+}
+
+#exerciseSquareBoxes{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+  align-content: start;
+  justify-items: flex-start;
+  gap: 5px;
+  height: 40%;
+
+}
+
+#squares{
+  color: var(--light);
+  border: 2px solid var(--accent-green);
+  border-radius: 5px;
+  font-size: var(--ft_labels);
+}
+
+#circles{
+  color: var(--light);
+  border: 2px solid var(--backGround);
+  border-radius: 50px;
+  font-size: var(--ft_labels);
+  transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#circles:hover{
+  cursor: pointer;
+  color: var(--accent-green);
+  font-size: var(--ft_labels + 0.3vw);
+}
+
+#exerciseTotalStadistics{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  background-color: var(--backGround);
+  border-radius: 20px;
+  border-top: 20px solid var(--accent-green);
+}
+
+#exerciseTotalStadistics>p{
+  font-family: var(--textNunito);
+  font-size: var(--ft_labels);
+  color: var(--textLight);
+  font-style: italic;
+}
+
+.numero{
+  font-weight: 500;
+  color: var(--accent-green);
+}
+
+/* Codigo form exercise parameters*/
+#parametersBigDiv{
+  height: 20vh;
+  width: 32%;
+
+}
+
+#parametersBtn{
+  border-radius: 2px;
+  font-family: var(--roboto);
+  font-size: var(--ft_btns);
+  transition: all 0.1s ease;
+ 
+}
+
+#parametersBtn:hover{
+  border-radius: 0px;
+  font-size: calc(var(--ft_btns) + .2rem);
+}
+
+#parametersDivInactive{
+  height: 0px;
+  transition: all 0.5s ease;
+}
+
+#parametersDiv{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 90%;
+  border-top: none;
+  transition: all 0.5s ease;
+}
+
+#parametersIcon{
+  font-size: var(--ft_card_title);
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+
+}
+
+#parametersInfo{
+  font-family: var(--title);
+  font-size: var(--ft_labels);
+}
+/* Ya no parameters */
+#addExerciseBtn{
+  position:absolute;
+  bottom: -10;
+  border-radius: 50px;
+  border: 1px solid var(--light);
+  background-color: var(--backGround);
+  font-size: var(--ft_btns);
+  width: 50px;
+  color: var(--accent-green);
+  height: 50px;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#addExerciseBtn:hover{
+  background-color: var(--accent-green);
+  color: var(--backGround);
+  font-size: calc(var(--ft_btns) + .2rem);
+  width: 60px;
+  height: 60px;
+}
+
+#siguienteBtn, #finalizarBtn{
+  width: 60%;
+  border-radius: 20px ;
+  height: 5vh;
+  border: 1px solid var(--backGround);
+  box-shadow: 0px 2px 2px var(--backGround);
+  color: var(--backGround);
+  font-size: 1.5rem;
+  transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#siguienteBtn{
+  background-color: var(--light);
+}
+
+#finalizarBtn{
+  color: var(--accent-green);
+  margin-top: 10vh;
+  background-color: var(--backGround);
+}
+
+#siguienteBtn:hover, #finalizarBtn:hover{
+  width: 70%;
+  border-radius: 2px ;
+  height: 6vh;
+  background-color: var(--accent-green);
+  box-shadow: 0px 2px 2px var(--accent-green);
+  color: var(--backGround);
+  font-size: 1.7rem;
+}
+
+#finalizarBtn:hover{
+  border: none;
+}
+
+
+
+
 
 @media screen and (min-width: 1200px ) {
   #form{

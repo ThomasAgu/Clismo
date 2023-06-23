@@ -2,6 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import InputComponent from '../components/InputComponent'
 import SelectRangeComponent from '../components/SelectRangeComponent'
+//FA
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStopwatch,  faHeartPulse, faGauge, faPlus } from '@fortawesome/free-solid-svg-icons';
+
+//styles
+import styles from '../../styles/CrearEntrenamiento.module.css'
+
 const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios}) => {
     
     const [nombre, setNombre] = useState('')
@@ -25,17 +32,17 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios}) => {
 
     const handleClickActivateVel = (e) =>{
         e.preventDefault();
-        setVelActivate(true);
+        setVelActivate(value => !value);
     }
 
     const handleClickActivateFR = (e) => {
         e.preventDefault();
-        setFRActivate(true);
+        setFRActivate(value => !value);
     }
 
     const handleClickActivateDuracion = (e) => {
         e.preventDefault();
-        setDurActivate(true);
+        setDurActivate(value => !value);
     }
 
     const handleChangeVelocidad = (e) =>{
@@ -59,29 +66,34 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios}) => {
                 'duracion' : duracion,
             }
         }
-        console.log(ejercicio)
         setEjercicios(ejercicios => [...ejercicios, ejercicio])
     }
 
 
     return (
-    <div>
+    <div id={styles.secondPartFirstColumn}>
         {pasos > 1? 
-            <form>
-                <p>Aca vamos a ir selecionando / creando entrenamientos 1 a 1 </p>
+            <form id={styles.secondForm}>
+                <h3  className='text-center' id={styles.newExerciseTitle}>nuevo ejercicio</h3>
                 <InputComponent label={'Nombre'} type={'text'} valor={nombre} setValue={onChangeNombre}/>
                 <InputComponent label={'Descripcion'} type={'text'} valor={descriptcion} setValue={onChangeDescription}/>
 
                 <div className='d-flex justify-content-between'>
-                    <button onClick={handleClickActivateVel}>Velocidad</button>
-                    <SelectRangeComponent activate={velActivate} setActivate={setVelActivate} min={20} max={100}  valor={velocidad} onChange={handleChangeVelocidad}/>
-                    <button onClick={handleClickActivateFR}>Frecuencia cardiaca</button>
-                    <SelectRangeComponent activate={fRActivate} setActivate={setFRActivate} min={80} max={160} valor={frecCardiaca} onChange={handleChangeFR}/>
-                    <button onClick={handleClickActivateDuracion}>Duracion</button>
-                    <SelectRangeComponent activate={durActivate} setActivate={setDurActivate} min={5} max={60} valor={duracion} onChange={handleChangeDuracion}/>
+                    <div className='d-flex flex-column' id={styles.parametersBigDiv}>
+                        <button onClick={handleClickActivateVel} id={styles.parametersBtn} style={{border: '1px solid #4ED0A2', backgroundColor: '#4ED0A2'}}>Velocidad</button>
+                        <SelectRangeComponent activate={velActivate} setActivate={setVelActivate} min={20} max={100}  valor={velocidad} onChange={handleChangeVelocidad} icon={faGauge} unidad={'Kmh'} colorAccento={'4ED0A2'}/>
+                    </div>
+                    <div className="d-flex flex-column" id={styles.parametersBigDiv}>
+                        <button onClick={handleClickActivateFR} id={styles.parametersBtn} style={{border: '1px solid #DC7F9B', backgroundColor: '#DC7F9B'}}>Frec. C</button>
+                        <SelectRangeComponent activate={fRActivate} setActivate={setFRActivate} min={80} max={160} valor={frecCardiaca} onChange={handleChangeFR} icon={faHeartPulse} unidad={'Puls.'} colorAccento={'DC7F9B'}/>
+                    </div>
+                    <div className="d-flex flex-column" id={styles.parametersBigDiv}>
+                        <button onClick={handleClickActivateDuracion} id={styles.parametersBtn} style={{border: '1px solid #FFA62B', backgroundColor: '#FFA62B'}}>Duracion</button>
+                        <SelectRangeComponent activate={durActivate} setActivate={setDurActivate} min={5} max={60} valor={duracion} onChange={handleChangeDuracion} icon={faStopwatch} unidad={'Min.'} colorAccento={'FFA62B'}/>
+                    </div>
                 </div>
 
-                <button onClick={handleClickAddEntrenamiento}>Agregar</button>
+                <div className='d-flex justify-content-center' id={styles.addExerciseDiv}><button onClick={handleClickAddEntrenamiento} id={styles.addExerciseBtn}><FontAwesomeIcon icon={faPlus}/></button></div>
             </form>
         :
             <></>

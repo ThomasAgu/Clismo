@@ -9,9 +9,10 @@ import { useRouter } from 'next/router'
 import NavBar from '../components/NavBar'
 import NavNarSesion from '../components/NavNarSesion'
 import InputComponent from '../components/InputComponent'
+import ExerciseItem from '../components/ExerciseItem'
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBicycle } from '@fortawesome/free-solid-svg-icons'
+import { faBicycle, faSquare } from '@fortawesome/free-solid-svg-icons'
 // Styles
 import styles from '../../styles/CrearEntrenamiento.module.css'
 import ElegirEntrenamientos from './ElegirEntrenamientos'
@@ -97,24 +98,33 @@ const CrearEntrenamiento = () => {
                     <label for="opcion3" className={styles.labelRadio}>Avanzado</label>
                 </div>
                 {/* Radio de privacidad */}
-            </form>
-            <ElegirEntrenamientos activate={activate} pasos={pasos} ejercicios={ejercicios} setEjercicios={setEjercicios} />
-            
-            {/* Mostrar los ejercicios que vamos agregando*/}
-            {ejercicios.map((ex) => {
-              return (
-                <div key={ex.nombre}>{ex.nombre}</div>
-              )
-            })}
-
-            {(pasos < 2) ?
-              <button onClick={handleClickSiguiente} id='btn-sig'>Siguiente</button>
+              {activate ? 
+                <div id={styles.secondPartContainer}>
+                  <ElegirEntrenamientos activate={activate} pasos={pasos} ejercicios={ejercicios} setEjercicios={setEjercicios} />
+                  <div id={styles.secondPartSecondColumn}>
+                    <div id={styles.exerciseSquareBoxes}>
+                      {ejercicios.map((ex) => {
+                        return (
+                          <ExerciseItem key={ex.nombre} />
+                        )
+                      })}
+                      <FontAwesomeIcon icon={faSquare} id={styles.squares}/>
+                    </div>
+                    <div id={styles.exerciseTotalStadistics}>
+                      <p><strong className={styles.numero}>{cantEjercicios}</strong> Ejercicios</p>
+                      <p><strong className={styles.numero}>{duracionTotal}</strong> minutos</p>
+                    </div>
+                  </div>
+              </div>
               :
-              <button onClick={handleClickAddEntrenamiento}> Finalizar </button>
-            }
-            <p>Total ejercicios {cantEjercicios}</p>
-            <p>duracion total {duracionTotal} minutos</p>
-            <p> {pasos} / 2</p>
+              <></>}
+              
+              {(pasos < 2) ?
+                <div className='d-flex justify-content-center'><button onClick={handleClickSiguiente} id={styles.siguienteBtn} >Siguiente</button></div>
+                :
+                <div className='d-flex justify-content-center'><button onClick={handleClickAddEntrenamiento} id={styles.finalizarBtn} > Finalizar </button></div>
+              }
+            </form>
         </div>
     </div>
   )
