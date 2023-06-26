@@ -2,7 +2,6 @@ import { BASE_URL } from "./url";
 
 export function login(user){
 
-
     fetch(`${BASE_URL}auth/login`, {
         method: 'POST',
         headers: {

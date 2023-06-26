@@ -7,7 +7,9 @@ import InputComponent from './components/InputComponent'
 import logo from '../public/images/Logo.png'
 import { useRouter } from 'next/router';
 import styles from '../styles/Register.module.css'
-import { register } from './api/ApiRegister'
+//api URL
+import { BASE_URL } from './api/url';
+
 import PopupMessage from './components/PopupMessage'
 //Store
 import { useDispatch } from 'react-redux';
@@ -54,16 +56,30 @@ const Register = () => {
       //falt aocntorllar que se repita la conmtrase;a repetida
     }
     else{
-      const user ={ username: userName }
-      //const response = login({user: userName, pass: password})
-      const data = true; //response
-      if (data){
-        dispatch(loginSuccess(user));
-        router.push('/RegisterExtra')
-      }
-      else{  //Ya existe el usuario
-        setPopUp(true);
-      }
+      const user ={ username: userName, password: password, role: role }
+      console.log(user)
+
+      fetch(`${BASE_URL}auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then(response  => response.json())
+      .then(result => {
+        if(result.id !== undefined){
+          dispatch(loginSuccess(user));
+          router.push('/RegisterExtra');
+        }
+        else{
+          setUserName(value => '')
+          setPopUp(true)
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+    });
     }
   }
 
@@ -88,9 +104,9 @@ const Register = () => {
               <InputComponent label={'Repetir contraseña'} type={'password'} valor={repeatedPassword} setValue={handleChangeRepeaterPassword} tabIndex={6} ariaLabel={'Repetir contraseña'}/>
               <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={7} ariaLabel={'Selecciona tu rol'}>Rol</label>
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <input type="radio" id="opcion1" name="opciones" value="alumno" className={styles.radio} tabIndex='8' aria-label='Rol de alumno' onChange={handleChangeSetRadio}/>
+                <input type="radio" id="opcion1" name="opciones" value="STUDENT" className={styles.radio} tabIndex='8' aria-label='Rol de alumno' onChange={handleChangeSetRadio}/>
                 <label for="opcion1" className={styles.labelRadio}>Alumno</label>
-                <input type="radio" id="opcion2" name="opciones" value="profesor" className={styles.radio} tabIndex='9' aria-label='Rol de profesor' onChange={handleChangeSetRadio}/>
+                <input type="radio" id="opcion2" name="opciones" value="TEACHER" className={styles.radio} tabIndex='9' aria-label='Rol de profesor' onChange={handleChangeSetRadio}/>
                 <label for="opcion2" className={styles.labelRadio}>Profesor</label>
               </div>
             </form>
@@ -98,7 +114,7 @@ const Register = () => {
           <div className=' d-flex justify-content-center'><button id={styles.registrarseBtn} onClick={handleClickRegister} >Registrarse</button></div>
           <hr />
           <Link href={'/Login'}>
-            <p className='text-center'>¿Ya tenes cuenta? <a>Iniciar Sesion</a></p>
+            <p className='text-center'>¿Ya tenes cuenta? <a onClick={() => router.push('/Login')}>Iniciar Sesion</a></p>
           </Link>
         </div>
       </div>

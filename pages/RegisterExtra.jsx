@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+//URL
+import { BASE_URL } from './api/url';
 //components
 import NavBar from './components/NavBar'
 import InputComponent from './components/InputComponent';
