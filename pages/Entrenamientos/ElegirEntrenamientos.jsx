@@ -74,7 +74,7 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios}) => {
     <div id={styles.secondPartFirstColumn}>
         {pasos > 1? 
             <form id={styles.secondForm}>
-                <h3  className='text-center' id={styles.newExerciseTitle}>nuevo ejercicio</h3>
+                <h3  className='text-center' id={styles.newExerciseTitle}>Nuevo ejercicio</h3>
                 <InputComponent label={'Nombre'} type={'text'} valor={nombre} setValue={onChangeNombre}/>
                 <InputComponent label={'Descripcion'} type={'text'} valor={descriptcion} setValue={onChangeDescription}/>
 

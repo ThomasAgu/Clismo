@@ -12,6 +12,7 @@ import  styles from '../styles/Login.module.css'
 import logo from '../public/images/Logo.png'
 //API
 import { login } from './api/ApiLogin';
+import { BASE_URL } from './api/url';
 //Store
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../store/actions/actions';
@@ -33,13 +34,9 @@ const Login = () => {
     setPassword(password => e.target.value);
   }
 
+
   const handleIniciarSesion = (e) =>{
     e.preventDefault();
-    console.log('aca hacer el llamado a la API')
-    console.log('Chequear que este el usuario y sino devolver credenciales erroneas')
-    console.log('Si esta todo bien setear la sesion iniciada')
-   
-    console.log(userName, password)
     if(userName === ''){
       console.log('ingrese nombre de usuario')
     }
@@ -48,22 +45,32 @@ const Login = () => {
       //Input label legend ingrese constrase;a
       console.log('ingrese nombre de contrasenia')
       }
+      
       else{
         const user ={ username: userName, password: password }
-        const response = login({user: userName, pass: password})
-        const data = true //response
-        if (data === true){
-          dispatch(loginSuccess(user));
-          router.push('/Home')
-        }
-        else{
-          setPopUp(true)
-      }
+        
+        fetch(`${BASE_URL}auth/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+          .then(response => response.json())
+          .then(result => {
+              if(result.id !== undefined){
+                dispatch(loginSuccess(user));
+                router.push('/Home')
+              }
+              else{
+                setPopUp(true)
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
     }
-
-   
   }
-
 
   const router = useRouter();
 

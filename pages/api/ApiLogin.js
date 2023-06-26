@@ -1,6 +1,7 @@
 import { BASE_URL } from "./url";
 
-export async function login(user){
+export function login(user){
+
 
     fetch(`${BASE_URL}auth/login`, {
         method: 'POST',
@@ -12,11 +13,12 @@ export async function login(user){
     .then(response => response.json())
     .then(result => {
         console.log(result)
+        return result
     })
     .catch(error => {
         console.error('Error:', error);
     });
-    //hasta que santi no cambie que sea un post no puedo hacer el login
-    /* const data = await response.json() */  
+
+    
 }
 

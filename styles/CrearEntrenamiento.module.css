@@ -148,6 +148,7 @@
 #parametersInfo{
   font-family: var(--title);
   font-size: var(--ft_labels);
+  color: var(--textBackGround);
 }
 /* Ya no parameters */
 #addExerciseBtn{
