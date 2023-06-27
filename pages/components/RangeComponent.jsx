@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
 import styles from '../../styles/RangeComponent.module.css'
 
-const RangeComponent = ({label, min, max, type}) => {
+const RangeComponent = ({label, min, max, type, valor, setValor}) => {
 
 
-    const [value, setValue] = useState(min);
 
-    const handleChangeValue = (e) =>{
-        setValue(e.target.value);
-    }
+    
    return (
     <div>
         <label for="customRange1" class="form-label text-start" id={styles.label}>{label}</label>
-        <input type="range" class="form-range" id={styles.input} min={min} max={max} step='1' value={value} onChange={handleChangeValue} />
-        <p className={styles.showValue}>{value} {type}</p>
+        <input type="range" class="form-range" id={styles.input} min={min} max={max} step='1' value={valor} onChange={setValor} />
+        <p className={styles.showValue}>{valor} {type}</p>
     </div>
   )
 }

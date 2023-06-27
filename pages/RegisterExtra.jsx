@@ -12,14 +12,49 @@ import RangeComponent from './components/RangeComponent'
 import logo from '../public/images/Logo.png'
 //styles
 import styles from '../styles/RegisterExtra.module.css'
+//store
+import { useSelector } from 'react-redux';
 const RegisterExtra = () => {
+
+  const [edad, setEdad] = useState('');
+  const [altura, setAltura] = useState('');
+  const [peso, setPeso] = useState('');
+  const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
 
   
   const handleClickOptionalData = (e) =>{
+    const alturaFloat = parseFloat(altura) + 0.01
+    const pesoFloat = parseFloat(peso) + 0.01   
     e.preventDefault();
-    //const response = registerExtra({peso: peso, edad: edad, altura: altura})
-    //console.log({peso: peso, edad: edad, altura: altura})
-    router.push('/Home')
+    const user = {
+      height: alturaFloat,
+      weight: pesoFloat,
+      age: Number(edad),
+    };
+    console.log(user)
+    console.log(pesoFloat)
+    fetch(`${BASE_URL}users/update/${user_id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(response  => response.json())
+    .then(result => {router.push('/Home')})
+    //Faltaria agregar boton omitir y decir si slaio bien o mal
+  }
+
+  const handleChangeValorEdad = (e) =>{
+      setEdad(e.target.value);
+  }
+
+  const handleChangeAltura = (e) =>{
+    setAltura(e.target.value)
+  }
+
+  const handleChangePeso = (e) =>{
+    setPeso(e.target.value)
   }
 
   const router = useRouter();
@@ -40,9 +75,9 @@ const RegisterExtra = () => {
             </div>
           <div id={styles.formDiv}>
             <form className='d-flex flex-column justify-content-center' id={styles.form}>
-                <RangeComponent label={'Edad'} min={'0'} max={'100'}  type={'Años'} />
-                <RangeComponent label={'Altura'} min={'0'} max={'300'}  type={'Cm.'}/>
-                <RangeComponent label={'Peso'} min={'0'} max={'200'}  type={'Kgr.'}/>
+                <RangeComponent label={'Edad'} min={'0'} max={'100'}  type={'Años'} valor={edad} setValor={handleChangeValorEdad} />
+                <RangeComponent label={'Altura'} min={'0'} max={'300'}  type={'Cm.'} valor={altura} setValor={handleChangeAltura}/>
+                <RangeComponent label={'Peso'} min={'0'} max={'200'}  type={'Kgr.'} valor={peso} setValor={handleChangePeso}/>
             </form>
 
             <hr />

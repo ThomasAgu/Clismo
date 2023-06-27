@@ -18,6 +18,7 @@ import CrearGrupo from './Grupos/CrearGrupo';
 import styles from '../styles/Grupos.module.css'
 const Grupos = () => {
   const grupos = useSelector(state=> state.grupos.grupos) //trae los grupos de la store
+  const user_role = useSelector(state=> state.login.user.role) //trae el id del usuario
   const dispatch = useDispatch();
   
  
@@ -49,9 +50,13 @@ const Grupos = () => {
         <NavNarSesion/>
         <div  id={styles.content}>
             <div className='d-flex flex-column text-center mt-3' id={styles.title}>
-                <FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> 
-                <h1> Grupos </h1>
-                <div id={styles.agregarGroupDiv}><button id={styles.agregarGroupBtn} onClick={()=> router.push('/Grupos/CrearGrupo')}><FontAwesomeIcon icon={faPlus}/>  Agregar Grupo </button></div>
+                <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> </div>
+                <h1 id={styles.titleText}> Grupos </h1>
+                {user_role === 'TEACHER'?
+                  <div id={styles.agregarGroupDiv}><button id={styles.agregarGroupBtn} onClick={()=> router.push('/Grupos/CrearGrupo')}><FontAwesomeIcon icon={faPlus} id={styles.addIcon}/>  Agregar Grupo </button></div>
+                  :
+                  <></>
+                }
             </div>
 
             {misGrupos.length !== 0? 

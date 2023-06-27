@@ -59,6 +59,7 @@ const Login = () => {
           .then(response => response.json())
           .then(result => {
               if(result.id !== undefined){
+                user['id'] = result.id
                 dispatch(loginSuccess(user));
                 router.push('/Home')
               }

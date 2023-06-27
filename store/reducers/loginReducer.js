@@ -5,7 +5,10 @@ const LOGOUT = 'LOGOUT';
 // Estado inicial
 const initialState = {
   isLoggedIn: false,
-  user: null,
+  user: {
+    id: -1,
+    role: '',
+  },
 };
 
 // Reducer
@@ -21,7 +24,10 @@ const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: false,
-        user: null,
+        user: {
+          id: -1,
+          role: '',
+        }
       };
     default:
       return state;

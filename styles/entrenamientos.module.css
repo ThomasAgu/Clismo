@@ -8,10 +8,14 @@
 #mainContent{
     position: relative;
 }
+#iconBigDiv{
+  display: flex;
+  height: 10vh;
+}
 
 #icon{
     color: var(--accent-green);
-    font-size: var(--ft_subTitle);
+    font-size: var(--ft_title);
 }
 
 #title{
@@ -36,7 +40,7 @@
   height: 5vh;
 }
 #agregarEntrenamientoBtn{
-width: 95%;
+  width: 95%;
   height: 95%;
   border-radius: 5px;
   border: none;
@@ -47,6 +51,11 @@ width: 95%;
   box-shadow: 0px 2px 2px var(--backGround);
   transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 
+}
+
+#addIcon{
+  font-size: var(--ft_btns);
+  width: var(--ft_btns);
 }
 
 #agregarEntrenamientoBtn:hover{

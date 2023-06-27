@@ -4,14 +4,24 @@
    border: 1px solid var(--backGround);
    background-color: var(--light);
 }
+
+#iconBigDiv{
+  display: flex;
+  height: 10vh;
+}
 #icon{
     color: var(--accent-green);
+    font-size: var(--ft_title);
   }
   
   #title{
     font-size: var(--ft_subTitle);
     font-family: var(--title);
     color: var(--textBackGround);
+  }
+
+  #titleText{
+    font-size: var(--ft_subTitle);
   }
 
 
@@ -44,8 +54,13 @@
   transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+#addIcon{
+  font-size: var(--ft_btns);
+  width: var(--ft_btns);
+}
+
 #agregarGroupBtn:hover{
-  width: 100%;
+  width: 110%;
   height: 100%;
   border-radius: 2px;
   border-left: 20px solid var(--backGround);
