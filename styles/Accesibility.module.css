@@ -1,0 +1,29 @@
+#menu{
+    position: absolute;
+    right: 5%;
+    top: 14vh;
+    width: 15vw;
+    
+}
+
+.label{
+    font-size: var(--ft_labels);
+    color: var(--textBackGround);
+}
+
+#activeMenu{
+    background-color: var(--light);
+    height: 10vh;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 2%;
+}
+
+#inactiveMenu{
+    height: 0px;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
