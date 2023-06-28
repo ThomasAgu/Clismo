@@ -115,7 +115,7 @@ const Register = () => {
           <div className=' d-flex justify-content-center'><button id={styles.registrarseBtn} onClick={handleClickRegister} >Registrarse</button></div>
           <hr />
           <Link href={'/Login'}>
-            <p className='text-center'>¿Ya tenes cuenta? <a onClick={() => router.push('/Login')}>Iniciar Sesion</a></p>
+            <p className='text-center' id={styles.linktologin}>¿Ya tenes cuenta? <a onClick={() => router.push('/Login')}>Iniciar Sesion</a></p>
           </Link>
         </div>
       </div>

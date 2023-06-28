@@ -14,16 +14,6 @@ const NavNarSesion = () => {
       router.push(e.target.value);
     }
 
-    const handleClickPaleta = (e) => {
-      console.log(e.target.checked)
-      const root = document.documentElement;
-      root.classList.toggle('theme2');
-    }
-
-    const handleClickTamanioLetra = (e) => {
-      const root = document.documentElement;
-      root.classList.toggle('biggerText');
-    }
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
     const router = useRouter();
     if (!isLoggedIn){
@@ -37,14 +27,6 @@ const NavNarSesion = () => {
             <div className={styles.navDiv}><button onClick={handleClickSetOpcion} value={'/Entrenamientos'} className={`${styles.btnNav} ${opcion === '/Entrenamientos' ? styles.btnNavActive : ''}`} >Entrenamientos</button></div>
             <div className={styles.navDiv}><button onClick={handleClickSetOpcion} value={'/Grupos'} className={`${styles.btnNav} ${opcion === '/Grupos' ? styles.btnNavActive : ''}`} >Grupos</button></div>
             <div className={styles.navDiv}><button onClick={handleClickSetOpcion} value={'/Yo'} className={`${styles.btnNav} ${opcion === '/Yo' ? styles.btnNavActive : ''}`}>Yo </button></div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"  onChange={handleClickPaleta}/>
-              <label class="form-check-label" for="flexSwitchCheckChecked" ></label>
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"  onChange={handleClickTamanioLetra}/>
-              <label class="form-check-label" for="flexSwitchCheckChecked" ></label>
-            </div>
         </nav>
       )
     }

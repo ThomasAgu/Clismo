@@ -1,10 +1,15 @@
 
+.main{
+    background-color: var(--light);
+    height: 100vh;
+}
+
 #title{
     position: absolute;
     top: 20%;
     font-size: var(--ft_title);
     text-shadow: 0px 1px 1px;
-    color: var(--light);
+    color: var(--textLight);
     left: 3%;
 }
 
@@ -14,7 +19,7 @@
     left: 3%;
     font-size: var(--ft_title);
     text-shadow: 0px 1px 1px;
-    color: var(--light);
+    color: var(--textLight);
 }
 
 #strongNameTitle{
@@ -28,6 +33,6 @@
 .legend{
     font-family: var(--title);
     margin-top: 3vh;
-    color: var(--backGround);
+    color: var(--textBackGround);
     font-size: var(--ft_subTitle);
 }

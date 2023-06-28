@@ -47,19 +47,19 @@
 #logupBtn{
     width: 48%;
     height: 4vh;
-    color: var(--light);
+    color: var(--textLight);
     font-family: var(--textRoboto);
     background-color: var(--backGround);
     border-radius: 2px;
-    border: 1px solid var(--light);
+    border: 1px solid var(--textLight);
     box-shadow: none;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #logupBtn:hover{
-    box-shadow: 0px 2px 20px var(--light);
+    box-shadow: 0px 2px 20px var(--textLight);
     background-color: var(--light);
-    color: var(--backGround);
+    color: var(--textBackGround);
     width: 50%;
 }
 

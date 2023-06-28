@@ -31,8 +31,8 @@
     margin-bottom: 2vh;
     font-family: var(--title);
     font-weight: 100;
-    font-size: 3rem;
-    color: var(--backGround);
+    font-size: var(--ft_subTitle);
+    color: var(--textBackGround);
 }
 #formDiv{
     background-color: var(--light);
@@ -54,8 +54,8 @@
     border: none;
     border-radius: 20px;
     height: 4vh;
-    color: var(--light);
-    font-size: 1.4em;
+    color: var(--textLight);
+    font-size: var(--ft_btns);
     box-shadow: 0px 2px 2px var(--backGround);
     width: 100%;
     outline: none;
@@ -72,12 +72,12 @@
 
 #registrarseBtn{
     width: 70%;
-    background-color: var(--backGround);
+    background-color: var(--textBackGround);
     border-radius: 20px;
     height: 4vh;
     border: none;
     color: var(--light);
-    font-size: 1.4em;
+    font-size: var(--ft_btns);
     box-shadow: 0px 2px 2px var(--backGround);
     outline: none;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
@@ -85,7 +85,7 @@
 
 #registrarseBtn:hover{
     box-shadow: 0px 2px 10px var(--backGround);
-    background-color: var(--light);
+    background-color: var(--textBackGround);
     font-size: 1.7rem;
     height: 6vh;
     color: var(--backGround);

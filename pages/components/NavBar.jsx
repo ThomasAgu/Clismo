@@ -18,6 +18,8 @@ const NavBar = () => {
   const [active, setActive] = useState(false);
   const [activeMenu, setActiveMenu] = useState(false);
 
+  
+
   const handleClickLogout = () =>{
     //aca sacar la sesion si la iniciamos
     dispatch(logout())
@@ -49,7 +51,7 @@ const NavBar = () => {
               :
               <></>
             }
-            <button onClick={() => setActiveMenu(true)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye}  id={styles.iconAccesibility}/> </button>
+            <button onClick={() => setActiveMenu(value => !value)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye}  id={styles.iconAccesibility}/> </button>
             <AccesibilityMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu}/>
           </div>
         </div>

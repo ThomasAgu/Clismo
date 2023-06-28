@@ -84,7 +84,7 @@ const RegisterExtra = () => {
             <div className=' d-flex justify-content-center'><button onClick={handleClickOptionalData} id={styles.registrarseBtn} >Registrarse</button></div>
           </div>
         </div>
-        <p className='text-center pt-3'>Ninguno de estos datos se compartiran con otras personas mas que el profesor.</p>
+        <p className='text-center pt-3' id={styles.footer}>Ninguno de estos datos se compartiran con otras personas mas que el profesor.</p>
       </div>
     </div>
   )

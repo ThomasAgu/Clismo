@@ -3,7 +3,7 @@
     width: 100%;
     font-family: var(--title);
     font-size: 1.3rem;
-    color: var(--backGround);
+    color: var(--textBackGround);
 }
 #input{
     background: transparent;
@@ -18,7 +18,7 @@
 }
 
 #input::-webkit-slider-runnable-track {
-  background-color: var(--backGround); /* Set your desired background color for the track */
+  background-color: var(--textBackGround); /* Set your desired background color for the track */
 }
 
 
@@ -50,5 +50,5 @@
     text-align: start;
     font-family: var(--textRoboto);
     font-size: 2rem;
-    color: var(--backGround);
+    color: var(--textBackGround);
 }
