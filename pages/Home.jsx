@@ -33,6 +33,7 @@ const Home = () => {
         user['username'] = result.username
         dispatch(loginSuccess(user));
         console.log(result)
+        //Aca setear en la store los grupos que vienen con el usuario
       })
       
   }, [])

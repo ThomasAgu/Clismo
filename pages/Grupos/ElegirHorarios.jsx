@@ -6,40 +6,40 @@ import styles from '../../styles/elegirHorarios.module.css'
 
 const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
 
-    const [dia, setDia] = useState('')
+    const [day, setDay] = useState('')
 
     const [horaYRutina, setHoraYRutina] = useState({
-        "dia": '',
-        "hora_ini":'',
-        "hora_fin":'',
-        "entrenamiento": '',
+        "day": '',
+        "starttime":'',
+        "endingtime":'',
+        "training": '',
     })
     
 
     const handleSelecDia  =  (e) =>{
         e.preventDefault()
-        const diasQueYaHayHorario = horarios.map((el) => el.dia)
-        const entrenamientoExistente = horarios.filter((el) => el.dia === e.target.value)[0]
+        const diasQueYaHayHorario = horarios.map((el) => el.day)
+        const entrenamientoExistente = horarios.filter((el) => el.day === e.target.value)[0]
 
         if(diasQueYaHayHorario.includes(e.target.value)){
             setHoraYRutina(prevState => ({
                 ...prevState,
-                dia: entrenamientoExistente.dia,
-                hora_ini: entrenamientoExistente.hora_ini,
-                hora_fin: entrenamientoExistente.hora_fin,
-                entrenamiento: entrenamientoExistente.entrenamiento
+                day: entrenamientoExistente.day,
+                starttime: entrenamientoExistente.starttime,
+                endingtime: entrenamientoExistente.endingtime,
+                training: entrenamientoExistente.training
             }))
         }
         else{
             setHoraYRutina(prevState => ({
                 ...prevState,
-                dia: '',
-                hora_ini: '',
-                hora_fin: '',
-                entrenamiento: ''
+                day: '',
+                starttime: '',
+                endingtime: '',
+                training: ''
             }))
         }
-        setDia(e.target.value)
+        setDay(e.target.value)
         console.log(horaYRutina)
     }
 
@@ -51,15 +51,15 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
             <div id={styles.diasContent}>
                 <label htmlFor="" id={styles.labelHorarios}>Horarios</label>
                 <div id={styles.diasDiv}>
-                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${dia === 'L' ? styles.btnDayActive : ''}`}  id='L' value={'L'}>L</button>
-                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${dia === 'M' ? styles.btnDayActive : ''}`}  id='M' value={'M'}>M</button>
-                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${dia === 'X' ? styles.btnDayActive : ''}`}  id='X' value={'X'}>X</button>
-                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${dia === 'J' ? styles.btnDayActive : ''}`}  id='J' value={'J'}>J</button>
-                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${dia === 'V' ? styles.btnDayActive : ''}`}  id='V' value={'V'}>V</button>
-                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${dia === 'S' ? styles.btnDayActive : ''}`}  id='S' value={'S'}>S</button>
-                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${dia === 'D' ? styles.btnDayActive : ''}`}  id='D' value={'D'}>D</button>
+                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'L' ? styles.btnDayActive : ''}`}  id='L' value={'MONDAY'}>L</button>
+                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'M' ? styles.btnDayActive : ''}`}  id='M' value={'TUESDAY'}>M</button>
+                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'X' ? styles.btnDayActive : ''}`}  id='X' value={'WEDNESDAY'}>X</button>
+                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'J' ? styles.btnDayActive : ''}`}  id='J' value={'THURSDAY'}>J</button>
+                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'V' ? styles.btnDayActive : ''}`}  id='V' value={'FRIDAY'}>V</button>
+                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'S' ? styles.btnDayActive : ''}`}  id='S' value={'SATURDAY'}>S</button>
+                    <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'D' ? styles.btnDayActive : ''}`}  id='D' value={'SUNDAY'}>D</button>
                 </div>
-                <ElegirHoras dia={dia} setDia={setDia} setHorarios={setHorarios} horarios={horarios} horaYRutina={horaYRutina}/>
+                <ElegirHoras dia={day} setDia={setDay} setHorarios={setHorarios} horarios={horarios} horaYRutina={horaYRutina}/>
             </div>
         :
         <></>

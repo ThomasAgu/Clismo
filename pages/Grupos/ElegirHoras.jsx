@@ -20,14 +20,14 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
     const handleClickSave = (E) =>{
         E.preventDefault()
         const horario = { 
-            "dia": dia,
-            "hora_ini":hora_ini,
-            "hora_fin":hora_fin,
-            "entrenamiento": entrenamiento,
+            "day": dia,
+            "starttime": `${hora_ini}:00`,
+            "endingtime":`${hora_fin}:00`,
+            "training": entrenamiento,
         } 
         const indiceEntrenamientoExistente = horarios.findIndex((el) => el.dia === dia)
         if(indiceEntrenamientoExistente === -1){
-            setHorarios(horarios=>[...horarios, horario])
+            setHorarios([...horarios, horario ])
         }
         else{
             setHorarios(horarios => 
@@ -35,9 +35,9 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
                     if( i === indiceEntrenamientoExistente){
                         return{
                             ...h,
-                            "hora_ini":hora_ini,
-                            "hora_fin":hora_fin,
-                            "entrenamiento": entrenamiento,
+                            "starttime":hora_ini,
+                            "endingtime":hora_fin,
+                            "training": entrenamiento,
                         };
                     }
                     return h;
@@ -48,6 +48,7 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
         setHora_fin('')
         setDia(dia => '')
         setEntrenamiento('')
+        console.log(horarios)
     }
 
   return (

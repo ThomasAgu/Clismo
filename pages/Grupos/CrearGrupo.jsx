@@ -10,6 +10,8 @@ import ElegirHorarios from './ElegirHorarios'
 import { useDispatch, useSelector } from 'react-redux';
 import { agregarGrupo, obtenerEntrenamientos } from '../../store/actions/actions';
 import { Router, useRouter } from 'next/router'
+//url
+import { BASE_URL } from '../api/url'
 //FA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsersLine } from '@fortawesome/free-solid-svg-icons';
@@ -27,6 +29,7 @@ const CrearGrupo = ({grupos}) => {
     const [pasos, setPasos] = useState(1);
     //store
     const entrenamientos = useSelector(state=> state.entrenamientos.entrenamientos)
+    const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
     //utils
     const dispatch = useDispatch();
     const router = useRouter();
@@ -59,17 +62,30 @@ const CrearGrupo = ({grupos}) => {
     const handleAgregarGrupo = (e) =>{
       e.preventDefault();
       const grupo = {
-        "nombre": groupName,
-        "descripcion": groupDescription,
-        "privacidad": privacidad,
-        "cantidad_integrantes": 0,
-        "capacidad": capacidad,
-        "dificultad": nivel,
-        "horario": horarios
+        "teacher_id": user_id,
+        "name": groupName,
+        "privacy": privacidad,
+        "description": groupDescription,
+        "difficulty": nivel,      
+        "capacity": Number(capacidad),
+        "schedules": horarios
       }
-      
-      dispatch(agregarGrupo(grupo))
-      router.back()
+      console.log(grupo)
+      fetch(`${BASE_URL}groups/create`, {
+        method : 'POST',
+        headers : {
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify(grupo)
+      })
+        .then(response => response.json())
+        .then(result => {
+          dispatch(agregarGrupo(grupo))
+          router.back()
+        })   
+        .catch(error => {
+          console.error('Error:', error);
+      });  
     }
 
 
@@ -90,19 +106,19 @@ const CrearGrupo = ({grupos}) => {
             {/* Radio dificultard */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={6} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
               <div className='' id={styles.radiogroupDificultad}>
-                <input type="radio" id="opcion1" name="dificultad" value="principiante" className={styles.radio} tabIndex='7' aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
+                <input type="radio" id="opcion1" name="dificultad" value="EASY" className={styles.radio} tabIndex='7' aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
                 <label for="opcion1" className={styles.labelRadio}>Principiante</label>
-                <input type="radio" id="opcion2" name="dificultad" value="intermedio" className={styles.radio} tabIndex='8' aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
+                <input type="radio" id="opcion2" name="dificultad" value="MIDDLE" className={styles.radio} tabIndex='8' aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
                 <label for="opcion2" className={styles.labelRadio}>Intermedio</label>
-                <input type="radio" id="opcion3" name="dificultad" value="avanzado" className={styles.radio} tabIndex='9' aria-label='Dificultad: avanzado' onChange={handleChangeRadio}/>
+                <input type="radio" id="opcion3" name="dificultad" value="HARD" className={styles.radio} tabIndex='9' aria-label='Dificultad: avanzado' onChange={handleChangeRadio}/>
                 <label for="opcion3" className={styles.labelRadio}>Avanzado</label>
             </div>
           {/* Radio de privacidad */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={10} ariaLabel={'Selecciona la privacidad'}>Privacidad</label>
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <input type="radio" id="opcion5" name="privacidad" value="público" className={styles.radio} tabIndex='11' aria-label='Dificultad: principiante' onChange={handleChangeRadioPrivacidad}/>
+                <input type="radio" id="opcion5" name="privacidad" value="PUBLIC" className={styles.radio} tabIndex='11' aria-label='Dificultad: principiante' onChange={handleChangeRadioPrivacidad}/>
                 <label for="opcion5" className={styles.labelRadio}>Publico</label>
-                <input type="radio" id="opcion6" name="privacidad" value="privado" className={styles.radio} tabIndex='12' aria-label='Dificultad: intermedio' onChange={handleChangeRadioPrivacidad}/>
+                <input type="radio" id="opcion6" name="privacidad" value="PRIVATE" className={styles.radio} tabIndex='12' aria-label='Dificultad: intermedio' onChange={handleChangeRadioPrivacidad}/>
                 <label for="opcion6" className={styles.labelRadio}>Privado</label>
               </div>
             <ElegirHorarios pasos={pasos} horarios={horarios} setHorarios={setHorarios}/>
