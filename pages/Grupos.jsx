@@ -14,34 +14,50 @@ import { faUsersLine, faPlus } from '@fortawesome/free-solid-svg-icons';
 import gruposList from '../datosParaProbar/grupos';
 import GrupoCard from './components/GrupoCard';
 import CrearGrupo from './Grupos/CrearGrupo';
+//apo
+import { BASE_URL } from './api/url';
 //style
 import styles from '../styles/Grupos.module.css'
 const Grupos = () => {
   const grupos = useSelector(state=> state.grupos.grupos) //trae los grupos de la store
-  const user_role = useSelector(state=> state.login.user.role) //trae el id del usuario
+  const user_role = useSelector(state=> state.login.user.role) //trae el rol del usuario
+  const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
   const dispatch = useDispatch();
   
  
 
-  const [gruposDisponibles, setGruposDisponibles] = useState([grupos.filter((g) => (g.privacidad === 'público')&&(g.cantidad_integrantes< g.capacidad))][0]);
+  const [gruposDisponibles, setGruposDisponibles] = useState([]);
   const [misGrupos, setMisGrupos] = useState([])
   
   useEffect(() => {
-    setMisGrupos([])
+    fetch(`${BASE_URL}groups/list`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(result => {
+        //setear mis grupos 
+        const gruposTotales = result
+        const gruposPropios = gruposTotales.filter((g)=>{ 
+          if(g.users.filter((user) => user.id === user_id).length !== 0){
+            return g
+          } 
+        })
+        console.log('grupos propios: ',gruposPropios)
+        setMisGrupos(gruposPropios)
+        //setear grupos publicos con capacidad donde no estoy
+        const gruposPublicosQueNoEstoy = gruposTotales.filter((g)=>{ 
+          if((g.users.filter((user) => user.id === user_id).length === 0)&&(g.privacy === 'PUBLIC')){
+            return g
+          } 
+        })
+        setGruposDisponibles(gruposPublicosQueNoEstoy)
+      })
+    
   }, [])
 
-
-
-
-  console.log(grupos)
-
-  /* const [grupos, setGrupos] = useState([])
-  useEffect(() =>{
-    setGrupos(gruposList)
-  }, []) */
-
-
-  
 
   const router = useRouter();
   return (
@@ -66,17 +82,17 @@ const Grupos = () => {
                     {misGrupos.map((g) => {
                       return (
                       <GrupoCard 
-                        key={g.nombre} 
-                        nombre={g.nombre} 
-                        descripcion={g.descripcion} 
-                        privacidad={g.privacidad} 
-                        cantIntegrantes={g.cantidad_integrantes} 
-                        capacidad={g.capacidad} 
-                        dificultad={g.dificultad}
+                        key={g.id} 
+                        nombre={g.name} 
+                        descripcion={g.description} 
+                        privacidad={g.privacy} 
+                        cantIntegrantes={g.users.length} 
+                        capacidad={g.capacity} 
+                        dificultad={g.difficulty}
                         setMisGrupos={setMisGrupos}
                         setGrupos={setGruposDisponibles}
-                        grupos ={gruposDisponibles}
-                        misGrupos={misGrupos}
+                        grupos ={misGrupos}
+                        misGrupos={gruposDisponibles}
                         unido={true}
                         />)
                       })}
@@ -90,13 +106,13 @@ const Grupos = () => {
                 {gruposDisponibles.map((g) => {
                     return(  
                       <GrupoCard 
-                        key={g.nombre} 
-                        nombre={g.nombre} 
-                        descripcion={g.descripcion} 
-                        privacidad={g.privacidad} 
-                        cantIntegrantes={g.cantidad_integrantes} 
-                        capacidad={g.capacidad} 
-                        dificultad={g.dificultad}
+                        key={g.id} 
+                        nombre={g.name} 
+                        descripcion={g.description} 
+                        privacidad={g.privacy} 
+                        cantIntegrantes={g.users.length} 
+                        capacidad={g.capacity} 
+                        dificultad={g.difficulty}
                         setMisGrupos={setMisGrupos}
                         setGrupos={setGruposDisponibles}
                         grupos ={gruposDisponibles}

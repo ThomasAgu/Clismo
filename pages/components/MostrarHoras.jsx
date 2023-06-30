@@ -7,16 +7,13 @@ const MostrarHoras = ({dia, setDia, horarioCompleto}) => {
 
   const [hora_ini, setHora_ini] = useState('')
 
-
-
-
   return (
     <div>
         {dia !== '' ?
             <div id={styles.activeDiv}>
-                <p>De: Hora inicial</p>
-                <p>Hasta: Hora Final</p>
-                <p>Duradcion: 39Hrs</p>
+                <p>De: {dia.starttime}</p>
+                <p>Hasta: {dia.endingtime}</p>
+                <p>Duradcion: {dia.training}</p>
 
             </div>
         :

@@ -123,6 +123,15 @@
     transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.btnDayInactive{
+    background-color: var(--darker);
+    border-radius: 50px;
+    border: 1px solid var(--textLight);
+    height: 50px;
+    width: 50px;
+    color: var(--textLight);
+}
+
 .btnDay:hover{
     background-color: var(--accent-green);
     border-radius: 5px;
@@ -254,6 +263,10 @@
         height: 30px;
         width: 30px;
   }
+  .btnDayInactive{
+    height: 30px;
+    width: 30px;
+}
 
   /* Horarios */
     #activeDiv{
