@@ -28,6 +28,7 @@ const Grupos = () => {
 
   const [gruposDisponibles, setGruposDisponibles] = useState([]);
   const [misGrupos, setMisGrupos] = useState([])
+  const [gruposProfe, setGruposProfe] = useState([])
   
   useEffect(() => {
     fetch(`${BASE_URL}groups/list`,{
@@ -45,23 +46,29 @@ const Grupos = () => {
             return g
           } 
         })
-        console.log('grupos propios: ',gruposPropios)
         setMisGrupos(gruposPropios)
         //setear grupos publicos con capacidad donde no estoy
         const gruposPublicosQueNoEstoy = gruposTotales.filter((g)=>{ 
-          if((g.users.filter((user) => user.id === user_id).length === 0)&&(g.privacy === 'PUBLIC')){
+          if((g.users.filter((user) => user.id === user_id).length === 0)&&(g.privacy === 'PUBLIC')&&(g.teacher.id !== user_id)){
             return g
           } 
         })
         setGruposDisponibles(gruposPublicosQueNoEstoy)
+        //setear grupos donde soy profe
+        if(user_role === 'TEACHER'){
+          const gruposDondeSoyProfe = gruposTotales.filter((g) => {
+            return g.teacher.id === user_id
+          })
+          console.log('grupos sot profe', gruposDondeSoyProfe)
+          setGruposProfe(gruposDondeSoyProfe)
+        }
       })
-    
   }, [])
 
 
   const router = useRouter();
   return (
-    <div>
+    <div id={styles.bigDiv}>
         <NavBar/>
         <NavNarSesion/>
         <div  id={styles.content}>
@@ -74,6 +81,32 @@ const Grupos = () => {
                   <></>
                 }
             </div>
+
+            {gruposProfe.length !== 0?
+            <div>
+              <h2 className={styles.subtitle}> Soy profe de</h2>
+              <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
+                {gruposProfe.map((g) => {
+                  return (
+                    <GrupoCard 
+                    key={g.id} 
+                    nombre={g.name} 
+                    descripcion={g.description} 
+                    privacidad={g.privacy} 
+                    cantIntegrantes={g.users.length} 
+                    capacidad={g.capacity} 
+                    dificultad={g.difficulty}
+                    setMisGrupos={setGruposProfe}
+                    setGrupos={setGruposProfe}
+                    grupos ={gruposProfe}
+                    misGrupos={gruposProfe}
+                  />)
+                  })}
+                </div>
+              </div>
+              :
+              <></>
+            }
 
             {misGrupos.length !== 0? 
               <div>

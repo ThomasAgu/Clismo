@@ -5,16 +5,17 @@ import styles from '../../styles/GrupoCard.module.css'
 const MostrarHoras = ({dia, setDia, horarioCompleto}) => {
 
 
-  const [hora_ini, setHora_ini] = useState('')
+  const handleShowTime = (horaFea) =>{
+    const fmat = horaFea.split(':')
+    return `${fmat[0]}:${fmat[1]}`
+  }
 
   return (
     <div>
         {dia !== '' ?
             <div id={styles.activeDiv}>
-                <p>De: {dia.starttime}</p>
-                <p>Hasta: {dia.endingtime}</p>
-                <p>Duradcion: {dia.training}</p>
-
+                <p>Desde: {handleShowTime(dia.starttime)}</p>
+                <p>Hasta: {handleShowTime(dia.endingtime)}</p>
             </div>
         :
         <div id={styles.inactiveDiv}></div>}

@@ -1,12 +1,23 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 //Styles
 import styles from '../../styles/NavBarSesion.module.css'
 import { useSelector } from 'react-redux'
 const NavNarSesion = () => {
 
     const [opcion, setOpcion] = useState('');
+
+    
+    const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
+
+    //Cada vez que se carga el navbar se verifica si el usuario esta logueado. Sino va al home
+    useEffect(() => {
+
+      if( user_id === -1){
+        router.push('/')
+      } 
+    }, [])
 
     const handleClickSetOpcion = (e) => {
       e.preventDefault()

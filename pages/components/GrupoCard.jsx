@@ -3,13 +3,16 @@ import { useState } from 'react';
 import styles from '../../styles/GrupoCard.module.css'
 //FA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPersonBiking } from '@fortawesome/free-solid-svg-icons';
-import MostrarHoras from './MostrarHoras';
+import { faDeleteLeft, faEdit, faPersonBiking } from '@fortawesome/free-solid-svg-icons';
 //components
-
+import MostrarHoras from './MostrarHoras';
+//store
+import { useSelector } from 'react-redux';
 
 const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad, dificultad, setMisGrupos, setGrupos, grupos, misGrupos, unido}) => {
   
+  const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
+
   const [dia, setDia] = useState('')
   const [horarioCompleto, setHorarioCompleto] = useState('')
   const [horario, setHorario] = useState({})
@@ -46,6 +49,7 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
     //Quedarnos con el horario del dia elegido
     //Luego seteamos
     if(diaElegido !== undefined){
+      console.log(dia)
       dia.day === e.target.value ? 
         setDia('')
         :
@@ -83,7 +87,27 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
         return ''
         break; 
     }
-    console.log(dificultad)
+  }
+
+  const mostrarBotonSegunEstadoDelGrupo = () =>{
+    const gruposName = grupos.map(el=> el.name);
+    const index  =gruposName.indexOf(nombre)
+    const grupo = grupos[index];
+
+    if(grupo.teacher.id === user_id){
+      return(
+        <div id={styles.profeDivBtns}>
+          <button id={styles.editarBtn}><FontAwesomeIcon icon={faEdit}/> editar</button>
+          <button id={styles.borrarBtn}><FontAwesomeIcon icon={faDeleteLeft}/> borrar</button>
+        </div>
+      )
+    }
+    else{
+      if(unido) 
+        return (<button id={styles.salirDelGrupoBtn} onClick={handleClickAbandonarGrupo}>Abandonar</button>)
+      else
+        return(<button id={styles.anotarseBtn} onClick={handleClickChange}>Unirme</button>)
+    }
   }
   
   return (
@@ -91,24 +115,21 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
       <div id={styles.firstColumn}>
         <div id={styles.groupName}>{nombre}</div>
         <div id={styles.description}>{descripcion}</div>
-        {unido ? 
-        <button id={styles.salirDelGrupoBtn} onClick={handleClickAbandonarGrupo}>Abandonar</button>
-        :
-        <button id={styles.anotarseBtn} onClick={handleClickChange}>Unirme</button>
-        }
+        {mostrarBotonSegunEstadoDelGrupo()}
+        
       </div>
       <div className="" id={styles.secondColumn}>
         <div>
           <p id={styles.horarios}>Horarios</p>
           <div id={styles.horariosBigDiv}>
             <div id={styles.horariosDiv}>
-              <button onClick={handleSelecDia} className={handleDelegateClass('MONDAY')}  id='L' value={'MONDAY'}>L</button>
-              <button onClick={handleSelecDia} className={handleDelegateClass('TUESDAY')}  id='M' value={'TUESDAY'}>M</button>
-              <button onClick={handleSelecDia} className={handleDelegateClass('WEDNESDAY')}  id='X' value={'WEDNESDAY'}>X</button>
-              <button onClick={handleSelecDia} className={handleDelegateClass('THURSDAY')}  id='J' value={'THURSDAY'}>J</button>
-              <button onClick={handleSelecDia} className={handleDelegateClass('FRIDAY')}  id='V' value={'FRIDAY'}>V</button>
-              <button onClick={handleSelecDia} className={handleDelegateClass('SATURDAY')}  id='S' value={'SATURDAY'}>S</button>
-              <button onClick={handleSelecDia} className={handleDelegateClass('SUNDAY')}  id='D' value={'SUNDAY'}>D</button>
+              <button onClick={handleSelecDia} className={dia.day === 'MONDAY' ? styles.btnDayActive : handleDelegateClass('MONDAY')}  id='L' value={'MONDAY'}>L</button>
+              <button onClick={handleSelecDia} className={dia.day === 'TUESDAY' ? styles.btnDayActive : handleDelegateClass('TUESDAY')}  id='M' value={'TUESDAY'}>M</button>
+              <button onClick={handleSelecDia} className={dia.day === 'WEDNESDAY' ? styles.btnDayActive : handleDelegateClass('WEDNESDAY')}  id='X' value={'WEDNESDAY'}>X</button>
+              <button onClick={handleSelecDia} className={dia.day === 'THURSDAY' ? styles.btnDayActive : handleDelegateClass('THURSDAY')}  id='J' value={'THURSDAY'}>J</button>
+              <button onClick={handleSelecDia} className={dia.day === 'FRIDAY' ? styles.btnDayActive : handleDelegateClass('FRIDAY')}  id='V' value={'FRIDAY'}>V</button>
+              <button onClick={handleSelecDia} className={dia.day === 'SATURDAY' ? styles.btnDayActive : handleDelegateClass('SATURDAY')}  id='S' value={'SATURDAY'}>S</button>
+              <button onClick={handleSelecDia} className={dia.day === 'SUNDAY' ? styles.btnDayActive : handleDelegateClass('SUNDAY')}  id='D' value={'SUNDAY'}>D</button>
             </div>
           <MostrarHoras dia={dia} setDia={setDia} horarioCompleto={horarioCompleto}/>
           </div>

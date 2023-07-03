@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
 //style
 import styles from '../../styles/NavBar.module.css'
 //store
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { logout } from '../../store/actions/actions';
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,6 +14,7 @@ import { faBars, faEye } from '@fortawesome/free-solid-svg-icons'
 import AccesibilityMenu from './AccesibilityMenu';
 
 const NavBar = () => {
+
 
   const [active, setActive] = useState(false);
   const [activeMenu, setActiveMenu] = useState(false);

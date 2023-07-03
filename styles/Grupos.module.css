@@ -1,7 +1,11 @@
 
+#bigDiv{
+  height: 120%;
+  background-color: var(--backGround);
+}
 #content{
    position: relative;
-   border: 1px solid var(--backGround);
+    
    background-color: var(--light);
 }
 
