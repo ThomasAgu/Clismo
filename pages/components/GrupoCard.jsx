@@ -89,7 +89,7 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
     }
   }
 
- /*  const mostrarBotonSegunEstadoDelGrupo = () =>{
+  const mostrarBotonSegunEstadoDelGrupo = () =>{
     const grupo  = grupos.filter((el) => el.name === nombre)[0]
     if(grupo.teacher.id === user_id){
       
@@ -106,14 +106,14 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
       else
         return(<button id={styles.anotarseBtn} onClick={handleClickChange}>Unirme</button>)
     }
-  } */
+  }
   
   return (
     <div className='mx-auto' id={styles.content}>
       <div id={styles.firstColumn}>
         <div id={styles.groupName}>{nombre}</div>
         <div id={styles.description}>{descripcion}</div>
-        {/* {mostrarBotonSegunEstadoDelGrupo()} */}
+        {mostrarBotonSegunEstadoDelGrupo()}
         
       </div>
       <div className="" id={styles.secondColumn}>
