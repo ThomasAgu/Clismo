@@ -90,11 +90,10 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
   }
 
   const mostrarBotonSegunEstadoDelGrupo = () =>{
-    const gruposName = grupos.map(el=> el.name);
-    const index  =gruposName.indexOf(nombre)
-    const grupo = grupos[index];
+    const grupo  = grupos.filter((el) => el.name === nombre)[0]
 
     if(grupo.teacher.id === user_id){
+      
       return(
         <div id={styles.profeDivBtns}>
           <button id={styles.editarBtn}><FontAwesomeIcon icon={faEdit}/> editar</button>
