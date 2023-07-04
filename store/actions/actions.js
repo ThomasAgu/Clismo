@@ -57,4 +57,18 @@ export const obtenerEntrenamientos = () => {
   } 
   }
 
+export const get_route = (route) =>{
+  return {
+    type: 'GET_OPCION',
+    payload: route
+  }
+}
+
+export const set_route = (route) =>{
+  return {
+    type: 'SET_OPCION',
+    payload: route
+  }
+}
+
   

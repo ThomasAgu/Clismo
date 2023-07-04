@@ -64,6 +64,8 @@ const Login = () => {
                 router.push('/Home')
               }
               else{
+                setUserName('')
+                setPassword('')
                 setPopUp(true)
               }
           })

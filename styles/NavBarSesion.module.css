@@ -27,7 +27,8 @@
 
 .btnNavActive{
     background-color: var(--accent-green);
-    color: var(--backGround);
+    color: var(--darker);
+    box-shadow: 0px 1px 1px var(--accent-green);
 }
 
 .btnNav:hover{
