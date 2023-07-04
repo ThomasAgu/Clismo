@@ -19,7 +19,7 @@ import { BASE_URL } from './api/url';
 //style
 import styles from '../styles/Grupos.module.css'
 const Grupos = () => {
-  const grupos = useSelector(state=> state.grupos.grupos) //trae los grupos de la store
+ 
   const user_role = useSelector(state=> state.login.user.role) //trae el rol del usuario
   const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
   const dispatch = useDispatch();
@@ -133,27 +133,33 @@ const Grupos = () => {
                 </div>
             :
             <></>}
-            
-            <h2 className={styles.subtitle}>Grupos publicos</h2>
-              <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
-                {gruposDisponibles.map((g) => {
-                    return(  
-                      <GrupoCard 
-                        key={g.id} 
-                        nombre={g.name} 
-                        descripcion={g.description} 
-                        privacidad={g.privacy} 
-                        cantIntegrantes={g.users.length} 
-                        capacidad={g.capacity} 
-                        dificultad={g.difficulty}
-                        setMisGrupos={setMisGrupos}
-                        setGrupos={setGruposDisponibles}
-                        grupos ={gruposDisponibles}
-                        />
-                    )
-                  }
-                )}
+            {gruposDisponibles.length !== 0? 
+              <div>
+                <h2 className={styles.subtitle}>Grupos publicos</h2>
+                <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
+                  {gruposDisponibles.map((g) => {
+                      return(  
+                        <GrupoCard 
+                          key={g.id} 
+                          nombre={g.name} 
+                          descripcion={g.description} 
+                          privacidad={g.privacy} 
+                          cantIntegrantes={g.users.length} 
+                          capacidad={g.capacity} 
+                          dificultad={g.difficulty}
+                          setMisGrupos={setMisGrupos}
+                          setGrupos={setGruposDisponibles}
+                          grupos ={gruposDisponibles}
+                          />
+                      )
+                    }
+                  )}
+                </div>
               </div>
+              :
+              <></>
+            }
+              
         </div>
     </div>
   )
