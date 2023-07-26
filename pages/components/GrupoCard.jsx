@@ -9,6 +9,7 @@ import MostrarHoras from './MostrarHoras';
 import BorrarGrupoComponent from './BorrarGrupoComponent';
 //store
 import { useSelector } from 'react-redux';
+import { BASE_URL } from '../api/url';
 
 const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad, dificultad, setMisGrupos, setGrupos, grupos, misGrupos, unido, setActivateDel, setName, setDelId, id}) => {
   
@@ -21,22 +22,55 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
 
   const handleClickChange = () => {
     //API CALL
+    
     const gruposName = grupos.map(el=> el.name);
     const index  =gruposName.indexOf(nombre)
     const grupo = grupos[index];
+    grupo.users.push({'id': user_id, "name": ''}) 
     setMisGrupos((misGrupos) => [...misGrupos, grupo])
     const gruposLibres = grupos.filter((el) => el.name !== nombre)
     setGrupos(gruposLibres)
+
+    const body = {
+      "user_id" : user_id
+    }
+    fetch(`${BASE_URL}groups/${grupo.id}/addUser`, {
+      method : 'PUT',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(body)
+    })
+      .then(result=>{
+        console.log('agregado')
+      })
   }
 
   const handleClickAbandonarGrupo = () => { 
     //API CALL
-    const gruposName = misGrupos.map(el=> el.name)
+    const gruposName = grupos.map(el=> el.name)
     const index  =gruposName.indexOf(nombre)
-    const grupo = misGrupos[index];
+    const grupo = grupos[index];
+    console.log(grupo)
+    grupo.users.pop() 
+
     setGrupos((misGrupos) => [...misGrupos, grupo])
-    const updatedArray = misGrupos.filter((obj) => obj.name !== nombre);
+    const updatedArray = grupos.filter((obj) => obj.name !== nombre);
     setMisGrupos(updatedArray);
+
+    const body = {
+      "user_id" : user_id
+    }
+    fetch(`${BASE_URL}groups/${grupo.id}/removeUser`, {
+      method : 'PUT',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(body)
+    })
+      .then(result=>{
+        console.log('agregado')
+      })
   }
 
   const handleSelecDia = (e) => {

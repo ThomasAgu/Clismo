@@ -51,6 +51,7 @@ const Grupos = () => {
             return g
           } 
         })
+        console.log('Grupos donde estoy anotado', gruposPropios)
         setMisGrupos(gruposPropios)
         //setear grupos publicos con capacidad donde no estoy
         const gruposPublicosQueNoEstoy = gruposTotales.filter((g)=>{ 
@@ -58,6 +59,7 @@ const Grupos = () => {
             return g
           } 
         })
+        console.log('Grupos dosponibles', gruposPublicosQueNoEstoy)
         setGruposDisponibles(gruposPublicosQueNoEstoy)
         //setear grupos donde soy profe
         if(user_role === 'TEACHER'){
@@ -137,6 +139,7 @@ const Grupos = () => {
                         grupos ={misGrupos}
                         misGrupos={gruposDisponibles}
                         unido={true}
+                        id={g.id}
                         />)
                       })}
                   </div>
@@ -160,6 +163,7 @@ const Grupos = () => {
                         setMisGrupos={setMisGrupos}
                         setGrupos={setGruposDisponibles}
                         grupos ={gruposDisponibles}
+                        id={g.id}
                         />
                     )
                   }
