@@ -28,11 +28,39 @@ const CrearGrupo = ({grupos}) => {
 
     const [pasos, setPasos] = useState(1);
     //store
-    const entrenamientos = useSelector(state=> state.entrenamientos.entrenamientos)
+    const [misEntrenamientos, setMisEntrenamientos] = useState([])
+
     const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
+    const user_role = useSelector(state => state.login.user.role)
     //utils
     const dispatch = useDispatch();
     const router = useRouter();
+
+
+    useEffect(() =>{
+      fetch(`${BASE_URL}trainings/list`,{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(result => {
+        const traingingTotales = result
+        if(user_role === 'TEACHER'){
+        const trainingsPropios = traingingTotales.filter((t) =>{
+          if(t.teacher_id === user_id){
+            return t
+          } 
+        })
+        if(trainingsPropios.length !== 0){
+          setMisEntrenamientos(trainingsPropios)
+  
+        }
+      }
+    })
+    }, [])
+    
 
     
     const handleChangeGroupName = (e) => {
@@ -88,7 +116,6 @@ const CrearGrupo = ({grupos}) => {
       });  
     }
 
-
   return (
     
     <div id={styles.content}>
@@ -121,7 +148,7 @@ const CrearGrupo = ({grupos}) => {
                 <input type="radio" id="opcion6" name="privacidad" value="PRIVATE" className={styles.radio} tabIndex='12' aria-label='Dificultad: intermedio' onChange={handleChangeRadioPrivacidad}/>
                 <label for="opcion6" className={styles.labelRadio}>Privado</label>
               </div>
-            <ElegirHorarios pasos={pasos} horarios={horarios} setHorarios={setHorarios}/>
+            <ElegirHorarios pasos={pasos} horarios={horarios} setHorarios={setHorarios} misEntrenamientos={misEntrenamientos}/>
         {pasos < 2 ? 
           <div className='d-flex justify-content-center'><button onClick={handleClickSiguiente} id={styles.horariosBtn}> Elegir horarios </button></div>
         :

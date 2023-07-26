@@ -4,16 +4,15 @@ import { useSelector } from 'react-redux'
 
 import styles from '../../styles/elegirHorarios.module.css'
 
-const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
+const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina, misEntrenamientos}) => {
     const [hora_ini, setHora_ini] = useState('')/* useState(horaYRutina.hora_ini) */
     const [hora_fin, setHora_fin] = useState('')/* useState(horaYRutina.hora_fin) */
     const [entrenamiento, setEntrenamiento] = useState('')/* useState(horaYRutina.entrenamiento) */
 
-    const entrenamientos = useSelector(state=> state.entrenamientos.entrenamientos)
-
 
     const handleChangeSelect = (e) => {
         setEntrenamiento(entrenamiento => e.target.value )
+        console.log(entrenamiento);
     }
 
 
@@ -23,7 +22,7 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
             "day": dia,
             "starttime": `${hora_ini}:00`,
             "endingtime":`${hora_fin}:00`,
-            "training_id": null,
+            "training_id": Number(entrenamiento),
         } 
         const indiceEntrenamientoExistente = horarios.findIndex((el) => el.dia === dia)
         if(indiceEntrenamientoExistente === -1){
@@ -37,7 +36,7 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
                             ...h,
                             "starttime":hora_ini,
                             "endingtime":hora_fin,
-                            "training_id": null,
+                            "training_id": entrenamiento.id,
                         };
                     }
                     return h;
@@ -65,10 +64,10 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
                     <div id={styles.formSecondColumn}>
                         <label htmlFor="">Seleccionar entrenamiento</label>
                         <select name="" id="" value={entrenamiento} onChange={handleChangeSelect}>
-                            <option value="">Seleccionar</option>
-                            {entrenamientos.map((e) =>  {
+                            <option value="" >Seleccionar</option>
+                            {misEntrenamientos.map((e) =>  {
                                 return(
-                                    <option key={e.nombre} value={e.nombre}>{e.nombre}</option>)
+                                    <option key={e.name} value={e.id}>{e.name}</option>)
                             })}
                         </select>
                     </div>

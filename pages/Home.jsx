@@ -9,7 +9,7 @@ import InicioCardComponent from './components/InicioCardComponent'
 import { BASE_URL } from './api/url'
 //store
 import { useSelector, useDispatch } from 'react-redux';
-import { loginSuccess } from '../store/actions/actions';
+import { agregarEntrenamiento, loginSuccess } from '../store/actions/actions';
 
 //styles 
 import styles from '../styles/homeReal.module.css'
@@ -19,6 +19,7 @@ import foto from '../public/images/foto.jpg'
 const Home = () => {
 
   const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
+  const user_role = useSelector(state => state.login.user.role)
   const user = useSelector(state=> state.login.user) //trae el id del usuario
   
   //horarios
@@ -45,11 +46,14 @@ const Home = () => {
         user['role'] = result.role
         user['username'] = result.username
         dispatch(loginSuccess(user));
+
         console.log(result)
         //Aca setear en la store los grupos que vienen con el usuario
       })
       
   }, [])
+
+  
 
   const handleSelecDia = (e) => {
     e.preventDefault()

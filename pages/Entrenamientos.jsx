@@ -44,7 +44,9 @@ const Entrenamientos = () => {
           return t
         } 
       })
-      setMisEntrenamientos(trainingsPropios)
+      if(trainingsPropios.length !== 0){
+        setMisEntrenamientos(trainingsPropios)
+      }
     }
   })
   }, [])

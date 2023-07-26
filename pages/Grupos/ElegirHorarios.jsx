@@ -4,7 +4,7 @@ import ElegirHoras from './ElegirHoras'
 
 import styles from '../../styles/elegirHorarios.module.css'
 
-const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
+const ElegirHorarios = ({pasos, horarios, setHorarios, misEntrenamientos}) => {
 
     const [day, setDay] = useState('')
 
@@ -12,7 +12,7 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
         "day": '',
         "starttime":'',
         "endingtime":'',
-        "training_id": null,
+        "training_id": '',
     })
     
 
@@ -20,14 +20,14 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
         e.preventDefault()
         const diasQueYaHayHorario = horarios.map((el) => el.day)
         const entrenamientoExistente = horarios.filter((el) => el.day === e.target.value)[0]
-
+        
         if(diasQueYaHayHorario.includes(e.target.value)){
             setHoraYRutina(prevState => ({
                 ...prevState,
                 day: entrenamientoExistente.day,
                 starttime: entrenamientoExistente.starttime,
                 endingtime: entrenamientoExistente.endingtime,
-                training_id: null
+                training_id: entrenamientoExistente.training_id
             }))
         }
         else{
@@ -36,7 +36,7 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
                 day: '',
                 starttime: '',
                 endingtime: '',
-                training_id: null
+                training_id: ''
             }))
         }
         setDay(e.target.value)
@@ -59,7 +59,7 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
                     <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'S' ? styles.btnDayActive : ''}`}  id='S' value={'SATURDAY'}>S</button>
                     <button onClick={handleSelecDia} className={`${styles.btnDay} ${day === 'D' ? styles.btnDayActive : ''}`}  id='D' value={'SUNDAY'}>D</button>
                 </div>
-                <ElegirHoras dia={day} setDia={setDay} setHorarios={setHorarios} horarios={horarios} horaYRutina={horaYRutina}/>
+                <ElegirHoras dia={day} setDia={setDay} setHorarios={setHorarios} horarios={horarios} horaYRutina={horaYRutina} misEntrenamientos={misEntrenamientos}/>
             </div>
         :
         <></>
