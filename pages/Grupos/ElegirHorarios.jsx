@@ -12,7 +12,7 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
         "day": '',
         "starttime":'',
         "endingtime":'',
-        "training": '',
+        "training_id": null,
     })
     
 
@@ -27,7 +27,7 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
                 day: entrenamientoExistente.day,
                 starttime: entrenamientoExistente.starttime,
                 endingtime: entrenamientoExistente.endingtime,
-                training: entrenamientoExistente.training
+                training_id: null
             }))
         }
         else{
@@ -36,7 +36,7 @@ const ElegirHorarios = ({pasos, horarios, setHorarios}) => {
                 day: '',
                 starttime: '',
                 endingtime: '',
-                training: ''
+                training_id: null
             }))
         }
         setDay(e.target.value)

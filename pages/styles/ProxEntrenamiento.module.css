@@ -1,0 +1,97 @@
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+
+#circle{
+    background-color: var(--darker);
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    margin-top: 2vh;
+    position: relative;
+}
+
+#circleContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    justify-content: center;
+}
+
+#icon{
+    margin-top: 2vh;
+    color: var(--accent-green);
+    font-size: 40px;
+}
+
+#day{
+    color: var(--accent-green);
+    font-size: var(--ft_card_title);
+    font-family: var(--subtitles);
+}
+
+#nombre{
+    font-size: var(--ft_card_title);
+    font-family: var(--title );
+    color: var(--accent-green);
+}
+
+#descriptionDiv{
+    width: 95%;
+    height: 5vh;
+    margin: auto;
+    background-color: var(--darker);
+    border-left: 2px solid var(--textLight);
+    border-right: 2px solid var(--textLight);
+}
+
+#descripcion{ 
+    font-size: var(--textRoboto);
+    color: var(--textLight);
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+#parametros{
+    color: var(--textLight);
+    font-size: var(--ft_card_title -20px);
+    font-family: var(--textRoboto);
+    margin-top: 2vh;
+    text-align: center;
+}
+
+#horas{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.clock{
+    background-color: var(--accent-green);
+    width: 30%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--darker);
+    font-family: var(--title);
+}
+.clockDark{
+    background-color: var(--darker);
+    color: var(--textLight);
+    width: 30%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: var(--title);
+}

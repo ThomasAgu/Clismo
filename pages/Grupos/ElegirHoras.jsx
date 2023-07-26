@@ -23,7 +23,7 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
             "day": dia,
             "starttime": `${hora_ini}:00`,
             "endingtime":`${hora_fin}:00`,
-            "training": entrenamiento,
+            "training_id": null,
         } 
         const indiceEntrenamientoExistente = horarios.findIndex((el) => el.dia === dia)
         if(indiceEntrenamientoExistente === -1){
@@ -37,7 +37,7 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina}) => {
                             ...h,
                             "starttime":hora_ini,
                             "endingtime":hora_fin,
-                            "training": entrenamiento,
+                            "training_id": null,
                         };
                     }
                     return h;

@@ -6,16 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDeleteLeft, faEdit, faPersonBiking } from '@fortawesome/free-solid-svg-icons';
 //components
 import MostrarHoras from './MostrarHoras';
+import BorrarGrupoComponent from './BorrarGrupoComponent';
 //store
 import { useSelector } from 'react-redux';
 
-const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad, dificultad, setMisGrupos, setGrupos, grupos, misGrupos, unido}) => {
+const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad, dificultad, setMisGrupos, setGrupos, grupos, misGrupos, unido, setActivateDel, setName}) => {
   
   const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
 
   const [dia, setDia] = useState('')
   const [horarioCompleto, setHorarioCompleto] = useState('')
   const [horario, setHorario] = useState({})
+
 
   const handleClickChange = () => {
     //API CALL
@@ -89,14 +91,19 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
     }
   }
 
+  const handleClickBorrar = () =>{
+    setName(nombre)
+    setActivateDel(true)
+  }
+
   const mostrarBotonSegunEstadoDelGrupo = () =>{
-    const grupo  = grupos.filter((el) => el.name === nombre)[0]
+    const  grupo  = grupos.filter((el) => el.name === nombre)[0]
     if(grupo.teacher.id === user_id){
       
       return(
         <div id={styles.profeDivBtns}>
           <button id={styles.editarBtn}><FontAwesomeIcon icon={faEdit}/> editar</button>
-          <button id={styles.borrarBtn}><FontAwesomeIcon icon={faDeleteLeft}/> borrar</button>
+          <button id={styles.borrarBtn} onClick={handleClickBorrar}><FontAwesomeIcon icon={faDeleteLeft}/> borrar</button>
         </div>
       )
     }

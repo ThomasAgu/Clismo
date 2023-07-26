@@ -1,0 +1,69 @@
+#content{
+    height: 100%;
+    box-shadow: 0px 1px 3px var(--backGround);
+    width: 24%;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#name{
+    background-color: var(--backGround);
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 20%;
+    text-align: center;
+
+    font-family: var(--textRoboto);
+    font-size: var(--ft_btns);
+    padding-top: 3%;
+}
+
+
+#statsDouble{
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 80%;
+}
+
+#statContent{
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    font-size: var(--ft_labels);
+    font-family: var(--textRoboto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+#barContainer{
+    height: 60%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.valueStat{
+    height: 10%;
+    position: absolute;
+    top: 0;
+    color: var(--textBackGround);
+}
+#iconStat{
+    height: 30%;
+    width: var(--ft_card_title);
+    color: var(--textBackGround);
+}
+.barra{
+    background-color: var(--textBackGround);
+    color:  var(--backGround);
+    width: 2vw;
+    height: 100%;
+   
+}

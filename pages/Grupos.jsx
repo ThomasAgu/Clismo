@@ -14,6 +14,7 @@ import { faUsersLine, faPlus } from '@fortawesome/free-solid-svg-icons';
 import gruposList from '../datosParaProbar/grupos';
 import GrupoCard from './components/GrupoCard';
 import CrearGrupo from './Grupos/CrearGrupo';
+import BorrarGrupoComponent from './components/BorrarGrupoComponent';
 //apo
 import { BASE_URL } from './api/url';
 //style
@@ -30,6 +31,9 @@ const Grupos = () => {
   const [misGrupos, setMisGrupos] = useState([])
   const [gruposProfe, setGruposProfe] = useState([])
   
+  //para el borrado
+  const [activateDel, setActivateDel] = useState(false)
+  const [name, setName] = useState('')
   useEffect(() => {
     fetch(`${BASE_URL}groups/list`,{
       method: 'GET',
@@ -71,6 +75,7 @@ const Grupos = () => {
     <div id={styles.bigDiv}>
         <NavBar/>
         <NavNarSesion/>
+        <BorrarGrupoComponent active={activateDel} setActive={setActivateDel} name={name}/>
         <div  id={styles.content}>
             <div className='d-flex flex-column text-center mt-3' id={styles.title}>
                 <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> </div>
@@ -82,7 +87,7 @@ const Grupos = () => {
                 }
             </div>
 
-            {((gruposProfe.length !== 0)&&(gruposProfe !== undefined))?
+            {gruposProfe.length !== 0?
             <div>
               <h2 className={styles.subtitle}> Soy profe de</h2>
               <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
@@ -100,6 +105,8 @@ const Grupos = () => {
                     setGrupos={setGruposProfe}
                     grupos ={gruposProfe}
                     misGrupos={gruposProfe}
+                    setActivateDel={setActivateDel}
+                    setName={setName}
                   />)
                   })}
                 </div>
@@ -108,7 +115,7 @@ const Grupos = () => {
               <></>
             }
 
-            {((misGrupos.length !== 0)&&(misGrupos !== undefined))?
+            {misGrupos.length !== 0? 
               <div>
                 <h2 className={styles.subtitle}>Mis grupos</h2>
                 <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
@@ -133,28 +140,28 @@ const Grupos = () => {
                 </div>
             :
             <></>}
-            {((gruposDisponibles.length !== 0)&&(gruposDisponibles !== undefined))?
+            {gruposDisponibles.length !== 0? 
               <div>
                 <h2 className={styles.subtitle}>Grupos publicos</h2>
-                <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
-                  {gruposDisponibles.map((g) => {
-                      return(  
-                        <GrupoCard 
-                          key={g.id} 
-                          nombre={g.name} 
-                          descripcion={g.description} 
-                          privacidad={g.privacy} 
-                          cantIntegrantes={g.users.length} 
-                          capacidad={g.capacity} 
-                          dificultad={g.difficulty}
-                          setMisGrupos={setMisGrupos}
-                          setGrupos={setGruposDisponibles}
-                          grupos ={gruposDisponibles}
-                          />
-                      )
-                    }
-                  )}
-                </div>
+              <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
+                {gruposDisponibles.map((g) => {
+                    return(  
+                      <GrupoCard 
+                        key={g.id} 
+                        nombre={g.name} 
+                        descripcion={g.description} 
+                        privacidad={g.privacy} 
+                        cantIntegrantes={g.users.length} 
+                        capacidad={g.capacity} 
+                        dificultad={g.difficulty}
+                        setMisGrupos={setMisGrupos}
+                        setGrupos={setGruposDisponibles}
+                        grupos ={gruposDisponibles}
+                        />
+                    )
+                  }
+                )}
+              </div>
               </div>
               :
               <></>

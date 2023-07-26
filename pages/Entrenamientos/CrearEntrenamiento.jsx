@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { use } from 'react'
 import { useState, useEffect } from 'react'
 //store
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { agregarEntrenamiento } from '../../store/actions/actions'
 //router
 import { useRouter } from 'next/router'
@@ -16,15 +16,16 @@ import { faBicycle, faSquare } from '@fortawesome/free-solid-svg-icons'
 // Styles
 import styles from '../../styles/CrearEntrenamiento.module.css'
 import ElegirEntrenamientos from './ElegirEntrenamientos'
+import { BASE_URL } from '../api/url'
 
 const CrearEntrenamiento = () => {
   //utils
+  const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
   const dispatch = useDispatch();
   const router = useRouter();
   //state
   const [name, setName] = useState('')
   const [descripcion, setDescripcion] = useState('')
-  const [nivel, setNivel] = useState('')
 
   const [pasos, setPasos] = useState(1)
   const [activate, setActivate] =useState(false)
@@ -34,10 +35,13 @@ const CrearEntrenamiento = () => {
   const [cantEjercicios, setCantEjercicios] = useState()
   const [duracionTotal, setDuracionTotal] = useState()
 
+  //actial ex
+  const [actEx, setActEx] = useState()
+
   useEffect(() => {
     setCantEjercicios(ejercicios.length)
     setDuracionTotal(ejercicios.reduce(function(acc, ex) {
-      return acc + Number(ex.parametros.duracion)
+      return acc + Number(ex.duration)
     }, 0))
   },[ejercicios])
 
@@ -46,9 +50,6 @@ const CrearEntrenamiento = () => {
   }
   const handleChangeDescription = (e) =>{
     setDescripcion(descripcion => e.target.value)
-  }
-  const handleChangeRadio = (e) =>{
-    setNivel(nivel => e.target.value)
   }
 
 
@@ -61,16 +62,35 @@ const CrearEntrenamiento = () => {
 
   const handleClickAddEntrenamiento = () => {
     const entrenamiento = {
-      "nombre": name,
-      "descripcion": descripcion,
-      "duracion":120,
-      "dificultad": nivel,
-      "ejercicios":[{}],
+      "name": name,
+      "description": descripcion,
+      "teacher_id": user_id,
+      "exercises":ejercicios,
     }
 
-    dispatch(agregarEntrenamiento(entrenamiento))
-    router.back()
-    //crear el entrenamiento llamando a la base de datos
+    console.log(entrenamiento)
+    
+    fetch(`${BASE_URL}trainings/create`,{
+      method: 'POST',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(entrenamiento)
+    })
+      .then(response => response.json())
+      .then(result =>{
+        dispatch(agregarEntrenamiento(entrenamiento))
+        router.back()
+      })
+      .catch(err =>{
+        console.error('Error: ', err)
+      });
+  }
+
+  const handleClickSetearEntrenamiento = (ex) =>{
+    //setear valores de entrenamiento. Boton actualizar, o borrar
+    console.log(ex)
+    setActEx(ex)
   }
   
   return (
@@ -87,28 +107,21 @@ const CrearEntrenamiento = () => {
             <form action="" className='m-auto' id={styles.form}>
                 <InputComponent label={'Nombre'} type={'text'} valor={name} setValue={handleChangeName} tabIndex={4} ariaLabel={'Ingresa el nombre del nuevo entrenamiento'}/>
                 <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={handleChangeDescription} tabIndex={5} ariaLabel={'Ingresa la descripcion del nuevo entrenamiento'}/>
-                {/* Radio dificultard */}
-                <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={6} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
-                <div className='d-flex w-100 justify-content-center  pb-3' id={styles.roleLabelsDiv}>
-                    <input type="radio" id="opcion1" name="dificultad" value="principiante" className={styles.radio} tabIndex='7' aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
-                    <label for="opcion1" className={styles.labelRadio}>Principiante</label>
-                    <input type="radio" id="opcion2" name="dificultad" value="intermedio" className={styles.radio} tabIndex='8' aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
-                    <label for="opcion2" className={styles.labelRadio}>Intermedio</label>
-                    <input type="radio" id="opcion3" name="dificultad" value="avanzado" className={styles.radio} tabIndex='9' aria-label='Dificultad: avanzado' onChange={handleChangeRadio}/>
-                    <label for="opcion3" className={styles.labelRadio}>Avanzado</label>
-                </div>
-                {/* Radio de privacidad */}
+              
+              {activate ? <h2 id={styles.h2Form}>Rutina</h2> : <></>}
               {activate ? 
+              
                 <div id={styles.secondPartContainer}>
-                  <ElegirEntrenamientos activate={activate} pasos={pasos} ejercicios={ejercicios} setEjercicios={setEjercicios} />
+                  <ElegirEntrenamientos activate={activate} pasos={pasos} ejercicios={ejercicios} setEjercicios={setEjercicios} actEx={actEx} setActEx={setActEx}/>
                   <div id={styles.secondPartSecondColumn}>
                     <div id={styles.exerciseSquareBoxes}>
                       {ejercicios.map((ex) => {
                         return (
-                          <ExerciseItem key={ex.nombre} />
+                          <ExerciseItem key={ex.nombre} ex={ex} click={handleClickSetearEntrenamiento} actEx={actEx}/>
                         )
                       })}
-                      <FontAwesomeIcon icon={faSquare} id={styles.squares}/>
+                      {actEx === undefined  ? <FontAwesomeIcon icon={faSquare} id={styles.squares}/> : '' 
+}
                     </div>
                     <div id={styles.exerciseTotalStadistics}>
                       <p><strong className={styles.numero}>{cantEjercicios}</strong> Ejercicios</p>
@@ -120,7 +133,7 @@ const CrearEntrenamiento = () => {
               <></>}
               
               {(pasos < 2) ?
-                <div className='d-flex justify-content-center'><button onClick={handleClickSiguiente} id={styles.siguienteBtn} >Siguiente</button></div>
+                <div className='d-flex justify-content-center'><button onClick={handleClickSiguiente} id={styles.siguienteBtn} >Rutina</button></div>
                 :
                 <div className='d-flex justify-content-center'><button onClick={handleClickAddEntrenamiento} id={styles.finalizarBtn} > Finalizar </button></div>
               }

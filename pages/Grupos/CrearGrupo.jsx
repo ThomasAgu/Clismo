@@ -60,7 +60,7 @@ const CrearGrupo = ({grupos}) => {
     }
 
     const handleAgregarGrupo = (e) =>{
-      e.preventDefault();
+      e.preventDefault()
       const grupo = {
         "teacher_id": user_id,
         "name": groupName,
@@ -71,7 +71,7 @@ const CrearGrupo = ({grupos}) => {
         "schedules": horarios
       }
       console.log(grupo)
-      fetch(`${BASE_URL}groups/create`, {
+      fetch(`${BASE_URL}groups/create`,{
         method : 'POST',
         headers : {
           'Content-Type' : 'application/json'

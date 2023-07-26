@@ -1,0 +1,88 @@
+#content{
+    height: 30vh;
+    width: 25vw;
+    background-color: var(--accent-green);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 2px;
+    box-shadow: 0px 3px 10px var(--backGround);
+    position: relative;
+}
+#contentTitle{
+    background-color: var(--backGround);
+    width: 100%;
+    height: 20%;
+}
+
+#content h5{
+    font-size: var(--ft_card_title);
+    font-family: var(--subtitles);
+    color: var(--light);
+    text-align: center;
+}
+
+#contentDes{
+    background-color: var(--darker);
+    width: 96%;
+    margin-top:2%;
+    border-right: 2px solid var(--light);
+    border-left: 2px solid var(--light);
+    font-size: var(--ft_btns);
+    color: var(--light);
+    text-align: center;
+    font-family: var(--textRoboto);
+}
+
+#contentData{
+    background-color: var(--darker);
+    width: 96%;
+    margin-top:2%;
+    border-right: 2px solid var(--light);
+    border-left: 2px solid var(--light);
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+.contentDataContet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: var(--backGround);
+    border-radius: 5px;
+    color: var(--accent-green);
+    font-family: var(--title);
+    font-size: var(--ft_card_title);
+}
+
+#contentDelete{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40%;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    border-radius: 2px;
+   
+    box-shadow: 0px 2px 5px var(--backGround);
+}
+
+#deleteBtn{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: #F01F23;
+    border: none;
+    color: var(--light);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#deleteBrn:hover{
+    transform: translateX(4px);
+    box-shadow: 0px 5px 10px #F01F23;
+}

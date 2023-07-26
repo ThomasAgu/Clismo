@@ -26,7 +26,12 @@
   width: 100%;
 }
 
-
+#h2Form{
+  font-size: var(--ft_card_title);
+  font-family: var(--textNunito);
+  margin-top: 5vh;
+  color: var(--backGround);
+}
 #secondForm{
   width: 95%;
   border: 1px solid var(--backGround);
@@ -69,17 +74,28 @@
 }
 
 #circles{
-  color: var(--light);
-  border: 2px solid var(--backGround);
+  color: var(--accent-green);
+  border: 2px solid var(--accent-green);
   border-radius: 50px;
   font-size: var(--ft_labels);
+  box-shadow: 0px 2px 4px var(--backGround);
   transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #circles:hover{
   cursor: pointer;
-  color: var(--accent-green);
+  color: var(--accent-orange);
+  border: 2px solid var(--accent-orange);
+  box-shadow: 0px 2px 4px var(--accent-orange);
   font-size: var(--ft_labels + 0.3vw);
+}
+
+#circlesActive{
+  border-radius: 50px;
+  color: var(--accent-orange);
+  border: 2px solid var(--accent-orange);
+  box-shadow: 0px 2px 4px var(--accent-orange);
+  font-size: var(--ft_btns);
 }
 
 #exerciseTotalStadistics{
@@ -151,6 +167,12 @@
   color: var(--textBackGround);
 }
 /* Ya no parameters */
+
+
+#optionExerciseDiv{
+  display: flex;
+  justify-content: space-around;
+}
 #addExerciseBtn{
   position:absolute;
   bottom: -10;
@@ -170,6 +192,33 @@
   font-size: calc(var(--ft_btns) + .2rem);
   width: 60px;
   height: 60px;
+}
+
+#updateExerciseBtn, #deleteExerciseBtn{
+  position: relative;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0px 3px 5px var(--backGround);
+  background-color: var(--accent-green);
+  font-size: var(--ft_btns);
+  width: 10vw;
+  color: var(--darker);
+  height: 40px;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#deleteExerciseBtn{
+  background-color: #F01F23;
+  color: var(--textLight);
+}
+
+#updateExerciseBtn:hover{
+  box-shadow: 0px 5px 5px var(--accent-green);
+  transform: translateY(2px);
+}
+#deleteExerciseBtn:hover{
+  box-shadow: 0px 5px 5px #F01F23;
+  transform: translateY(2px);
 }
 
 #siguienteBtn, #finalizarBtn{

@@ -43,7 +43,7 @@ const ImageComponent = ({src, alt}) => {
       src={src} 
       alt={alt}
       width={imageWidth} 
-      height={350} 
+      height={400} 
       id={styles.portadaImg}
       priority
     />

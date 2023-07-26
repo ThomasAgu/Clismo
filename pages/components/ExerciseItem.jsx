@@ -6,9 +6,9 @@ import { faSquare, faCircle } from '@fortawesome/free-solid-svg-icons'
 import styles from '../../styles/CrearEntrenamiento.module.css'
 
 
-const ExerciseItem = () => {
+const ExerciseItem = ({ex, click, actEx}) => {
   return (
-    <FontAwesomeIcon icon={faCircle} id={styles.circles}/>
+    <FontAwesomeIcon icon={faCircle} id={actEx === ex ? styles.circlesActive :styles.circles} onClick={()=> click(ex)}/>
   )
 }
 

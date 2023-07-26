@@ -1,0 +1,67 @@
+#content{
+
+}
+
+#content h3{
+    text-align: center;
+    margin-top: 1vh;
+    font-family: var(--subtitles);
+    color: var(--accent-green);
+    font-size: var(--ft_card_title);
+}
+
+#horariosBigDiv{
+    background-color: var(--darker);
+    width: 90%;
+    margin: auto;
+    height: 45%;
+    border-radius: 5px;
+}
+#horariosDiv{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.btnDay{
+    background-color: var(--backGround);
+    border-radius: 50px;
+    border: 1px solid var(--accent-green);
+    box-shadow: 0px 1px 5px var(--accent-green);
+    height: 50px;
+    width: 50px;
+    color: var(--accent-green);
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btnDayInactive{
+    background-color: var(--darker);
+    border-radius: 50px;
+    border: 1px solid var(--textLight);
+    height: 50px;
+    width: 50px;
+    color: var(--textLight);
+    cursor: none;
+}
+
+.btnDay:hover{
+    background-color: var(--accent-green);
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 0px 1px 10px var(--accent-green);
+    color: var(--backGround);
+}
+
+.btnDayActive{
+    background-color: var(--accent-green);
+    border-radius: 5px;
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 0px 1px 10px var(--accent-green);
+    color: var(--backGround);
+}

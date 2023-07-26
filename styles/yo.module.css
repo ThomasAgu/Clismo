@@ -1,0 +1,203 @@
+#content{
+    position: relative;
+    background-color: var(--light);
+    height: 100vh;
+}
+
+#iconBigDiv{
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: center;
+}
+
+#icon{
+    color: var(--accent-green);
+    font-size: var(--ft_title);
+}
+
+#title{
+    margin-top: 1%;
+    font-size: var(--ft_subTitle);
+    font-family: var(--title);
+    color: var(--textBackGround);
+}
+
+.subtitle{
+    margin-top: 2vh;
+    padding-left: 2%;
+    font-size: var(--ft_sub_subTitle);
+    font-family: var(--subtitles);
+    color: var(--textBackGround);
+}
+#infoPersonalRow{
+    width: 95%;
+    margin: auto;
+    display: flex;
+}
+
+#informacionGeneralDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#profileImg{
+    width: 40%;
+    height: 150px;
+    width: 150px;
+    border-radius: 200px;
+}
+#img{
+    width: 150px;
+    height: 150px;
+    border-radius: 200px;
+    box-shadow: 1px 2px 3px var(--backGround);
+}
+
+#profileData{
+    font-family: var(--title);
+    color: var(--textBackGround);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding-left: 2%;
+}
+
+#profileData h3{
+    font-size: var(--ft_subTitle);
+    color: var(--accent-green);
+    font-weight: 600;
+}
+
+#profileData p{
+    font-size: var(--ft_card_title);
+}
+
+#caracteristicas{
+    display: flex;
+    align-items: center;
+    background-color: var(--backGround);
+    border: 1px solid var(--accent-green);
+    border-radius: 20px;
+    box-shadow: 0px 3px 5px var(--backGround);
+}
+
+#caracteristicasContent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    background-color: var(--accent-green);
+    border-radius: 20px;    
+}
+.carItem{
+    width: 15%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90%;
+    border: 1px solid var(--backGround);
+    border-radius: 2px;
+}
+
+.carClave{
+    font-family: var(--textNunito);
+    font-size: var(--ft_card_title);
+    text-align: center;
+    color: var(--textLight);
+}
+
+.carValor{
+    font-family: var(--title);
+    font-size: var(--ft_card_title);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--darker);
+}
+
+#infoEstadisticasRow{
+    width: 95%;
+    margin: auto;
+    margin-top: 3vh;
+}
+
+#infoEstadisticas{
+    width: 40%;
+    height: 25vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+#infoEstadisticasComparadas{
+    width: 60%;
+    height: 25vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 767px){
+
+    #content{
+        height: 150%;
+    }
+    
+    .subtitle{
+        text-align: center;
+    } 
+
+    #infoPersonalRow{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #informacionGeneralDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #caracteristicas{
+        width: 90%;
+        margin: auto;
+    }
+
+    .carItem{
+        width:20%;
+      
+    }
+
+    #infoEstadisticasRow{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #infoEstadisticas{
+        width: 80%;
+        margin: auto;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        grid-gap: 20px;
+    }
+
+    #infoEstadisticasComparadas{
+        width: 95%;
+        margin: auto;
+        height: 30vh;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5vh;
+    }
+} 

@@ -25,41 +25,57 @@ export default function Home() {
       
       <main className={styles.main}>
         <NavBar/>
-        <div className='position-relative border border-4'>
-          <ImageComponent src={'/../public/images/portada.jpg'} alt={'Alterna'}/>
+        <div className='position-relative'>
+          <ImageComponent src={'/../public/images/clismoappimg.jpg'} alt={'Alterna'}/>
           <h1 id={styles.title}>Decile</h1>
           <h1 id={styles.titleAbajo}>SI a <strong id={styles.strongNameTitle}>Clismo</strong></h1>
         </div>
         <div className='row text-center mt-5'>
-          <div className='col-12 col-md-4 col-lg-4 col-sm-12'>
+          <div className='col-10 d-flex justify-content-around align-items-center m-auto'>
             <Image 
             src={group}
-            width={200}
-            height={200}
+            width={250}
+            height={250}
             alt='aversianda'
             />
-            <h3 className={styles.legend}>Conecta con tu entrenador</h3>
+            <div id={styles.textDiv}>
+              <h3 className={styles.legend}>Conecta con tu entrenador</h3>
+              <div id={styles.conectaDiv}><p id={styles.conectaText}>Accede a entrenamientos personalizados conectándote con un entrenador. Disfruta de rutinas diseñadas para ti y ajustadas según tu progreso. Alcanza tus metas con un seguimiento cercano y motivación constante. ¡Eleva tu rendimiento y alcanza la mejor versión de ti mismo con la ayuda de expertos!</p></div>
+            </div>
           </div>
-          <div className='col-12 col-md-4 col-lg-4 col-sm-12'>
-            <Image 
-            src={bike}
-            width={200}
-            height={200}
-            alt='aversianda'
-            className={styles.icon}/>
-            <h3 className={styles.legend}>Realiza los entrenamientos</h3>
+
+          <div id={styles.SecondPart}>
+            <div className='col-10 d-flex justify-content-around align-items-center m-auto h-100' id={styles.secondDiv}>
+              <div id={styles.textDiv}>
+                <h3 className={styles.legend}>Realiza los entrenamientos</h3>
+                <div id={styles.conectaDiv}><p id={styles.conectaText}>Realiza entrenamientos personalizados de la app con ejercicios diseñados por expertos. Supera tus límites y alcanza tus objetivos con seguimiento y apoyo constante</p></div>
+              </div> 
+              <Image 
+              src={bike}
+              width={250}
+              height={250}
+              alt='aversianda'
+              className={styles.icon}/>              
+            </div>
           </div>
-          <div className='col-12 col-md-4 col-lg-4 col-sm-12'>
-            <Image 
-            src={lupa}
-            width={200}
-            height={200}
-            alt='aversianda'
-            className={styles.icon}/>
-            <h3 className={styles.legend}>Comprueba tu rendimiento</h3>
+          <div id={styles.terceraParteDiv}>
+            <div className='col-10 d-flex justify-content-around align-items-center m-auto' id={styles.tercerdiv}>
+              <Image 
+              src={lupa}
+              width={250}
+              height={250}
+              alt='aversianda'
+              className={styles.icon}/>
+              <div id={styles.textDiv}>
+                <h3 className={styles.legend}>Comprueba tu rendimiento</h3>
+                <div id={styles.conectaDiv}><p id={styles.conectaText}>Mide tu progreso y rendimiento de usuario en tiempo real. Gráficos y estadísticas detalladas te permiten comprobar tus avances y celebrar tus logros en la aplicación.</p></div>
+              </div>
+            </div>
           </div>
         </div>
-
+        <div id={styles.footer} className=''>
+          <p id={styles.creditos}>Prototipo creado por Thomas Aguado y Santiago Ponte</p>
+        </div>
       </main>
     </div>
   )

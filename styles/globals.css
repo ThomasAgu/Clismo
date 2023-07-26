@@ -23,7 +23,6 @@ html,
   --ft_labels: calc(10px + 0.5vw);
   --ft_btns: calc(12px + 0.5vw);
   --ft_footer: calc(10px + 0,5);
-  
   --ft_mobile_labels: calc(12px + 0.5vw);
 }
 
