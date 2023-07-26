@@ -17,6 +17,11 @@
 
 }
 
+#name{
+    color: var(--darker);
+    font-weight: 700;
+}
+
 #borrarText{
     font-size: var(--ft_subTitle);
     text-align: center;
@@ -39,12 +44,6 @@
     font-size: var(--ft_card_title);
     color: var(--light);
 }
-
-#name{
-    color: var(--darker);
-    font-weight: 700;
-}
-
 
 
 #cancelBtn{

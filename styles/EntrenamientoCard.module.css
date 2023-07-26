@@ -69,7 +69,6 @@
     margin-right: 4px;
     border-radius: 2px;
    
-    box-shadow: 0px 2px 5px var(--backGround);
 }
 
 #deleteBtn{
@@ -79,10 +78,12 @@
     background-color: #F01F23;
     border: none;
     color: var(--light);
+    box-shadow: 0px 2px 5px var(--backGround);
+
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#deleteBrn:hover{
+#deleteBtn:hover{
     transform: translateX(4px);
     box-shadow: 0px 5px 10px #F01F23;
 }

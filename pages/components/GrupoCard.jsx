@@ -10,7 +10,7 @@ import BorrarGrupoComponent from './BorrarGrupoComponent';
 //store
 import { useSelector } from 'react-redux';
 
-const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad, dificultad, setMisGrupos, setGrupos, grupos, misGrupos, unido, setActivateDel, setName}) => {
+const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad, dificultad, setMisGrupos, setGrupos, grupos, misGrupos, unido, setActivateDel, setName, setDelId, id}) => {
   
   const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
 
@@ -93,6 +93,7 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
 
   const handleClickBorrar = () =>{
     setName(nombre)
+    setDelId(id)
     setActivateDel(true)
   }
 

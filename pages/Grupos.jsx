@@ -34,6 +34,7 @@ const Grupos = () => {
   //para el borrado
   const [activateDel, setActivateDel] = useState(false)
   const [name, setName] = useState('')
+  const [delId, setDelId] = useState('')
   useEffect(() => {
     fetch(`${BASE_URL}groups/list`,{
       method: 'GET',
@@ -75,7 +76,7 @@ const Grupos = () => {
     <div id={styles.bigDiv}>
         <NavBar/>
         <NavNarSesion/>
-        <BorrarGrupoComponent active={activateDel} setActive={setActivateDel} name={name}/>
+        <BorrarGrupoComponent active={activateDel} setActive={setActivateDel} name={name} delId={delId} setGruposProfe={setGruposProfe}/>
         <div  id={styles.content}>
             <div className='d-flex flex-column text-center mt-3' id={styles.title}>
                 <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> </div>
@@ -107,6 +108,8 @@ const Grupos = () => {
                     misGrupos={gruposProfe}
                     setActivateDel={setActivateDel}
                     setName={setName}
+                    setDelId={setDelId}
+                    id={g.id}
                   />)
                   })}
                 </div>

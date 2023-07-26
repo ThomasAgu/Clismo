@@ -33,7 +33,6 @@
     height: 90%;
     width: 95%;
     margin: auto;
-    border: 1px solid red;
 }
 
 #informacionPersonalSeccion{
@@ -147,11 +146,14 @@
 }
 
 #entrenamientosSeccion{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 1px solid blue;
-    width: 30vw;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 15px;
+
+    align-content: start;
+    justify-items: center;
+
+    width: 60vw;
     height: 60vh;
 }
 

@@ -1,0 +1,72 @@
+#content{
+    position: relative;
+    background-color :var(--backGround);
+    border-radius: 2px;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    box-shadow: 1px 4px 4px var(--backGround);
+    
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#content:hover{
+    box-shadow: 1px 7px 7px var(--accent-green);
+    transform: translateY(2px);
+    border: 3px solid var(--accent-green);
+    text-shadow: 0px 1px 3px var(--accent-green);
+    cursor: pointer;
+}
+
+
+
+#weirdBar{
+    height: 100%;
+    width: 30%;
+    background-color: var(--accent-green);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#icon{
+    color: var(--darker);
+    font-size: 60px;
+}
+
+#circle{
+    height: 100px;
+    width: 100px;
+    border-radius: 200px;
+    background-color: red;
+    z-index: 100;
+    top: 5vh;
+    left: 5vw;
+    position: absolute;
+}
+
+#text{
+    display: flex;
+    flex-direction: column;
+    flex: content;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    max-width: 70%;
+    margin: auto;
+
+}
+
+#text h5{
+    font-size: var(--ft_card_title);
+    font-family: var(--subtitles);
+    color: var(--accent-green);
+}
+
+#text p {
+    font-size: var(--ft_labels);
+    font-family: var(--textRoboto);
+    color: var(--light);
+    text-align: center;
+}

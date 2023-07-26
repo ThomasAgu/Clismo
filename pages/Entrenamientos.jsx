@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import { obtenerEntrenamientos } from '../store/actions/actions';
 import ProxEntrenamiento from './components/ProxEntrenamiento';
 import SemanaDeEntrenamientos from './components/SemanaDeEntrenamientos';
+import BorrarEntrenamiento from './components/BorrarEntrenamiento';
 
 const Entrenamientos = () => {
   const router = useRouter();
@@ -22,6 +23,10 @@ const Entrenamientos = () => {
   const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
 
   const [misEntrenamientos, setMisEntrenamientos] = useState([])
+  
+  //para el borrado
+  const [activateDel, setActivateDel] = useState(false)
+  const [name, setName] = useState('')
   
   useEffect(() =>{
     fetch(`${BASE_URL}trainings/list`,{
@@ -47,6 +52,7 @@ const Entrenamientos = () => {
     <div id={styles.content}>
       <NavBar/>
       <NavNarSesion/>
+      <BorrarEntrenamiento active={activateDel} setActive={setActivateDel} name={name}/>
       <div id={styles.mainContent}>
         <div className='d-flex flex-column text-center mt-3' id={styles.titleDiv}>
           <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faBicycle} id={styles.icon}/></div>
@@ -70,7 +76,7 @@ const Entrenamientos = () => {
         {user_role === 'TEACHER' ? <h2 className={styles.subtitle}>Entrenamientos creados</h2> : <></>}
         {user_role === 'TEACHER' ? 
           <section id={styles.misEntrenamientosSection}>
-            {misEntrenamientos.map((el) => <EntrenamientoCard key={el.id} props={el}/>)}
+            {misEntrenamientos.map((el) => <EntrenamientoCard key={el.id} props={el} setActiveDel={setActivateDel} setName={setName}/>)}
           </section> : <></>}
         <h2 className={styles.subtitle}>Historial</h2>
         
