@@ -20,8 +20,8 @@ const MostrarTrainingGroupData = ({groupSelected, trainSelected, active, dia, se
             <div id={styles.details}>
                 <div id={styles.trainingDetails}>
                     <div id={styles.trainingDetailsContent}>
-                        <div id={styles.trainingTitle}><h4>Entrenmaiento: {trainSelected.name}</h4></div>
-                        <div id={styles.description}>{trainSelected.description}</div>
+                        <div id={styles.trainingTitle}><h4>Entrenmaiento: {trainSelected == undefined ? '':trainSelected.name}</h4></div>
+                        <div id={styles.description}>{trainSelected == undefined ? '':trainSelected.description}</div>
                         <div id={styles.horas}> 
                             <div className={styles.clock}>
                                 <FontAwesomeIcon icon={faClock} id={styles.iconClock}/>
@@ -37,8 +37,8 @@ const MostrarTrainingGroupData = ({groupSelected, trainSelected, active, dia, se
 
                 <div id={styles.groupDetails}>
                     <div id={styles.groupDetailsContent}>
-                        <div id={styles.trainingTitle}><h4>Grupo: {groupSelected.name}</h4></div>
-                        <div id={styles.description}>{groupSelected.description}</div>
+                        <div id={styles.trainingTitle}><h4>Grupo: {groupSelected == undefined ? '': groupSelected.name}</h4></div>
+                        <div id={styles.description}>{groupSelected == undefined ? '': groupSelected.description}</div>
                     </div>
                 </div>
             </div>
