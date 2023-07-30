@@ -15,8 +15,7 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
     const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
 
     useEffect(() => {
-        console.log(primerEntrenamiento, 'Es el primer esntrenamiento del usefects')
-        if(primerEntrenamiento.training_id !== undefined){
+        if(primerEntrenamiento !== undefined){
             fetch(`${BASE_URL}trainings/${primerEntrenamiento.training_id}`,{
             method: 'GET',
             headers: {
@@ -31,16 +30,19 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
     }, [primerEntrenamiento] )
 
     const handleClickCompletarEntrenamiento = () =>{
-        fetch(`${BASE_URL}users/${user_id}/schedule/${primerEntrenamiento.id}/complete`,{
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result, 'entrenamiento completado')
-            })
+        if (primerEntrenamiento !== undefined){
+            fetch(`${BASE_URL}users/${user_id}/schedule/${primerEntrenamiento.id}/complete`,{
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result, 'entrenamiento completado')
+                })
+        }
+        
     }
 
 
@@ -85,9 +87,9 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
                 <p id={styles.day}>{primerEntrenamiento == undefined ? "": calendarioFormateado(primerEntrenamiento.day)}</p>
             </div>
         </div>
-        <h3 id={styles.nombre}>{dataT.name}</h3>
+        <h3 id={styles.nombre}>{dataT == undefined ? '': dataT.name}</h3>
         <div id={styles.descriptionDiv}>
-            <p id={styles.descripcion}>{dataT.description}</p>
+            <p id={styles.descripcion}>{dataT == undefined ? '': dataT.description}</p>
         </div>
         
 {/*         <h4 id={styles.parametros}>{dataT == undefined ? '' : dataT.exercises.reduce(function(acc,ex) {return acc + Number(ex.duration)},0)} mins. | {dataT.exercises.length} ejercicios</h4>
