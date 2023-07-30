@@ -206,8 +206,10 @@
     color: var(--textBackGround);
     font-size: var(--ft_footer);
     font-family: var(--title);
-    position: relative;
-    top: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    height: 100%;
 }
 
 
@@ -217,9 +219,14 @@
     font-family: var(--title);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 30%;
-    position: relative;
-    top: 30%;
+    height: 100%;
+
+}
+
+#biciIcon{
+    width: 30px;
 }
 
 /* Horarios */
@@ -248,6 +255,8 @@
     height: 0px;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+
 
 
 @media screen and (max-width: 767px){

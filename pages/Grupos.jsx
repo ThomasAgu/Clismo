@@ -79,7 +79,7 @@ const Grupos = () => {
         <NavBar/>
         <NavNarSesion/>
         <BorrarGrupoComponent active={activateDel} setActive={setActivateDel} name={name} delId={delId} setGruposProfe={setGruposProfe}/>
-        <div  id={styles.content}>
+        <main  id={styles.content}>
             <div className='d-flex flex-column text-center mt-3' id={styles.title}>
                 <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> </div>
                 <h1 id={styles.titleText}> Grupos </h1>
@@ -174,7 +174,7 @@ const Grupos = () => {
               <></>
             }
               
-        </div>
+        </main>
     </div>
   )
 }

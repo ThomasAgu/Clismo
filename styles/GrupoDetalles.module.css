@@ -1,0 +1,194 @@
+#bigDiv{
+    height: 120%;
+    background-color: var(--light);
+    position: relative;
+}
+
+#iconBigDiv{
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: center;
+  }
+  #icon{
+      color: var(--accent-green);
+      font-size: var(--ft_title);
+    }
+    
+    #title{
+      font-size: var(--ft_subTitle);
+      font-family: var(--title);
+      color: var(--textBackGround);
+    }
+  
+    #titleText{
+      font-size: var(--ft_subTitle);
+    }
+
+#mainContent{
+    display: flex;
+    justify-content: space-around;
+}
+
+#grupoCard{
+    height: 40vh;
+    background-color:var(--light);
+    border: 3px solid  var(--backGround);
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px var(--backGround);
+}
+
+#nameContent{
+    background-color: var(--darker);
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nameContent h4{
+    color: var(--accent-green);
+    font-family: var(--subtitles);
+    font-size: var(--ft_card_title);
+}
+#descContent{
+    height: 20%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 2%;
+}
+#descContent p{
+    color: var(--backGround);
+    font-family: var(--textLato);
+    font-size: var(--ft_btns);
+}
+#difficultyContent{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+#difficultyContent h5{
+    text-align: left;
+    width: 90%;
+    color: var(--backGround);
+}
+
+#labels{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    
+}
+  
+.labelActive{
+    background-color: var(--accent-green);
+    border-radius: 2px;
+    color: var(--darker);
+    width: 30%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 5px var(--accent-green);
+    justify-content: center;
+    font-family: var(--title);
+}
+
+
+.labelInactive{
+    background-color: var(--backGround);
+    border-radius: 2px;
+    color: var(--light);
+    width: 30%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 5px var(--backGround);
+    justify-content: center;
+    font-family: var(--title);
+}
+
+#privacyContent{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+#privacyContent h5{
+    text-align: left;
+    width: 90%;
+    color: var(--backGround);
+}
+
+#usersCard{
+    height: 40vh;
+    background-color:var(--accent-green);
+    box-shadow: 0px 2px 4px var(--backGround);
+    width: 30%;
+    border-radius: 10px;
+}
+
+#searchContent{
+    width: 90%;
+    margin: auto;
+    margin-top: 2vh;
+}
+#inputUsuario{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-RIGHT-radius: 10px;
+    border: none;
+    font-size: var(--ft_card_title);
+    outline: none;
+    padding-left: 2%;
+
+    font-family: var(--title);
+    color: var(--backGround);
+}
+
+#usuarios{
+    background-color: var(--backGround);
+    height: 80%;
+    width: 90%;
+    margin: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    max-height: 30vh;
+    overflow-y: scroll;
+}
+
+#userContent{
+    width: 90%;
+    background-color: var(--darker);
+    height: 15%;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+    padding-left: 2%;
+    font-family: var(--textNunito);
+    font-size: var(--ft_btns);
+    color: var(--accent-orange);
+    
+}
+
+#notUser{
+    width: 90%;
+    background-color: var(--light);
+    height: 15%;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    padding-left: 2%;
+    font-family: var(--textNunito);
+    font-size: var(--ft_btns);
+    color: var(--backGround);
+}

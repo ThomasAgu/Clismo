@@ -27,6 +27,9 @@ const Home = () => {
   const [horarioCompleto, setHorarioCompleto] = useState('')
   const [horario, setHorario] = useState({})
 
+  const [thisWeekTrainings, setThisWeekTrainings]  = useState([])
+  const [thisWeekTrainingsCompleted, setThisWeekTrainingsCompleted] = useState([])
+
   const dispatch = useDispatch();
   
 
@@ -51,15 +54,57 @@ const Home = () => {
         //Aca setear en la store los grupos que vienen con el usuario
       })
       
+      
   }, [])
 
-  
+  useEffect(() => {
+    fetch(`${BASE_URL}groups/list`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(result => {
+        //setear mis grupos 
+        const gruposTotales = result
+        const gruposPropios = gruposTotales.filter((g)=>{ 
+          if(g.users.filter((user) => user.id === user_id).length !== 0){
+            return g
+          } 
+        })
+        
+        const sched = [] 
+        gruposPropios.map((g) =>{ g.schedules.map((s) => sched.push(s))})
+        setThisWeekTrainings(sched)
+        console.log('sched',sched)
+        //setear grupos publicos con capacidad donde no estoy
+      })
 
-  const handleSelecDia = (e) => {
-    e.preventDefault()
-     
+      const diasSemana = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
+      const diaActual = new Date().getDay();
+      
+      fetch(`${BASE_URL}users/${user_id}/schedules/completed?days_lapse=${diaActual}`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => response.json())
+      .then(result => {
+          setThisWeekTrainingsCompleted(result.ids_of_realized_schedules)
+        })
+  }, [])
+
+  const calculateWidth = () => {
+    const per_total = thisWeekTrainings.length
+    const per_actual = thisWeekTrainingsCompleted.length
+
+    return Math.floor(((per_actual*100)/per_total))
   }
 
+
+  
   const handleDelegateClass = (diaAct) => {
     return `${styles.btnDayInactive}`
   }
@@ -91,11 +136,11 @@ const Home = () => {
                  {/*  <p>stats</p> */}
                   <div id={styles.entrenamientos}>
                     <h4>Entrenamientos esta semana</h4>
-                    <div id={styles.barraExterna}>
-                      <div id={styles.barraInterna}></div>
+                    <div id={styles.barraExterna} >
+                      <div id={styles.barraInterna} style={{width: `${calculateWidth()}%`}}></div>
                     </div>
                   </div>
-                  <div id={styles.borderBottom}>1/4</div>
+                  <div id={styles.borderBottom}>{thisWeekTrainingsCompleted.length}/{thisWeekTrainings.length}</div>
                 </div>
             </div>
             {/* Aca ocurre la magia*/}

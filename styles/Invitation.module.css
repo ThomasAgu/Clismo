@@ -1,0 +1,43 @@
+#content{
+    height: 10vh;
+    background-color: var(--darker);
+    width: 90%;
+    margin: auto;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#btns{
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
+
+#btnAccept{
+    background-color: var(--accent-green);
+    border: none;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    color: var(--darker);
+}
+
+#btnAccept:hover{
+    box-shadow: 0px 2px 5px var(--accent-green);
+}
+
+#btnCancel{
+    background-color: #F01F23;
+    border: none;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    color: var(--light);
+    transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#btnCancel:hover{
+    box-shadow: 0px 2px 5px #F01F23;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { Router,useRouter } from 'next/router';
 import styles from '../../styles/GrupoCard.module.css'
 //FA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +19,10 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
   const [dia, setDia] = useState('')
   const [horarioCompleto, setHorarioCompleto] = useState('')
   const [horario, setHorario] = useState({})
+
+
+  //para el update
+  const router = useRouter();
 
 
   const handleClickChange = () => {
@@ -78,7 +83,6 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
     const gruposName = grupos.map(el=> el.name);
     const index  =gruposName.indexOf(nombre)
     const grupo = grupos[index];
-    console.log(grupo.schedules)
     setHorarioCompleto(grupo.schedules)
     const diaElegido = grupo.schedules.filter((el) => el.day === e.target.value)[0]
 
@@ -131,13 +135,20 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
     setActivateDel(true)
   }
 
+  const handleClickEditar = () =>{
+    router.push({
+      pathname : `/Grupos/GrupoDetalles`,
+      query : { id : id}
+    })
+  }
+
   const mostrarBotonSegunEstadoDelGrupo = () =>{
     const  grupo  = grupos.filter((el) => el.name === nombre)[0]
     if(grupo.teacher.id === user_id){
       
       return(
         <div id={styles.profeDivBtns}>
-          <button id={styles.editarBtn}><FontAwesomeIcon icon={faEdit}/> editar</button>
+          <button id={styles.editarBtn} onClick={handleClickEditar}><FontAwesomeIcon icon={faEdit}/> editar</button>
           <button id={styles.borrarBtn} onClick={handleClickBorrar}><FontAwesomeIcon icon={faDeleteLeft}/> borrar</button>
         </div>
       )
@@ -175,8 +186,8 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
           </div>
         </div>
         <div id={styles.aditionalInfo}>
-          <p id={styles.textNivel}>{handleDificultad()}</p>
-          <div  id={styles.textCapacidad}><FontAwesomeIcon icon={faPersonBiking}/><p>Capacidad{cantIntegrantes}/{capacidad}</p></div>
+          <div id={styles.textNivel}>{handleDificultad()}</div>
+          <div  id={styles.textCapacidad}><FontAwesomeIcon icon={faPersonBiking} id={styles.biciIcon}/><div>Capacidad {cantIntegrantes}/{capacidad}</div></div>
         </div>
       </div>
     </div>

@@ -84,6 +84,10 @@
     color: var(--darker);
     font-family: var(--title);
 }
+
+#iconClock{
+    width: 20px;
+}
 .clockDark{
     background-color: var(--darker);
     color: var(--textLight);

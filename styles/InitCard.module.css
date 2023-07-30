@@ -6,9 +6,9 @@
     height: 20vh;
     display: flex;
     box-shadow: 1px 4px 4px var(--backGround);
-    
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 
 #content:hover{
     box-shadow: 1px 7px 7px var(--accent-green);
@@ -31,8 +31,8 @@
 }
 
 #icon{
+    width: 100px;
     color: var(--darker);
-    font-size: 60px;
 }
 
 #circle{

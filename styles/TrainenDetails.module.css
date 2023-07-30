@@ -1,0 +1,129 @@
+#content{
+    background-color: var(--accent-green);
+    height: 30vh;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+
+#details{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#detailsInactive{
+    height: 100%;
+    background-color: var(--backGround);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+
+#trainingDetails{
+    background-color: var(--accent-green);
+
+    width: 40%;
+    height: 80%;
+    margin-left: 2px;
+    padding-top: 2px;
+    
+}
+
+
+
+#trainingDetailsContent{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#trainingTitle{
+    width: 100%;
+    background-color: var(--darker);
+}
+
+#trainingDetailsContent h4{
+    font-size: var(--ft_card_title);
+    text-align: start;
+    padding-left: 2%;
+    color: var(--light);
+    font-family: var(--title);
+}
+
+#description{
+    background-color: var(--backGround);
+    color: var(--light);
+    text-align: start;
+    padding-left: 2%;
+
+    font-size: var(--ft_btns);
+    font-family: var(--textNunito);
+    height: 10vh;
+}
+
+#groupDetails{
+    background-color: var(--accent-green);
+    width: 40%;
+    height: 80%;
+    margin-left: 2px;
+    padding-top: 2px;
+}
+
+#groupDetailsContent h4{
+    text-align: start;
+    font-size: var(--ft_card_title);
+    padding-left: 2%;
+    color: var(--light);
+    font-family: var(--title);
+}
+
+#horas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: var(--darker);
+    height: 4vh;
+}
+
+.clock{
+    background-color: var(--accent-green);
+    width: 30%;
+    height: 90%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--darker);
+    font-family: var(--title);
+    
+}
+
+#iconClock{
+    width: 15px;
+}
+.clockDark{
+    background-color: var(--darker);
+    color: var(--textLight);
+    width: 30%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: var(--title);
+}
+
+#groupDetailsContent{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: column;
+}
