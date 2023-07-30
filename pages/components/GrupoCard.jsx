@@ -99,16 +99,19 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
   }
 
   const handleDelegateClass = (diaAct) => {
-    const gruposName = grupos.map(el=> el.name);
-    const index  =gruposName.indexOf(nombre)
-    const grupo = grupos[index];
-    const diaEnSchedule = grupo.schedules.filter((el) => el.day === diaAct)[0]
-    if(diaEnSchedule !== undefined){
-      return (`${styles.btnDay} ${dia === diaAct ? styles.btnDayActive : ''}`)
+    if(grupos !== undefined){
+      const gruposName = grupos.map(el=> el.name);
+      const index  =gruposName.indexOf(nombre)
+      const grupo = grupos[index];
+      const diaEnSchedule = grupo.schedules.filter((el) => el.day === diaAct)[0]
+      if(diaEnSchedule !== undefined){
+        return (`${styles.btnDay} ${dia === diaAct ? styles.btnDayActive : ''}`)
+      }
+      else{
+        return `${styles.btnDayInactive}`
+      }
     }
-    else{
-      return `${styles.btnDayInactive}`
-    }
+    return `${styles.btnDayInactive}`
     
   }
 
