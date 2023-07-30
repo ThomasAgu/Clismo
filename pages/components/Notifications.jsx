@@ -17,10 +17,13 @@ const Notifications = ({invitations}) => {
   }
     return (
     <div id={styles.notifificationContent} onClick={handleClickActivate}>
-        {invitations.filter((i) => i.accepted == false).length > 0 ? 
+        {Array.isArray(invitations) && invitations.length > 0 ? 
+          invitations.filter((i) => i.accepted == false).length > 0 ? 
             <div id={styles.roundenNotificationActive}><FontAwesomeIcon icon={faBell} id={styles.bellActive}/> <div id={styles.notCant}>{invitations.filter((i) => i.accepted == false).length}</div></div>
-        :
-        <div id={styles.roundenNotificationInactive}><FontAwesomeIcon icon={faBell} id={styles.bellInactive}/></div>
+            :
+            <div id={styles.roundenNotificationInactive}><FontAwesomeIcon icon={faBell} id={styles.bellInactive}/></div>
+          :
+        ''
         }
         {active ? 
             invitacionesValidas.length > 0 ?

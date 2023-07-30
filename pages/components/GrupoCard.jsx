@@ -143,8 +143,9 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
   }
 
   const mostrarBotonSegunEstadoDelGrupo = () =>{
-    const  grupo  = grupos.filter((el) => el.name === nombre)[0]
-    if(grupo.teacher.id === user_id){
+    if(grupos !== undefined){
+      const  grupo  = grupos.filter((el) => el.name === nombre)[0]
+      if(grupo.teacher.id === user_id){
       
       return(
         <div id={styles.profeDivBtns}>
@@ -159,6 +160,8 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
       else
         return(<button id={styles.anotarseBtn} onClick={handleClickChange}>Unirme</button>)
     }
+    }
+    
   }
   
   return (
