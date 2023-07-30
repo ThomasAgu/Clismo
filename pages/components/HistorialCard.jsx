@@ -4,7 +4,7 @@ const HistorialCard = ({data}) => {
 
     console.log(data,'historial card')
   return (
-    <div>{data.day}</div>
+    <div>{data == undefined ? '' : data.day}</div>
   )
 }
 

@@ -22,7 +22,7 @@ const EntrenamientoCard = ({props, setActiveDel, setName}) => {
             </div>
             <div className={styles.contentDataContet}>
                 <h6>Duracion</h6>
-                <div>{props.exercises.reduce(function(acc,ex) {return acc + Number(ex.duration)},0)}</div>
+                <div>{props == undefined ? '' : props.exercises.reduce(function(acc,ex) {return acc + Number(ex.duration)},0)}</div>
             </div>
         </div>
         <div id={styles.contentDelete}><button id={styles.deleteBtn} onClick={handleClickDel}> Borrar  <FontAwesomeIcon icon={faDeleteLeft}/></button></div>

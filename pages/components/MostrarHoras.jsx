@@ -14,8 +14,8 @@ const MostrarHoras = ({dia, setDia, horarioCompleto}) => {
     <div>
         {dia !== '' ?
             <div id={styles.activeDiv}>
-                <p>Desde: {handleShowTime(dia.starttime)}</p>
-                <p>Hasta: {handleShowTime(dia.endingtime)}</p>
+                <p>Desde: {dia == undefined  ? '' : handleShowTime(dia.starttime)}</p>
+                <p>Hasta: {dia == undefined  ? '' : handleShowTime(dia.endingtime)}</p>
             </div>
         :
         <div id={styles.inactiveDiv}></div>}

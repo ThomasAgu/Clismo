@@ -55,7 +55,6 @@ const CrearGrupo = ({grupos}) => {
         })
         if(trainingsPropios.length !== 0){
           setMisEntrenamientos(trainingsPropios)
-  
         }
       }
     })
