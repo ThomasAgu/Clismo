@@ -51,9 +51,9 @@ const UserComponent = ({name, esUser, uid, gid}) => {
         <div id={styles.userName}>{name} </div>
         <div>
             {esUser ? 
-                <button id={styles.kickBtn} onClick={handleClickKickUser}><FontAwesomeIcon icon={faSquareMinus}/></button>
+                <button id={styles.kickBtn} onClick={handleClickKickUser}><FontAwesomeIcon icon={faSquareMinus} id={styles.iconQuit}/></button>
             :
-                <button id={styles.inviteBtn} onClick={handleClickInviteUser}><FontAwesomeIcon icon={faEnvelope}/></button>
+                <button id={styles.inviteBtn} onClick={handleClickInviteUser}><FontAwesomeIcon icon={faEnvelope} id={styles.iconInvite}/></button>
             }
         </div>
         </div>

@@ -14,7 +14,7 @@
 
 #icon{
     color: var(--accent-green);
-    font-size: var(--ft_title);
+    width: 100px;
 }
 
 #title{
@@ -33,7 +33,7 @@
 
 #agregarEntrenamientoDiv{
   position: absolute;
-  top: 3%;
+  top: 15%;
   right: 10%;
   width: 20%;
   height: 5vh;
@@ -53,8 +53,7 @@
 }
 
 #addIcon{
-  font-size: var(--ft_btns);
-  width: var(--ft_btns);
+  width: 20px;
 }
 
 #agregarEntrenamientoBtn:hover{

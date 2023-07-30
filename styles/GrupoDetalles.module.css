@@ -1,5 +1,5 @@
 #bigDiv{
-    height: 120%;
+    height: 100vh;
     background-color: var(--light);
     position: relative;
 }
@@ -12,7 +12,7 @@
   }
   #icon{
       color: var(--accent-green);
-      font-size: var(--ft_title);
+      width: 100px;
     }
     
     #title{

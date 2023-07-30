@@ -152,8 +152,8 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
       
       return(
         <div id={styles.profeDivBtns}>
-          <button id={styles.editarBtn} onClick={handleClickEditar}><FontAwesomeIcon icon={faEdit}/> editar</button>
-          <button id={styles.borrarBtn} onClick={handleClickBorrar}><FontAwesomeIcon icon={faDeleteLeft}/> borrar</button>
+          <button id={styles.editarBtn} onClick={handleClickEditar}><FontAwesomeIcon icon={faEdit} id={styles.editIcon}/> editar</button>
+          <button id={styles.borrarBtn} onClick={handleClickBorrar}><FontAwesomeIcon icon={faDeleteLeft} id={styles.delIcon}/> borrar</button>
         </div>
       )
     }
