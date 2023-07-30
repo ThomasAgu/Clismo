@@ -25,8 +25,11 @@ const Notifications = ({invitations}) => {
         {active ? 
             invitacionesValidas.length > 0 ?
             <div id={styles.notificancionsList}>
-              {console.log(invitacionesValidas)}
-              {invitacionesValidas.map((i) => <Invitation key={i.id} gui={i.id_group} uid={i.id_user}  id={i.id} setActive={setActive} setInvitacionesValidas={setInvitacionesValidas} invitacionesValidas={invitacionesValidas}/>)}
+              {Array.isArray(invitacionesValidas) && invitacionesValidas.length > 0 ?
+                  invitacionesValidas.map((i) => <Invitation key={i.id} gui={i.id_group} uid={i.id_user}  id={i.id} setActive={setActive} setInvitacionesValidas={setInvitacionesValidas} invitacionesValidas={invitacionesValidas}/>)
+                  :
+                  ""
+              }
             </div> 
             :    
             <div id={styles.notificationsListInactive}>

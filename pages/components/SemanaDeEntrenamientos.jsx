@@ -66,11 +66,14 @@ const SemanaDeEntrenamientos = ({scheduleTotal}) => {
   }
 
   const handleDelegateClass  = (diaAct) =>{
-    const diaEnSchedule = scheduleTotal.filter((el) => el.day === diaAct)[0]
-    /* console.log(diaEnSchedule) */
-    if(diaEnSchedule !== undefined){
-      return (`${styles.btnDay} ${dia === diaAct ? styles.btnDayActive : ''}`)
+    if(scheduleTotal !== undefined){
+      const diaEnSchedule = scheduleTotal.filter((el) => el.day === diaAct)[0]
+      /* console.log(diaEnSchedule) */
+      if(diaEnSchedule !== undefined){
+        return (`${styles.btnDay} ${dia === diaAct ? styles.btnDayActive : ''}`)
+      }
     }
+    
     return `${styles.btnDayInactive}`
   }
 

@@ -18,7 +18,7 @@ const EntrenamientoCard = ({props, setActiveDel, setName}) => {
         <div id={styles.contentData}>
             <div className={styles.contentDataContet} >
                 <h6>Cant Ejercicios</h6>
-                <div>{props.exercises.length}</div>
+                <div>{props == undefined ? '' : props.exercises.length}</div>
             </div>
             <div className={styles.contentDataContet}>
                 <h6>Duracion</h6>
