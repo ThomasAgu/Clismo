@@ -5,14 +5,16 @@ import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 const EntrenamientoCard = ({props, setActiveDel, setName}) => {
   
   const handleClickDel = () =>{
-    setName(props.name)
-    setActiveDel(true)
+    if(props !== undefined){
+      setName(props.name)
+      setActiveDel(true)
+    }
   }
 
     return (
     <div id={styles.content}>
-        <div id={styles.contentTitle}><h5>{props.name}</h5></div>
-        <div id={styles.contentDes}><p>{props.description}</p></div>
+        <div id={styles.contentTitle}><h5>{props == undefined ? "" : props.name}</h5></div>
+        <div id={styles.contentDes}><p>{props == undefined ? "" : props.description}</p></div>
         <div id={styles.contentData}>
             <div className={styles.contentDataContet} >
                 <h6>Cant Ejercicios</h6>

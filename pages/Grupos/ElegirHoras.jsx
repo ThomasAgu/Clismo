@@ -65,7 +65,7 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina, misEntrenam
                         <label htmlFor="">Seleccionar entrenamiento</label>
                         <select name="" id="" value={entrenamiento} onChange={handleChangeSelect}>
                             <option value="" >Seleccionar</option>
-                            {misEntrenamientos.map((e) =>  {
+                            {misEntrenamientos == [] ? "" : misEntrenamientos.map((e) =>  {
                                 return(
                                     <option key={e.name} value={e.id}>{e.name}</option>)
                             })}
