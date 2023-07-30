@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from '../../styles/ImagenPortada.module.css'
-import img from '../../public/clismoappimg.jpg'
+import img from '../../public/images/clismoappimg.jpg'
 
 function getViewportValue(unit) {
   const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
