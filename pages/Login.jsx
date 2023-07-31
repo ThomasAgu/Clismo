@@ -49,6 +49,7 @@ const Login = () => {
       
       else{
         const user ={ username: userName, password: password }
+        console.log('jacienmdo el lign', BASE_URL)
         fetch(`${BASE_URL}auth/login`, {
           method: 'POST',
           headers: {
