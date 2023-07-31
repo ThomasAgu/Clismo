@@ -17,7 +17,6 @@ import { BASE_URL } from './api/url';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../store/actions/actions';
 //
-import { httpsAgent } from './api/url';
 const Login = () => {
 
   const [userName, setUserName] = useState('');
@@ -52,7 +51,6 @@ const Login = () => {
         const user ={ username: userName, password: password }
         fetch(`${BASE_URL}auth/login`, {
           method: 'POST',
-          httpsAgent: httpsAgent,
           headers: {
             'Content-Type': 'application/json'
           },
