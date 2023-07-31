@@ -4,9 +4,14 @@
   background-color: var(--light);
 }
 
+#contentIcon{
+  width: 100%;
+}
+
 #icon{
   color: var(--accent-green);
   width: 100px;
+  margin: auto;
 }
 
 #title{

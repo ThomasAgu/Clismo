@@ -122,7 +122,7 @@ const CrearGrupo = ({grupos}) => {
       <NavNarSesion/>
       <div>
         <div className='d-flex flex-column text-center mt-3' id={styles.title}>
-            <FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> 
+            <div id={styles.contentIcon}><FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> </div>
             <h1> Crear Grupo </h1>
         </div>
         <form className='m-auto' id={styles.form}>
