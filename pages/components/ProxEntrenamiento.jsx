@@ -26,6 +26,8 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
             .then(result => {
                 setDadaT(result)
             })
+            .catch((err)=>{console.log(err)})
+
         }
     }, [primerEntrenamiento] )
 

@@ -146,7 +146,7 @@ const Entrenamientos = () => {
       <BorrarEntrenamiento active={activateDel} setActive={setActivateDel} name={name}/>
       <div id={styles.mainContent}>
         <div className='d-flex flex-column text-center mt-3' id={styles.titleDiv}>
-          <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faBicycle} id={styles.icon}/></div>
+          <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faBicycle} id={styles.titleIcon}/></div>
           <h1 id={styles.title}>Entrenamientos</h1>
           {user_role === 'TEACHER'?
             <div id={styles.agregarEntrenamientoDiv}><button id={styles.agregarEntrenamientoBtn} onClick={()=> router.push('/Entrenamientos/CrearEntrenamiento')}><FontAwesomeIcon icon={faPlus} id={styles.addIcon}/> Crear Entrenamiento</button></div>

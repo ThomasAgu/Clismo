@@ -23,7 +23,7 @@ const Notifications = ({invitations}) => {
             :
             <div id={styles.roundenNotificationInactive}><FontAwesomeIcon icon={faBell} id={styles.bellInactive}/></div>
           :
-        ''
+        <div id={styles.roundenNotificationInactive}><FontAwesomeIcon icon={faBell} id={styles.bellInactive}/></div>
         }
         {active ? 
             invitacionesValidas.length > 0 ?

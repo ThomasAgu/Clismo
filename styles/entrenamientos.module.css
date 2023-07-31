@@ -12,6 +12,10 @@
   justify-content: center;
 }
 
+#titleIcon{
+  color: var(--accent-green);
+  width: 100px;
+}
 #icon{
     color: var(--accent-green);
     width: 100px;
