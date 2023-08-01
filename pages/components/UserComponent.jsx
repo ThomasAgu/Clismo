@@ -9,11 +9,14 @@ import { faEnvelope, faSquareMinus  } from '@fortawesome/free-solid-svg-icons'
 import styles from '../../styles/UserComponent.module.css'
 import { useSelector } from 'react-redux'
 
-const UserComponent = ({name, esUser, uid, gid}) => {
+const UserComponent = ({name, esUser, uid, gid, setPopUp, setTodoBienOMal, setMsg}) => {
 
     const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
 
     const handleClickKickUser = () => {
+        setPopUp(true)
+        setTodoBienOMal('todomal')
+        setMsg(`Se ha eliminado al usuario ${name} del grupo`)
         const body = {"user_id" : uid}
         fetch(`${BASE_URL}groups/${gid}/removeUser`, {
             method : 'PUT',
@@ -28,6 +31,9 @@ const UserComponent = ({name, esUser, uid, gid}) => {
         }
 
     const handleClickInviteUser = () =>{
+        setPopUp(true)
+        setTodoBienOMal('todobien')
+        setMsg(`Se ha invitado al usuario ${name}`)
         const body = {
             "teacher_id" : user_id
         }

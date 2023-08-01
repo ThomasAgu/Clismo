@@ -1,2 +1,2 @@
-export const BASE_URL = `http://192.168.0.102:1337/` //Desarrollo
-/* export const BASE_URL = `http://192.168.0.102:5001/` */ //Produccion 
+//export const BASE_URL = `http://localhost:1337/` //Desarrollo
+export const BASE_URL = `https://backend-adex.onrender.com/`

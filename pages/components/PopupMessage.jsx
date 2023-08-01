@@ -47,7 +47,6 @@ const PopupMessage = ({msg, todoBienOtodoMal, active, setActive, tiempo}) => {
         :
         <></>
       }
-      
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import NavBar from '../components/NavBar'
 import NavNarSesion from '../components/NavNarSesion'
 import UserComponent from '../components/UserComponent'
+import NotificacionPopUpComponent from '../components/NotificacionPopUpComponent'
 //fA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsersLine } from '@fortawesome/free-solid-svg-icons'
@@ -19,8 +20,10 @@ const GrupoDetalles = () => {
 
     const [ grupoAct, setGrupo ] = useState({})
     const [usuariosExternos, setUsuariosExternos] = useState([])
-
-
+    //para el popup
+    const [popUp, setPopUp] = useState(false)
+    const [todoBienOMal,setTodoBienOMal] =useState('todobien')
+    const [msg, setMsg] = useState('')
     useEffect(() => {
         fetch(`${BASE_URL}groups/${id}`,{
           method: 'GET',
@@ -76,7 +79,7 @@ const GrupoDetalles = () => {
                     <h5>Dificultad</h5>
                     <div id={styles.labels}>
                         <div className={grupoAct.difficulty === 'EASY' ? styles.labelActive : styles.labelInactive }><div>Fácil</div></div>
-                        <div className={grupoAct.difficulty === 'MEDIUM' ? styles.labelActive : styles.labelInactive }><div>Medio</div></div>
+                        <div className={grupoAct.difficulty === 'MIDDLE' ? styles.labelActive : styles.labelInactive }><div>Medio</div></div>
                         <div className={grupoAct.difficulty === 'HARD' ? styles.labelActive : styles.labelInactive }><div>Difícil</div></div>
                     </div>
                 </div>
@@ -98,18 +101,22 @@ const GrupoDetalles = () => {
                 <div id={styles.usuarios}>
                     {grupoAct.users !== [] && grupoAct.users !== undefined ?
                         grupoAct.users.map((u)=>{
-                            return (<UserComponent key={u.id} name={u.username} esUser={true} uid={u.id} gid={grupoAct.id}/>)
+                            return (<UserComponent key={u.id} name={u.username} esUser={true} uid={u.id} gid={grupoAct.id} setPopUp={setPopUp} setTodoBienOMal={setTodoBienOMal} setMsg={setMsg}/>)
                     })
                     :
                     <></>
                     }
                     {usuariosExternos.map((u) =>{
-                        return(<UserComponent key={u.id} name={u.username} esUser={false} uid={u.id} gid={grupoAct.id}/>)
+                        return(<UserComponent key={u.id} name={u.username} esUser={false} uid={u.id} gid={grupoAct.id} setPopUp={setPopUp} setTodoBienOMal={setTodoBienOMal} setMsg={setMsg}/>)
                     })}
                 
                 </div>
             </div>
-
+            { popUp ? 
+                <NotificacionPopUpComponent msg={msg} todoBienOtodoMal={todoBienOMal} active={popUp} setActive={setPopUp} tiempo={100}/>
+                :
+                <></>
+      }
         </div>
 
 

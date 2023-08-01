@@ -99,7 +99,7 @@ const CrearEntrenamiento = () => {
         <NavNarSesion />
         <div>
             <div className='d-flex flex-column text-center mt-3' id={styles.titleDiv}>
-                <FontAwesomeIcon icon={faBicycle} id={styles.icon}/> 
+                <div id={styles.iconContent}><FontAwesomeIcon icon={faBicycle} id={styles.icon}/> </div>
                 <h1 id={styles.titleDiv}> Crear Entrenamiento </h1>
             </div>
         </div>

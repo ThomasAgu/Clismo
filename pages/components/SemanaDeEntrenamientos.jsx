@@ -16,7 +16,7 @@ const SemanaDeEntrenamientos = ({scheduleTotal}) => {
 
     useEffect(() => {
       const today = new Date();
-      const currentDayOfWeek = today.getDay(); // 0 para domingo, 1 para lunes, ..., 6 para sábado
+      const currentDayOfWeek = today.getDay()+1; // 0 para domingo, 1 para lunes, ..., 6 para sábado
       const daysToMonday = (currentDayOfWeek === 0) ? 6 : (currentDayOfWeek - 2);
       const firstMonday = new Date(today.getTime() - daysToMonday * 24 * 60 * 60 * 1000);
       setPrimerLunes(`${firstMonday.getDate()}/${firstMonday.getMonth()+1}`)

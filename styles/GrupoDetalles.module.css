@@ -26,8 +26,10 @@
     }
 
 #mainContent{
+    margin-top: 5vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+
 }
 
 #grupoCard{
@@ -37,6 +39,7 @@
     width: 30%;
     border-radius: 10px;
     box-shadow: 0px 2px 4px var(--backGround);
+    margin-right: 2vw;
 }
 
 #nameContent{
@@ -126,6 +129,7 @@
 }
 
 #usersCard{
+    margin-left: 2vw;
     height: 40vh;
     background-color:var(--accent-green);
     box-shadow: 0px 2px 4px var(--backGround);

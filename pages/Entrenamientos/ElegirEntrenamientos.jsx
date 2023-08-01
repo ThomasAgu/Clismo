@@ -150,8 +150,8 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios, actEx
                     </div>
                     :
                     <div className='' id={styles.optionExerciseDiv}>
-                        <button onClick={handleClickActEntrenamiento} id={styles.updateExerciseBtn}><FontAwesomeIcon icon={faEdit} /> Actualizar</button>
-                        <button onClick={handleClickDelEntrenamiento} id={styles.deleteExerciseBtn}><FontAwesomeIcon icon={faTrash} /> Borrar</button>
+                        <button onClick={handleClickActEntrenamiento} id={styles.updateExerciseBtn}><FontAwesomeIcon icon={faEdit} id={styles.editIcon} /> Actualizar</button>
+                        <button onClick={handleClickDelEntrenamiento} id={styles.deleteExerciseBtn}><FontAwesomeIcon icon={faTrash} id={styles.delIcon}/> Borrar</button>
                     </div>
                 }
             </form>

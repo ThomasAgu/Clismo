@@ -33,6 +33,8 @@ const Entrenamientos = () => {
   const [name, setName] = useState('')
   //para el historial 
   const [historial, setHistorial] = useState([])
+
+  const diasSemana = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
   
   useEffect(() => {
     fetch(`${BASE_URL}groups/list`,{
@@ -55,8 +57,11 @@ const Entrenamientos = () => {
         const sched = [] 
         gruposPropios.map((g) =>{ g.schedules.map((s) => sched.push(s))})
         setScheduleTotal(sched)
+        console.log(sched, 'sched')
         //proximo calcular
-        setprimerEntrenamiento(sched[0])
+        const schedOrdenado = sched.sort((a,b) => diasSemana.indexOf(a.day) - diasSemana.indexOf(b.day))
+        //filtrar si completo entrenamiento 
+        setprimerEntrenamiento(schedOrdenado[0])
         //setear grupos publicos con capacidad donde no estoy
       })
 
@@ -91,7 +96,7 @@ const Entrenamientos = () => {
         console.log('entreenamiento proximo ', entrenamientosAnotado)
 
         const data = entrenamientosAnotado.filter((el) => el.id == primerEntrenamiento.training_id)
-        console.log('data ', data[0])
+        console.log('data ', data)
         setPrimerEntrenamientoData(data[0])
 
 
@@ -117,7 +122,7 @@ const Entrenamientos = () => {
             .then(response => response.json())
             .then(result => {
               const idsSched = result.ids_of_realized_schedules
-  
+              
               idsSched.map((id)=>{
                 fetch(`${BASE_URL}/schedules/${id}`,{
                   method: 'GET',
@@ -157,7 +162,7 @@ const Entrenamientos = () => {
         <h2 className={styles.subtitle}>Proximo entrenamiento</h2>
         <section id={styles.firstSection}>
           <div id={styles.fsFirstElement}>
-            <ProxEntrenamiento primerEntrenamiento={primerEntrenamiento} primerEntrenamientoData={primerEntrenamientoData}/>
+            <ProxEntrenamiento primerEntrenamiento={primerEntrenamiento} historial={historial} setHistorial={setHistorial}/>
           </div>
           <div id={styles.fsSecondElement}>
             <SemanaDeEntrenamientos scheduleTotal={scheduleTotal}/>

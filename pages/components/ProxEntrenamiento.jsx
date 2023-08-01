@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 
 
 
-const ProxEntrenamiento = ({primerEntrenamiento}) => {
+const ProxEntrenamiento = ({primerEntrenamiento, historial ,setHistorial}) => {
 
     const [dataT, setDadaT] = useState({})
     const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
@@ -31,6 +31,17 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
         }
     }, [primerEntrenamiento] )
 
+    const verSiEstaCompletado = () =>{
+        if(primerEntrenamiento !== undefined){
+            const idsHistorial = historial.map((el) => el.id )
+            if(idsHistorial.indexOf(primerEntrenamiento.id) !== -1){
+                return false
+            }
+            return true
+        }
+        
+    }
+
     const handleClickCompletarEntrenamiento = () =>{
         if (primerEntrenamiento !== undefined){
             fetch(`${BASE_URL}users/${user_id}/schedule/${primerEntrenamiento.id}/complete`,{
@@ -41,7 +52,8 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
                 })
                 .then(response => response.json())
                 .then(result => {
-                    console.log(result, 'entrenamiento completado')
+                    setHistorial((el) => [...el, result])
+                    //Setear el proximo entrenamiento no completado D: ?
                 })
         }
         
@@ -60,12 +72,12 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
 
         const diasSemana = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
         const hoy = new Date();
-        const diaActual = hoy.getDay();
+        const diaActual = hoy.getDay()-1; 
         const indiceDia = diasSemana.indexOf(diadelTrain);
         // Calculamos la diferencia de días hasta el próximo día especificado
         let diasHastaProximoDia;
         if (indiceDia >= diaActual) {
-            diasHastaProximoDia = indiceDia - diaActual;
+            diasHastaProximoDia = indiceDia - diaActual -1;
         } else {
             diasHastaProximoDia = 7 - diaActual + indiceDia;
         }
@@ -106,7 +118,11 @@ const ProxEntrenamiento = ({primerEntrenamiento}) => {
                 <div>{primerEntrenamiento == undefined ? "" : horaFormateada(primerEntrenamiento.endingtime)}</div>
             </div>
         </div>
-        <button onClick={handleClickCompletarEntrenamiento}>completarEntrenamiento</button>
+        {verSiEstaCompletado() ?
+            <div id={styles.completarEntrenamientoContent}><button onClick={handleClickCompletarEntrenamiento} id={styles.completarBtn}>completar</button></div>    
+            :
+            <div id={styles.completadoEntrenamiento}>completado</div>
+        }
     </div>
   )
 }
