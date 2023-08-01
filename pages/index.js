@@ -31,8 +31,8 @@ export default function Home() {
           <h1 id={styles.title}>Decile</h1>
           <h1 id={styles.titleAbajo}>SI a <strong id={styles.strongNameTitle}>Clismo</strong></h1>
         </div>
-        <div className='row text-center mt-5'>
-          <div className='col-10 d-flex justify-content-around align-items-center m-auto'>
+        <div className='row text-center'>
+          <div className='col-10 d-flex justify-content-around align-items-center m-auto' id={styles.firstSeccion}>
             <Image 
             src={group}
             width={250}
@@ -75,7 +75,7 @@ export default function Home() {
           </div>
         </div>
         <div id={styles.footer} className=''>
-          <p id={styles.creditos}>Prototipo creado por Thomas Aguado y Santiago Ponte</p>
+          <div id={styles.creditos}>Prototipo creado por Thomas Aguado y Santiago Ponte</div>
         </div>
       </main>
     </div>

@@ -15,10 +15,12 @@
 #titleIcon{
   color: var(--accent-green);
   width: 100px;
+  height: 100px;
 }
 #icon{
     color: var(--accent-green);
     width: 100px;
+    height: 100px;
 }
 
 #title{

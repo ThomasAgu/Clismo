@@ -14,6 +14,7 @@
 #icon{
     color: var(--accent-green);
     width: 100px;
+    height: 100px;
   }
   
   #title{
@@ -37,7 +38,7 @@
 
 #agregarGroupDiv{
   position: absolute;
-  top: 20%;
+  top: 23%;
   right: 10%;
   width: 15%;
   height: 5vh;

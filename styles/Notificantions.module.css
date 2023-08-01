@@ -28,6 +28,7 @@
 
 #bellActive{
     width: 30px;
+    height: 30px;
     rotate: 45deg;
     color: var(--accent-green);
     transition: 0.2 all cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -61,6 +62,7 @@
 
 #bellInactive{
     width: 30px;
+    height: 30px;
     transition: 0.2 all cubic-bezier(0.165, 0.84, 0.44, 1);
     color: var(--backGround);
 }   

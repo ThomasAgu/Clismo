@@ -13,7 +13,8 @@
 
 #icon{
     color: var(--accent-green);
-    font-size: var(--ft_title);
+    width: 100px;
+    height: 100px;
 }
 
 #title{
