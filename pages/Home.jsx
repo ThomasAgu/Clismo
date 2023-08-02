@@ -78,6 +78,16 @@ const Home = () => {
         
         const sched = [] 
         gruposPropios.map((g) =>{ g.schedules.map((s) => sched.push(s))})
+
+        if(user_role === 'TEACHER'){
+          const gruposDondeTeacheo = gruposTotales.filter((g)=>{ 
+            if(g.teacher.id == user_id){
+              return g
+            } 
+          })
+          setThisWeekTrainings((state) => [...state,...gruposDondeTeacheo])
+          gruposDondeTeacheo.map((g) => g.schedules.map((s => sched.push(s))))
+        }
         setThisWeekTrainings(sched)
         console.log('sched',sched)
         //setear grupos publicos con capacidad donde no estoy

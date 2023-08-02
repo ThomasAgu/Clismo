@@ -15,7 +15,7 @@ const ProxEntrenamiento = ({primerEntrenamiento, historial ,setHistorial}) => {
     const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
 
     useEffect(() => {
-        if((primerEntrenamiento !== undefined)&&(primerEntrenamiento.training_id !== undefined)){
+        if((primerEntrenamiento !== undefined)&&(primerEntrenamiento.training_id !== undefined)&&(primerEntrenamiento.training_id !== null)){
             fetch(`${BASE_URL}trainings/${primerEntrenamiento.training_id}`,{
             method: 'GET',
             headers: {
