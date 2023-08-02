@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar'
 import NavNarSesion from '../components/NavNarSesion'
 import UserComponent from '../components/UserComponent'
 import NotificacionPopUpComponent from '../components/NotificacionPopUpComponent'
+import BackArrow from '../components/BackArrow'
 //fA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsersLine } from '@fortawesome/free-solid-svg-icons'
@@ -24,18 +25,11 @@ const GrupoDetalles = () => {
     const [popUp, setPopUp] = useState(false)
     const [todoBienOMal,setTodoBienOMal] =useState('todobien')
     const [msg, setMsg] = useState('')
-    useEffect(() => {
-        fetch(`${BASE_URL}groups/${id}`,{
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-          .then(response => response.json())
-          .then(result => {
-            setGrupo(result)
-          })
-      }, [])
+    //Busqueda de nombres
+    const [inputText, setInputText] = useState('')
+    const [usersTotales, setUsersTotales] = useState([])
+    const [usersGrupo, setUsersGrupo] = useState([])
+
 
     useEffect(() => {
         fetch(`${BASE_URL}/users/list`,{
@@ -48,24 +42,67 @@ const GrupoDetalles = () => {
         .then(result =>{
             //setear los usuarios que son al grupo / y no al grupo
             const users = result
+            
             const usuariosExternos = users.filter((u) =>{
                 if((u.groups.filter((g) => (g.id == id)).length === 0)&&(user_id !== u.id)){
-                    
                     return u
                 } 
             })
+           
+            setUsersTotales(users)
             setUsuariosExternos(usuariosExternos) 
-        
-            console.log(usuariosExternos)
+   
         })
+
+        fetch(`${BASE_URL}groups/${id}`,{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+            .then(response => response.json())
+            .then(result => {
+                const group = result
+                setGrupo(group)
+                const usuariosGrupo = group.users.map((u) => u)
+                setUsersGrupo(usuariosGrupo)
+            })
+            
         }, [])
 
    
+    const handleChangeSearchUser = (e) =>{
+        if(e.target.value === ''){
+            const usuariosExternos = usersTotales.filter((u) =>{
+                if((u.groups.filter((g) => (g.id == id)).length === 0)&&(user_id !== u.id)){
+                    return u
+                } 
+            })
+            const usuariosGrupo = grupoAct.users.map((u) => u)
+            setUsuariosExternos(usuariosExternos) 
+            setUsersGrupo(usuariosGrupo)
+            setInputText('')
+        
+        }
+        else{
+            setInputText(e.target.value)
+            const input = e.target.value
+            // si esta en grupo users o usuarios externos actualizar lista
+            const usuariosDelGrupo = grupoAct.users.filter((u) => u.username.toLowerCase().includes(input.toLowerCase()))
+            const usuariosExternosName = usuariosExternos.filter((u) => u.username.toLowerCase().includes(input.toLowerCase()))
+            setUsuariosExternos(usuariosExternosName)
+            setUsersGrupo(usuariosDelGrupo)
+            
+
+        }
+        
+    }
 
     return (
     <div id={styles.bigDiv}>
          <NavBar/>
         <NavNarSesion/>
+        <BackArrow/>
         <div className='d-flex flex-column text-center mt-3' id={styles.title}>
                 <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> </div>
                 <h1 id={styles.titleText}> Grupo {grupoAct.name} </h1>
@@ -93,18 +130,14 @@ const GrupoDetalles = () => {
                 </div>
             </div>
             {/* FIn grupo card */}
-            {/* Horarios */}
-            {/* Horarios */}
             {/* Integrantes e invitaciones */}
             <div id={styles.usersCard}>
-                <div id={styles.searchContent}><input type="text" name="" id={styles.inputUsuario}  placeholder='Buscar usuarios'/></div>
+                <div id={styles.searchContent}><input type="text" name="" value={inputText} id={styles.inputUsuario} onChange={handleChangeSearchUser} placeholder='Buscar usuarios'/></div>
                 <div id={styles.usuarios}>
-                    {grupoAct.users !== [] && grupoAct.users !== undefined ?
-                        grupoAct.users.map((u)=>{
+                    {usersGrupo.map((u)=>{
                             return (<UserComponent key={u.id} name={u.username} esUser={true} uid={u.id} gid={grupoAct.id} setPopUp={setPopUp} setTodoBienOMal={setTodoBienOMal} setMsg={setMsg}/>)
                     })
-                    :
-                    <></>
+                    
                     }
                     {usuariosExternos.map((u) =>{
                         return(<UserComponent key={u.id} name={u.username} esUser={false} uid={u.id} gid={grupoAct.id} setPopUp={setPopUp} setTodoBienOMal={setTodoBienOMal} setMsg={setMsg}/>)

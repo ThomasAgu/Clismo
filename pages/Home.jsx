@@ -16,6 +16,8 @@ import styles from '../styles/homeReal.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome,  faBicycle, faUsersLine, faUser, faGear} from '@fortawesome/free-solid-svg-icons'
 import foto from '../public/images/foto.jpg'
+import profile from '../public/images/profilePic.png'
+
 const Home = () => {
 
   const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
@@ -124,7 +126,7 @@ const Home = () => {
                 <div id={styles.infoPersonalContent}>
                   <div id={styles.borderTop}></div>
                   <Image 
-                    src={foto}
+                    src={profile}
                     id={styles.img} 
                     alt='Foto de perfil'
                   />

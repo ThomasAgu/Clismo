@@ -1,9 +1,12 @@
 import React from 'react'
 import styles from '../../styles/BorrarEntrenamiento.module.css'
-const BorrarEntrenamiento = ({name, active, setActive}) => {
+const BorrarEntrenamiento = ({name, active, setActive, setPopUp,setMsg,setTodoBienOMal}) => {
 
     const handleClickDelete = () =>{
-        console.log('borrar')
+
+        setActive(false)
+        setPopUp(true)
+        setMsg(`Se ha borrado el entrenamiento ${name}`)
       }
   return (
     <div>

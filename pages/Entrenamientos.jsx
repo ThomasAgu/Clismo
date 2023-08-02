@@ -16,7 +16,9 @@ import { obtenerEntrenamientos } from '../store/actions/actions';
 import ProxEntrenamiento from './components/ProxEntrenamiento';
 import SemanaDeEntrenamientos from './components/SemanaDeEntrenamientos';
 import BorrarEntrenamiento from './components/BorrarEntrenamiento';
-import HistorialCard from './components/HistorialCard.jsx'
+import HistorialCard from './components/HistorialCard.jsx'  
+import NotificacionPopUpComponent from './components/NotificacionPopUpComponent';
+import grupos from '../datosParaProbar/grupos';
 
 const Entrenamientos = () => {
   const router = useRouter();
@@ -33,6 +35,10 @@ const Entrenamientos = () => {
   const [name, setName] = useState('')
   //para el historial 
   const [historial, setHistorial] = useState([])
+  //para el popup
+  const [msg, setMsg] = useState('')
+  const [todoBienOMal,setTodoBienOMal] =useState('todobien')
+  const [popUp, setPopUp ] = useState(false)
 
   const diasSemana = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
   
@@ -54,15 +60,28 @@ const Entrenamientos = () => {
         })
         setMisGrupos(gruposPropios)
         
+       
         const sched = [] 
         gruposPropios.map((g) =>{ g.schedules.map((s) => sched.push(s))})
+        
+
+        //agregar los entrenamientos donde soy profe
+        if(user_role === 'TEACHER'){
+          const gruposDondeTeacheo = gruposTotales.filter((g)=>{ 
+            if(g.teacher.id == user_id){
+              return g
+            } 
+          })
+          setMisGrupos((state) => [...state, gruposDondeTeacheo])
+          gruposDondeTeacheo.map((g) => g.schedules.map((s => sched.push(s))))
+        }
+                console.log(sched, 'schedActualizado')
         setScheduleTotal(sched)
-        console.log(sched, 'sched')
         //proximo calcular
+        const diaActual = new Date().getDay(); 
         const schedOrdenado = sched.sort((a,b) => diasSemana.indexOf(a.day) - diasSemana.indexOf(b.day))
-        //filtrar si completo entrenamiento 
-        setprimerEntrenamiento(schedOrdenado[0])
-        //setear grupos publicos con capacidad donde no estoy
+        const schedFiltradoPorDiaSemana = schedOrdenado.filter((d) => diasSemana.indexOf(d.day) >= diaActual)
+        setprimerEntrenamiento(schedFiltradoPorDiaSemana[0])
       })
 
       //entrenamientos
@@ -93,11 +112,8 @@ const Entrenamientos = () => {
             return t
           }
         })
-        console.log('entreenamiento proximo ', entrenamientosAnotado)
 
-        const data = entrenamientosAnotado.filter((el) => el.id == primerEntrenamiento.training_id)
-        console.log('data ', data)
-        setPrimerEntrenamientoData(data[0])
+        
 
 
         //historial get
@@ -148,7 +164,7 @@ const Entrenamientos = () => {
     <div id={styles.content}>
       <NavBar/>
       <NavNarSesion/>
-      <BorrarEntrenamiento active={activateDel} setActive={setActivateDel} name={name}/>
+      <BorrarEntrenamiento active={activateDel} setActive={setActivateDel} name={name} setPopUp={setPopUp} setMsg={setMsg} setTodoBienOMal={setTodoBienOMal}/>
       <div id={styles.mainContent}>
         <div className='d-flex flex-column text-center mt-3' id={styles.titleDiv}>
           <div id={styles.iconBigDiv}><FontAwesomeIcon icon={faBicycle} id={styles.titleIcon}/></div>
@@ -159,7 +175,9 @@ const Entrenamientos = () => {
             <></>
           }
         </div> 
-        <h2 className={styles.subtitle}>Proximo entrenamiento</h2>
+        
+        {primerEntrenamiento == undefined ? <h2>No estas anotado a ningun entrenamiento</h2>:<h2 className={styles.subtitle}>Proximo entrenamiento</h2>}
+        {primerEntrenamiento !== undefined ? 
         <section id={styles.firstSection}>
           <div id={styles.fsFirstElement}>
             <ProxEntrenamiento primerEntrenamiento={primerEntrenamiento} historial={historial} setHistorial={setHistorial}/>
@@ -169,6 +187,9 @@ const Entrenamientos = () => {
           </div>
       
         </section>
+        :
+        <></>
+        }
         {user_role === 'TEACHER' ? <h2 className={styles.subtitle}>Entrenamientos creados</h2> : <></>}
         {user_role === 'TEACHER' ? 
           <section id={styles.misEntrenamientosSection}>
@@ -180,6 +201,11 @@ const Entrenamientos = () => {
         </div>
         
       </div>
+      { popUp ? 
+        <NotificacionPopUpComponent msg={msg} todoBienOtodoMal={todoBienOMal} active={popUp} setActive={setPopUp} tiempo={100}/>
+      :
+      <></>
+      }
     </div>
   )
 }

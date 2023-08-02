@@ -10,6 +10,8 @@ import NavBar from '../components/NavBar'
 import NavNarSesion from '../components/NavNarSesion'
 import InputComponent from '../components/InputComponent'
 import ExerciseItem from '../components/ExerciseItem'
+import BackArrow from '../components/BackArrow'
+
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBicycle, faSquare } from '@fortawesome/free-solid-svg-icons'
@@ -97,6 +99,7 @@ const CrearEntrenamiento = () => {
     <div id={styles.content}>
         <NavBar/>
         <NavNarSesion />
+        <BackArrow />
         <div>
             <div className='d-flex flex-column text-center mt-3' id={styles.titleDiv}>
                 <div id={styles.iconContent}><FontAwesomeIcon icon={faBicycle} id={styles.icon}/> </div>

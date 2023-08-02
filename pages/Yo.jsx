@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGaugeSimple, faHeart, faWeightScale, faClock } from '@fortawesome/free-solid-svg-icons';
 //styles
 import foto from '../public/images/foto.jpg'
+import profile from '../public/images/profilePic.png'
 import styles from '../styles/yo.module.css'
 
 
@@ -35,7 +36,7 @@ const Yo = () => {
         <h2 className={styles.subtitle}>Informacion personal</h2>
           <div className='row' id={styles.infoPersonalRow}>
             <div className='col-5' id={styles.informacionGeneralDiv}>
-              <div id={styles.profileImg}><Image src={foto} id={styles.img} alt='Foto de perfil'/></div>
+              <div id={styles.profileImg}><Image src={profile} id={styles.img} alt='Foto de perfil'/></div>
               <div id={styles.profileData}>
                 <h3>{user.username}</h3>
                 <p>{user.role === 'TEACHER' ? 'Profesor': 'Estudiante'}</p>

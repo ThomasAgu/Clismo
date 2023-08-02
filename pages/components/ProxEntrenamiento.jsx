@@ -77,17 +77,17 @@ const ProxEntrenamiento = ({primerEntrenamiento, historial ,setHistorial}) => {
         // Calculamos la diferencia de días hasta el próximo día especificado
         let diasHastaProximoDia;
         if (indiceDia >= diaActual) {
-            diasHastaProximoDia = indiceDia - diaActual -1;
+            diasHastaProximoDia = indiceDia - diaActual - 1;
         } else {
             diasHastaProximoDia = 7 - diaActual + indiceDia;
         }
 
         // Calculamos la fecha del próximo día
         const fechaProximoDia = new Date(hoy);
-        fechaProximoDia.setDate(hoy.getDate() + diasHastaProximoDia);
+        fechaProximoDia.setDate(hoy.getDate()+1 + diasHastaProximoDia);
 
         // Obtenemos el día y el mes del próximo día en formato "dia/mes"
-        const dia = fechaProximoDia.getDate()+1;
+        const dia = fechaProximoDia.getDate();
         const mes = fechaProximoDia.getMonth() + 1; // Los meses en JavaScript son indexados desde 0
 
         return `${dia}/${mes}`;

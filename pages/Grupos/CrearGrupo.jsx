@@ -6,6 +6,7 @@ import NavNarSesion from '../components/NavNarSesion'
 import InputComponent from '../components/InputComponent'
 import RadioComponent from '../components/RadioComponent'
 import ElegirHorarios from './ElegirHorarios'
+import BackArrow from '../components/BackArrow'
 //Store
 import { useDispatch, useSelector } from 'react-redux';
 import { agregarGrupo, obtenerEntrenamientos } from '../../store/actions/actions';
@@ -120,6 +121,7 @@ const CrearGrupo = ({grupos}) => {
     <div id={styles.content}>
       <NavBar />
       <NavNarSesion/>
+      <BackArrow/>
       <div>
         <div className='d-flex flex-column text-center mt-3' id={styles.title}>
             <div id={styles.contentIcon}><FontAwesomeIcon icon={faUsersLine} id={styles.icon} /> </div>
