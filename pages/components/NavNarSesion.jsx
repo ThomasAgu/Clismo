@@ -25,17 +25,19 @@ const NavNarSesion = () => {
 
 
     useEffect(() => {
-      fetch(`${BASE_URL}users/${user_id}/invitations`,{
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-        .then(result => {
-          console.log('notificaciones ', result)
-          setInvitatiosns(result)
+      if(user_id !== -1){
+        fetch(`${BASE_URL}users/${user_id}/invitations`,{
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
         })
+        .then(response => response.json())
+          .then(result => {
+            console.log('notificaciones ', result)
+            setInvitatiosns(result)
+          })
+      }
     }, [])
 
     const handleClickSetOpcion = (e) => {

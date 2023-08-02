@@ -30,37 +30,39 @@ const SemanaDeEntrenamientos = ({scheduleTotal}) => {
     const schedules = scheduleTotal.filter((s) => s.day == e.target.value )
     
     //traer grupo
-    schedules.map((el) =>{
-      fetch(`${BASE_URL}groups/${el.group_id}`,{
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
+    if(schedules !== []){
+      schedules.map((el) =>{
+        fetch(`${BASE_URL}groups/${el.group_id}`,{
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => response.json())
+          .then(result => {
+            setGroupSelected(result)
+        })
+        if(el.training_id !== null){
+          fetch(`${BASE_URL}trainings/${el.training_id}`,{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+            .then(response => response.json())
+            .then(result => {
+              setTrainSelected(result)
+          })
         }
       })
-        .then(response => response.json())
-        .then(result => {
-          setGroupSelected(result)
-      })
-
-      fetch(`${BASE_URL}trainings/${el.training_id}`,{
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
+      
+      if(schedules.filter((s) => s.day == e.target.value).length > 0) {
+        setDia(e.target.value)
+        if(dia !== ''){
+          dia === e.target.value ?setDia(''):setDia(e.target.value)
         }
-      })
-        .then(response => response.json())
-        .then(result => {
-          setTrainSelected(result)
-      })
-    })
-    if(schedules.filter((s) => s.day == e.target.value).length > 0) {
-      setDia(e.target.value)
-      if(dia !== ''){
-        dia === e.target.value ?setDia(''):setDia(e.target.value)
       }
     }
-    
-    
     //traer entrenamiento
     //setearlo antes de activar el componente
   }

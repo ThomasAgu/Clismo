@@ -29,7 +29,6 @@ const Entrenamientos = () => {
   const [misGrupos, setMisGrupos] = useState([])
   const [scheduleTotal, setScheduleTotal] = useState([])
   const [primerEntrenamiento, setprimerEntrenamiento] = useState({})
-  const [primerEntrenamientoData, setPrimerEntrenamientoData] = useState({})
   //para el borrado
   const [activateDel, setActivateDel] = useState(false)
   const [name, setName] = useState('')
@@ -72,16 +71,24 @@ const Entrenamientos = () => {
               return g
             } 
           })
-          setMisGrupos((state) => [...state, gruposDondeTeacheo])
+          setMisGrupos((state) => [...state,...gruposDondeTeacheo])
           gruposDondeTeacheo.map((g) => g.schedules.map((s => sched.push(s))))
         }
-                console.log(sched, 'schedActualizado')
+                
         setScheduleTotal(sched)
+        console.log(misGrupos, 'Mis grupos')
+        console.log(scheduleTotal, 'Scheduletotal')
         //proximo calcular
         const diaActual = new Date().getDay(); 
         const schedOrdenado = sched.sort((a,b) => diasSemana.indexOf(a.day) - diasSemana.indexOf(b.day))
+       
         const schedFiltradoPorDiaSemana = schedOrdenado.filter((d) => diasSemana.indexOf(d.day) >= diaActual)
-        setprimerEntrenamiento(schedFiltradoPorDiaSemana[0])
+        if(schedFiltradoPorDiaSemana.length > 0) {
+          setprimerEntrenamiento(schedFiltradoPorDiaSemana[0])
+        }
+        else{
+          setprimerEntrenamiento(schedOrdenado[0])
+        }
       })
 
       //entrenamientos
@@ -112,9 +119,6 @@ const Entrenamientos = () => {
             return t
           }
         })
-
-        
-
 
         //historial get
         setHistorial([])
