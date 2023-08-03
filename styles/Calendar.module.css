@@ -15,7 +15,7 @@
     align-items: center;
     width: 90%;
     margin: auto;
-    height: 60vh;
+    height: 100%;
   }
 
   .grid_item_day{
@@ -35,6 +35,18 @@
     border-radius: 2px;
     border: 1px solid var(--backGround);
     height: 100%;
+    text-align: end;
+    padding-right: 2px;
+    color: var(--backGround);
+}
+
+.grid_item_entrenamiento{
+  border-radius: 2px;
+  border: 1px solid var(--backGround);
+  height: 100%;
+  width: 100%;
+  background-color: var(--accent-green);
+  box-shadow: 0px 2px 4px var(--backGround);
 }
   
   .grid_item_empty {
@@ -45,4 +57,36 @@
   
   .empty {
     visibility: hidden;
+  }
+
+  #cardComponent{
+    height: 100%;
+  }
+
+  #contentCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    
+  }
+
+  #groupName{
+    background-color: var(--darker);
+    width: 100%;
+    font-size: var(--ft_btns);
+    color: var(--accent-green);
+    font-family: var(--textNunito);
+    text-align: start;
+    padding-left: 3px;
+  }
+
+  #trainName{
+    width: 100%;
+    font-size: var(--ft_labels);
+    color: var(--darker);
+    font-family: var(--textNunito);
+    text-align: end;
+    padding-right: 3px;
   }

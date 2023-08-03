@@ -1,6 +1,6 @@
 #notifificationContent{
     position: absolute;
-    top: 15%;
+    top: 15vh;
     right: 10%;
     cursor: pointer;
 }

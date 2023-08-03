@@ -120,7 +120,7 @@ const Entrenamientos = () => {
         })
         //historial get
         setHistorial([])
-        fetch(`${BASE_URL}users/${user_id}/schedules/completed?days_lapse=7`,{
+        fetch(`${BASE_URL}users/${user_id}/schedules/completed/allData?days_lapse=7`,{
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -128,9 +128,10 @@ const Entrenamientos = () => {
             })
             .then(response => response.json())
             .then(result => {
-              const idsSched = result.ids_of_realized_schedules
-              
-              idsSched.map((id)=>{
+              const idsSched = result.record_of_realized_schedules.map((el) => el.schedule_id)
+              const realized_at = result.record_of_realized_schedules.map((el) =>el.realized_at)
+              //terminar aca :D
+              idsSched.map((id, index)=>{
                 fetch(`${BASE_URL}/schedules/${id}`,{
                   method: 'GET',
                   headers: {
@@ -139,10 +140,12 @@ const Entrenamientos = () => {
               })
               .then(response => response.json())
               .then(result => {
-                setHistorial((el) => [...el, result])
-                console.log('historial', historial)
+                const data = result
+                data.realized_at = realized_at[index]
+
+                setHistorial((el) => [...el, data])
               })
-            })
+            }) 
           })
       })
   }, [])
@@ -190,8 +193,6 @@ const Entrenamientos = () => {
           {historial.length > 0 ?  
             <div>
               <Calendar historial={historial}/>
-              {historial.map((h) => <HistorialCard key={h.id} data={h}/>)}
-
             </div>
             :
           <></>}

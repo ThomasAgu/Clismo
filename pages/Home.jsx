@@ -51,8 +51,6 @@ const Home = () => {
         user['role'] = result.role
         user['username'] = result.username
         dispatch(loginSuccess(user));
-
-        console.log(result)
         //Aca setear en la store los grupos que vienen con el usuario
       })
       
@@ -89,7 +87,6 @@ const Home = () => {
           gruposDondeTeacheo.map((g) => g.schedules.map((s => sched.push(s))))
         }
         setThisWeekTrainings(sched)
-        console.log('sched',sched)
         //setear grupos publicos con capacidad donde no estoy
       })
 

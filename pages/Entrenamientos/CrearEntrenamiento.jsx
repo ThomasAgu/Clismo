@@ -90,7 +90,6 @@ const CrearEntrenamiento = () => {
 
   const handleClickSetearEntrenamiento = (ex) =>{
     //setear valores de entrenamiento. Boton actualizar, o borrar
-    console.log(ex)
     setActEx(ex)
   }
   
