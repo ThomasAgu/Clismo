@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import NavBar from './components/NavBar';
 import NavNarSesion from './components/NavNarSesion';
 import EntrenamientoCard from './components/EntrenamientoCard';
+import Calendar from './components/Calendar';
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBicycle, faPlus} from '@fortawesome/free-solid-svg-icons'
@@ -76,8 +77,6 @@ const Entrenamientos = () => {
         }
                 
         setScheduleTotal(sched)
-        console.log(misGrupos, 'Mis grupos')
-        console.log(scheduleTotal, 'Scheduletotal')
         //proximo calcular
         const diaActual = new Date().getDay(); 
         const schedOrdenado = sched.sort((a,b) => diasSemana.indexOf(a.day) - diasSemana.indexOf(b.day))
@@ -119,21 +118,9 @@ const Entrenamientos = () => {
             return t
           }
         })
-
         //historial get
         setHistorial([])
         fetch(`${BASE_URL}users/${user_id}/schedules/completed?days_lapse=7`,{
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-      })
-      .then(response => response.json())
-      .then(result => {
-        const idsSched = result.ids_of_realized_schedules
-
-        idsSched.map((id)=>{
-          fetch(`${BASE_URL}users/${user_id}/schedules/completed?days_lapse=7`,{
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -153,12 +140,11 @@ const Entrenamientos = () => {
               .then(response => response.json())
               .then(result => {
                 setHistorial((el) => [...el, result])
+                console.log('historial', historial)
               })
             })
           })
-        })
       })
-    })
   }, [])
 
 
@@ -180,7 +166,7 @@ const Entrenamientos = () => {
           }
         </div> 
         
-        {primerEntrenamiento == undefined ? <h2>No estas anotado a ningun entrenamiento</h2>:<h2 className={styles.subtitle}>Proximo entrenamiento</h2>}
+        {primerEntrenamiento == undefined ? <div id={styles.noHayNadaContent}> {user_role !== "TEACHER" ? <h2 id={styles.noHayNadaTitle}>Actualmente, no estas anotado en ningún grupo...</h2>: <h2 id={styles.noHayNadaTitle}>Actualmente,no creaste ningún grupo...</h2>}</div>:<h2 className={styles.subtitle}>Proximo entrenamiento</h2>}
         {primerEntrenamiento !== undefined ? 
         <section id={styles.firstSection}>
           <div id={styles.fsFirstElement}>
@@ -194,14 +180,22 @@ const Entrenamientos = () => {
         :
         <></>
         }
-        {user_role === 'TEACHER' ? <h2 className={styles.subtitle}>Entrenamientos creados</h2> : <></>}
+        {user_role === 'TEACHER' && misEntrenamientos.length > 0 ? <h2 className={styles.subtitle}>Entrenamientos creados</h2> : <></>}
         {user_role === 'TEACHER' ? 
           <section id={styles.misEntrenamientosSection}>
             {misEntrenamientos.map((el) => <EntrenamientoCard key={el.id} props={el} setActiveDel={setActivateDel} setName={setName}/>)}
           </section> : <></>}
-        <h2 className={styles.subtitle}>Historial</h2>
+        {historial.length > 0 ? <h2 className={styles.subtitle}>Historial</h2>: <></>}
         <div>
-          {historial.map((h) => <HistorialCard key={h.id} data={h}/>)}
+          {historial.length > 0 ?  
+            <div>
+              <Calendar historial={historial}/>
+              {historial.map((h) => <HistorialCard key={h.id} data={h}/>)}
+
+            </div>
+            :
+          <></>}
+          
         </div>
         
       </div>

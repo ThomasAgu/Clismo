@@ -70,7 +70,6 @@ const CrearEntrenamiento = () => {
       "exercises":ejercicios,
     }
 
-    console.log(entrenamiento)
     
     fetch(`${BASE_URL}trainings/create`,{
       method: 'POST',

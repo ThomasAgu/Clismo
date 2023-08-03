@@ -1,0 +1,48 @@
+#month{
+    width: 100%;
+    text-align: center;
+    color: var(--darker);
+    font-size: var(--ft_card_title);
+    font-family: var(--subtitles);
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    height: 60vh;
+  }
+
+  .grid_item_day{
+    border-radius: 5px;
+    background-color: var(--accent-orange);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    font-size: var(--ft_card_title);
+    font-family: var(--title);
+    color: var(--darker);
+}
+
+.grid_item{
+    border-radius: 2px;
+    border: 1px solid var(--backGround);
+    height: 100%;
+}
+  
+  .grid_item_empty {
+    background-color: var(--backGround);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .empty {
+    visibility: hidden;
+  }

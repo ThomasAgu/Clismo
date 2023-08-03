@@ -1,7 +1,7 @@
 #content{
     position: relative;
     background-color: var(--light);
-    height: 120vh;
+    height: 300vh;
 }
 
 
@@ -35,6 +35,22 @@
     font-size: var(--ft_sub_subTitle);
     font-family: var(--subtitles);
     color: var(--textBackGround);
+}
+
+#noHayNadaContent{
+  background-color: var(--light);
+  height: 30vh;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#noHayNadaTitle{
+  font-size: var(--ft_sub_subTitle);
+  color: grey;
+  font-family: var(--textRoboto);
+  font-style: italic;
 }
 
 #agregarEntrenamientoDiv{
