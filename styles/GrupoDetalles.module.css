@@ -196,3 +196,22 @@
     font-size: var(--ft_btns);
     color: var(--backGround);
 }
+
+@media screen and (max-width: 767px){
+    #mainContent{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #grupoCard{
+        width: 95%;
+        margin: auto;
+    }
+
+    #usersCard{
+        width: 95%;
+        margin: auto;
+        margin-top: 2vh;
+    }
+}

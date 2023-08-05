@@ -56,7 +56,9 @@ const Register = () => {
       //falt aocntorllar que se repita la conmtrase;a repetida
     }
     else{
-      const user ={ username: userName, password: password, role: role }
+      let usernameSinEspacios = userName.replace(/\s/g, "");
+      let passwordSinEspacios = password.replace(/\s/g, "")
+      const user ={ username: usernameSinEspacios.toLowerCase(), password: passwordSinEspacios, role: role }
       console.log(user)
 
       fetch(`${BASE_URL}auth/register`, {

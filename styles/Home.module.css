@@ -49,24 +49,43 @@
     height: 50vh;
     background-color: var(--light);
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
 }
+
 
 #SecondPart{
     width: 100%;
     height: 50vh;
+}
+
+#secondDiv{
     background-color: var(--accent-green);
     margin: auto;
     box-shadow: 0px 1px 10px var(--accent-green);
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
 }
+
 
 #terceraParteDiv{
     background-color: var(--light);
+    width: 100%;
+   
 }
+
 
 #tercerdiv{
     padding-top: 5vh;
     padding-bottom: 5vh;
-
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
 }
 
 #conectaText{
@@ -91,4 +110,37 @@
     color: var(--textLight);
     font-weight: 100;
     padding-left: 1vw;
+}
+
+@media screen and (max-width: 767px){
+
+    #firstSeccion{
+        height: 80vh;
+        flex-direction: column ;
+        align-items: center;
+        width: 100vw;
+    }
+    .legend{
+        text-align: center;
+    }
+    #conectaText{
+        text-align: center;
+    }
+
+    #SecondPart{
+        height: 80vh;
+        
+    }
+
+    #secondDiv{
+        flex-direction: column-reverse ;
+
+        align-items: center;
+    }
+
+    #tercerdiv{
+        height: 80vh;
+        flex-direction: column ;
+        align-items: center;
+    }
 }

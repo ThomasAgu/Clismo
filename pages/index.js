@@ -32,7 +32,7 @@ export default function Home() {
           <h1 id={styles.titleAbajo}>SI a <strong id={styles.strongNameTitle}>Clismo</strong></h1>
         </div>
         <div className='row text-center'>
-          <div className='col-10 d-flex justify-content-around align-items-center m-auto' id={styles.firstSeccion}>
+          <div className='' id={styles.firstSeccion}>
             <Image 
             src={group}
             width={250}
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
 
           <div id={styles.SecondPart}>
-            <div className='col-10 d-flex justify-content-around align-items-center m-auto h-100' id={styles.secondDiv}>
+            <div className='' id={styles.secondDiv}>
               <div id={styles.textDiv}>
                 <h3 className={styles.legend}>Realiza los entrenamientos</h3>
                 <div id={styles.conectaDiv}><p id={styles.conectaText}>Realiza entrenamientos personalizados de la app con ejercicios diseñados por expertos. Supera tus límites y alcanza tus objetivos con seguimiento y apoyo constante</p></div>
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
           </div>
           <div id={styles.terceraParteDiv}>
-            <div className='col-10 d-flex justify-content-around align-items-center m-auto' id={styles.tercerdiv}>
+            <div className='' id={styles.tercerdiv}>
               <Image 
               src={lupa}
               width={250}

@@ -48,7 +48,9 @@ const Login = () => {
       }
       
       else{
-        const user ={ username: userName, password: password }
+        let usernameSinEspacios = userName.replace(/\s/g, "");
+        let passwordSinEspacios = password.replace(/\s/g, "")
+        const user ={ username: usernameSinEspacios.toLowerCase(), password: passwordSinEspacios }
         console.log('jacienmdo el lign', BASE_URL)
         fetch(`${BASE_URL}auth/login`, {
           method: 'POST',

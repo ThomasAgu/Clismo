@@ -55,7 +55,7 @@
 
 #agregarEntrenamientoDiv{
   position: absolute;
-  top: 25%;
+  top: 25vh;
   right: 10%;
   width: 20%;
   height: 5vh;
@@ -119,6 +119,10 @@
 }
 
 @media screen and (max-width: 767px){
+    #mainContent{
+      width: 100vw;
+
+    }
     .subtitle{
         text-align: center;
     } 
@@ -145,5 +149,19 @@
       height: 100%;
       border-radius: 2px;
       border-left: 20px solid var(--backGround);
+    }
+
+    #firstSection{
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    #fsFirstElement{
+      width: 95%;
+    }
+
+    #fsSecondElement{
+      margin-top: 5vh;
+      width: 95%;
     }
 }

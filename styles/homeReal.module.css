@@ -367,3 +367,26 @@
     height: 0px;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+@media screen and (max-width: 767px){
+    #mainContent{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #informacionPersonalSeccion{
+        width: 95%;
+    }
+
+    #infoPersonalContent{
+        width: 100%;
+    }
+
+    #entrenamientosSeccion{
+        display: flex;
+        flex-direction: column;
+        align-content: start;
+        width: 95%;
+        margin-top: 4vh;
+    }
+}

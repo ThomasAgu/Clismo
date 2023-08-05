@@ -103,3 +103,13 @@
     align-items: center;
     justify-content:center;
 }
+
+@media screen and (max-width: 768px){
+    #notificancionsList{
+        width: 70vw;
+    }
+    #notificationsListInactive{
+        width: 70vw;
+        z-index: 100;
+    }
+}
