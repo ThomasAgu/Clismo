@@ -62,14 +62,16 @@ const CrearEntrenamiento = () => {
   } 
 
 
-  const handleClickAddEntrenamiento = () => {
-    
+  const handleClickAddEntrenamiento = (e) => {
+    e.preventDefault()
     const entrenamiento = {
       "name": name,
       "description": descripcion,
       "teacher_id": user_id,
       "exercises":ejercicios,
     }
+
+    console.log(entrenamiento)
 
     
     fetch(`${BASE_URL}trainings/create`,{
@@ -82,7 +84,7 @@ const CrearEntrenamiento = () => {
       .then(response => response.json())
       .then(result =>{
         dispatch(agregarEntrenamiento(entrenamiento))
-        router.back()
+        //router.back()
       })
       .catch(err =>{
         console.error('Error: ', err)
