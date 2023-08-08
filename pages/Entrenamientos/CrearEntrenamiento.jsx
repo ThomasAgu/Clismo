@@ -81,7 +81,7 @@ const CrearEntrenamiento = () => {
       .then(response => response.json())
       .then(result =>{
         dispatch(agregarEntrenamiento(entrenamiento))
-        //router.back()
+        router.back()
       })
       .catch(err =>{
         console.error('Error: ', err)
