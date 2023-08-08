@@ -77,12 +77,15 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios, actEx
 
     const handleClickAddEntrenamiento = (e) => {
         e.preventDefault();
+        const speedFloat = parseFloat(velocidad) + 0.01
+        const heartFloat = parseFloat(frecCardiaca) + 0.01
+        const durFloat = parseFloat(duracion) + 0.01
         const ejercicio = { 
             'name' : nombre,
             'description' : descripcion,
-            'speed' : velocidad,
-            'heart_rate' : frecCardiaca,
-            'duration' : duracion,
+            'speed' : speedFloat,
+            'heart_rate' : heartFloat,
+            'duration' : durFloat,
         }
         resetearDatos()
         //falta fr, duracion y velocidad

@@ -63,6 +63,7 @@ const CrearEntrenamiento = () => {
 
 
   const handleClickAddEntrenamiento = () => {
+    
     const entrenamiento = {
       "name": name,
       "description": descripcion,
