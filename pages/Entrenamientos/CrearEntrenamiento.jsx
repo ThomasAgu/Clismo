@@ -63,6 +63,7 @@ const CrearEntrenamiento = () => {
 
 
   const handleClickAddEntrenamiento = (e) => {
+    e.preventDefault()
     const entrenamiento = {
       "name": name,
       "description": descripcion,
