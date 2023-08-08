@@ -113,7 +113,7 @@
   width: 90%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(3,1fr);
   grid-gap: 10px;
   margin-top: 3vh;
 }
@@ -163,5 +163,14 @@
     #fsSecondElement{
       margin-top: 5vh;
       width: 95%;
+    }
+
+    #misEntrenamientosSection{
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      grid-gap: 10px;
+      margin-top: 3vh;
     }
 }

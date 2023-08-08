@@ -98,7 +98,7 @@
     background-color: var(--darker);
     width: 90%;
     margin: auto;
-    color: var(--light);
+    color: var(--textLight);
     display: flex;
     align-items: center;
     justify-content:center;

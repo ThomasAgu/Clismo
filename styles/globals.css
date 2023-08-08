@@ -9,6 +9,7 @@ html,
   --accent-pink: #DC7F9B;
   --accent-orange: #FFA62B;
   --darker: #292424;
+  --realDarker: #292424;
 
   --title: 'Montserrat', sans-serif;
   --subtitles: 'Lato', sans-serif;
@@ -35,6 +36,7 @@ html,
   --accent-pink: #DC7F9B;
   --accent-orange: #FFA62B;
   --darker: #504746;
+  --realDarker: #292424;
 }
 
 :root.biggerText{

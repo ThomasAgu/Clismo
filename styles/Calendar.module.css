@@ -90,3 +90,20 @@
     text-align: end;
     padding-right: 3px;
   }
+
+@media screen and (max-width: 767px){
+
+  #month{
+    width: 100vw;
+    
+}
+  .grid_container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    overflow-x: scroll;
+    gap: 2px;
+ 
+  }
+
+
+}
