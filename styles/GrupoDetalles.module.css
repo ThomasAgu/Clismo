@@ -78,7 +78,7 @@
 #difficultyContent h5{
     text-align: left;
     width: 90%;
-    color: var(--backGround);
+    color: var(--textBackGround);
 }
 
 #labels{
@@ -125,7 +125,7 @@
 #privacyContent h5{
     text-align: left;
     width: 90%;
-    color: var(--backGround);
+    color: var(--textBackGround);
 }
 
 #usersCard{
@@ -198,6 +198,10 @@
 }
 
 @media screen and (max-width: 767px){
+
+    #bigDiv{
+        height: 120vh;
+    }
     #mainContent{
         display: flex;
         flex-direction: column;

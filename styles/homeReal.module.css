@@ -92,7 +92,7 @@
 
 #profileData p{
     font-size: var(--ft_card_title);
-    color: var(--textLight);
+    color: var(--textBackGround);
 }
 
 #entrenamientos{
@@ -107,7 +107,7 @@
     font-size: var(--ft_btns);
     font-family: var(--textRoboto);
     padding-left: 2%;
-    color: var(--darker);
+    color: var(--textBackGround);
 }
 
 #barraExterna{

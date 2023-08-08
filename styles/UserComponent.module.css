@@ -24,7 +24,7 @@
 
 #notUser{
     width: 90%;
-    background-color: var(--light);
+    background-color: var(--textLight);
     height: 15%;
     border-radius: 10px;
     margin: auto;
