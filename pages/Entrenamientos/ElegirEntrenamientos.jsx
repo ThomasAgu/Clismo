@@ -91,7 +91,6 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios, actEx
     }
 
     const handleClickActEntrenamiento = (e) =>{
-        e.preventDefault()
         let pos = -1
         const ejercicio = { 
         'name' : nombre,
@@ -125,7 +124,7 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios, actEx
     return (
     <div id={styles.secondPartFirstColumn}>
         {pasos > 1? 
-            <form id={styles.secondForm}>
+            <div id={styles.secondForm}>
                 <h3  className='text-center' id={styles.newExerciseTitle}>{actEx === undefined ? 'Nuevo ' : 'Modificando '} ejercicio</h3>
                 <InputComponent label={'Nombre'} type={'text'} valor={nombre} setValue={onChangeNombre}/>
                 <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={onChangeDescription}/>
@@ -154,7 +153,7 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios, actEx
                         <button onClick={handleClickDelEntrenamiento} id={styles.deleteExerciseBtn}><FontAwesomeIcon icon={faTrash} id={styles.delIcon}/> Borrar</button>
                     </div>
                 }
-            </form>
+            </div>
         :
             <></>
         }
