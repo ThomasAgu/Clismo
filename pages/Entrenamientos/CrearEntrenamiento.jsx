@@ -63,16 +63,12 @@ const CrearEntrenamiento = () => {
 
 
   const handleClickAddEntrenamiento = (e) => {
-    e.preventDefault()
     const entrenamiento = {
       "name": name,
       "description": descripcion,
       "teacher_id": user_id,
       "exercises":ejercicios,
     }
-
-    console.log(entrenamiento)
-
     
     fetch(`${BASE_URL}trainings/create`,{
       method: 'POST',
