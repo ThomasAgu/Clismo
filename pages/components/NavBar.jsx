@@ -44,7 +44,7 @@ const NavBar = () => {
               <button id={styles.logoutBtn} className={styles.btn} onClick={handleClickLogout}>Cerrar Sesion</button>
           </div>
           <div>
-            <button id={styles.togglebtn} onClick={setActiveSubmenu}><FontAwesomeIcon icon={faBars} /></button>
+            <button id={styles.togglebtn} onClick={setActiveSubmenu}><FontAwesomeIcon icon={faBars} />:D</button>
             {active ? 
               <div id={styles.divNavResponsive}>
                 <button className={styles.btnResponsive}  onClick={handleClickLogout}>Cerrar Sesion</button>
@@ -52,7 +52,7 @@ const NavBar = () => {
               :
               <></>
             }
-            <button onClick={() => setActiveMenu(value => !value)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye}  id={styles.iconAccesibility}/> </button>
+            <button onClick={() => setActiveMenu(value => !value)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye}  id={styles.iconAccesibility}/>:D</button>
             <AccesibilityMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu}/>
           </div>
         </div>
@@ -62,20 +62,20 @@ const NavBar = () => {
       return (
         <div id={styles.navDiv}>
           <div className='d-flex justify-content-around align-items-center' id={styles.navBarDiv}>
-              <button id={styles.loginBtn} className={styles.btn} onClick={() => router.push('/Login')}  tabIndex={2}>Iniciar Sesion</button>
-              <button id={styles.logupBtn} className={styles.btn} onClick={() => router.push('/Register')}  tabIndex={3}>Registrarse</button>
+              <button id={styles.loginBtn} className={styles.btn} onClick={() => router.push('/Login')}  >Iniciar Sesion</button>
+              <button id={styles.logupBtn} className={styles.btn} onClick={() => router.push('/Register')}  >Registrarse</button>
           </div>
           <div >
-            <button id={styles.togglebtn} onClick={setActiveSubmenu}><FontAwesomeIcon icon={faBars} /></button>
+            <button id={styles.togglebtn} onClick={setActiveSubmenu}><FontAwesomeIcon icon={faBars} />.</button>
             {active ? 
               <div id={styles.divNavResponsive}>
-                <button className={styles.btnResponsive}  onClick={() => router.push('/Login')}  tabIndex={2}>Iniciar Sesion</button>
-                <button className={styles.btnResponsive}  onClick={() => router.push('/Register')}  tabIndex={3}>Registrarse</button>
+                <button className={styles.btnResponsive}  onClick={() => router.push('/Login')}  >Iniciar Sesion</button>
+                <button className={styles.btnResponsive}  onClick={() => router.push('/Register')} >Registrarse</button>
               </div>
             : 
               <></>
             }
-            <button onClick={() => setActiveMenu(value => !value)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye} id={styles.iconAccesibility} /> </button>
+            <button onClick={() => setActiveMenu(value => !value)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye} id={styles.iconAccesibility} />. </button>
             <AccesibilityMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu}/>
           </div>
         </div>
@@ -87,7 +87,7 @@ const NavBar = () => {
 
   return (
     <nav className='d-flex justify-content-between' id={styles.NavBar}>
-        <h3 id={styles.title} tabIndex={1}>Clismo</h3>
+        <h3 id={styles.title}>Clismo</h3>
         <UserProfile />
     </nav>
   )

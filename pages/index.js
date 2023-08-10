@@ -37,10 +37,10 @@ export default function Home() {
             src={group}
             width={250}
             height={250}
-            alt='aversianda'
+            alt='Imagen de grupos'
             />
             <div id={styles.textDiv}>
-              <h3 className={styles.legend}>Conecta con tu entrenador</h3>
+              <h2 className={styles.legend}>Conecta con tu entrenador</h2>
               <div id={styles.conectaDiv}><p id={styles.conectaText}>Accede a entrenamientos personalizados conectándote con un entrenador. Disfruta de rutinas diseñadas para ti y ajustadas según tu progreso. Alcanza tus metas con un seguimiento cercano y motivación constante. ¡Eleva tu rendimiento y alcanza la mejor versión de ti mismo con la ayuda de expertos!</p></div>
             </div>
           </div>
@@ -48,14 +48,14 @@ export default function Home() {
           <div id={styles.SecondPart}>
             <div className='' id={styles.secondDiv}>
               <div id={styles.textDiv}>
-                <h3 className={styles.legend}>Realiza los entrenamientos</h3>
+                <h2 className={styles.legend}>Realiza los entrenamientos</h2>
                 <div id={styles.conectaDiv}><p id={styles.conectaText}>Realiza entrenamientos personalizados de la app con ejercicios diseñados por expertos. Supera tus límites y alcanza tus objetivos con seguimiento y apoyo constante</p></div>
               </div> 
               <Image 
               src={bike}
               width={250}
               height={250}
-              alt='aversianda'
+              alt='Imagen de bicicleta'
               className={styles.icon}/>              
             </div>
           </div>
@@ -65,10 +65,10 @@ export default function Home() {
               src={lupa}
               width={250}
               height={250}
-              alt='aversianda'
+              alt='Imagen de busqueda'
               className={styles.icon}/>
               <div id={styles.textDiv}>
-                <h3 className={styles.legend}>Comprueba tu rendimiento</h3>
+                <h2 className={styles.legend}>Comprueba tu rendimiento</h2>
                 <div id={styles.conectaDiv}><p id={styles.conectaText}>Mide tu progreso y rendimiento de usuario en tiempo real. Gráficos y estadísticas detalladas te permiten comprobar tus avances y celebrar tus logros en la aplicación.</p></div>
               </div>
             </div>
