@@ -1,6 +1,7 @@
 import React, { use } from 'react'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 //Store D:
 import { useDispatch, useSelector } from 'react-redux';
 import { obtenerGrupos } from '../store/actions/actions'
@@ -76,6 +77,10 @@ const Grupos = () => {
   const router = useRouter();
   return (
     <div id={styles.bigDiv}>
+        <Head>
+          <title>Grupos</title>
+          <meta name="description" content="grupos de clismo." />
+        </Head>
         <NavBar/>
         <NavNarSesion/>
         <BorrarGrupoComponent active={activateDel} setActive={setActivateDel} name={name} delId={delId} setGruposProfe={setGruposProfe}/>

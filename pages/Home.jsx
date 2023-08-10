@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Head from 'next/head'
 //components
 import NavBar from './components/NavBar'
 import NavNarSesion from './components/NavNarSesion'
@@ -119,6 +120,10 @@ const Home = () => {
   }
   return (
     <div id={styles.content}>
+       <Head>
+        <title>Home</title>
+        <meta name="description" content="Home de clismo." />
+        </Head>
         <NavBar/>
         <NavNarSesion/>
         <main >
@@ -138,8 +143,8 @@ const Home = () => {
                     alt='Foto de perfil'
                   />
                   <div id={styles.profileData}>
-                    <h3>{user.username}</h3>
-                    <p>{user.role === 'TEACHER' ? 'Profesor': 'Estudiante'}</p>
+                    <h2>{user.username}</h2>
+                    <h3>{user.role === 'TEACHER' ? 'Profesor': 'Estudiante'}</h3>
                   </div>
 
                  {/*  <p>stats</p> */}

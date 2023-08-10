@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
+import Head from 'next/head';
 //store
 import { useSelector } from 'react-redux';
 //Components
@@ -25,6 +26,10 @@ const Yo = () => {
 
   return (
     <div id={styles.content}>
+      <Head>
+        <title>Yo</title>
+        <meta name="description" content="Seccion del usuario." />
+      </Head>
       <NavBar/>
       <NavNarSesion/>
       <main>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import Head from 'next/head'
 //components
 import NavBar from '../components/NavBar'
 import NavNarSesion from '../components/NavNarSesion'
@@ -119,6 +120,10 @@ const CrearGrupo = ({grupos}) => {
   return (
     
     <div id={styles.content}>
+      <Head>
+        <title>Crear grupo</title>
+        <meta name="description" content="Pagina de creacion de grupos." />
+      </Head>
       <NavBar />
       <NavNarSesion/>
       <BackArrow/>

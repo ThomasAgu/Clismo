@@ -6,6 +6,7 @@ import NavNarSesion from '../components/NavNarSesion'
 import UserComponent from '../components/UserComponent'
 import NotificacionPopUpComponent from '../components/NotificacionPopUpComponent'
 import BackArrow from '../components/BackArrow'
+import Head from 'next/head'
 //fA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsersLine } from '@fortawesome/free-solid-svg-icons'
@@ -100,6 +101,10 @@ const GrupoDetalles = () => {
 
     return (
     <div id={styles.bigDiv}>
+        <Head>
+            <title>Detalles grupo</title>
+            <meta name="description" content="Detalles del grupo." />
+        </Head>
          <NavBar/>
         <NavNarSesion/>
         <BackArrow/>

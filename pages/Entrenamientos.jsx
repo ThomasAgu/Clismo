@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 //Components
 import NavBar from './components/NavBar';
 import NavNarSesion from './components/NavNarSesion';
@@ -155,6 +156,10 @@ const Entrenamientos = () => {
   
   return (
     <div id={styles.content}>
+      <Head>
+      <title>Entrenamientos</title>
+        <meta name="description" content="Entrenamientos de clismo." />
+      </Head>
       <NavBar/>
       <NavNarSesion/>
       <BorrarEntrenamiento active={activateDel} setActive={setActivateDel} name={name} setPopUp={setPopUp} setMsg={setMsg} setTodoBienOMal={setTodoBienOMal}/>

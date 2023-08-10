@@ -1,5 +1,6 @@
 import React, { use } from 'react'
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 //store
 import { useDispatch, useSelector } from 'react-redux'
 import { agregarEntrenamiento } from '../../store/actions/actions'
@@ -95,6 +96,10 @@ const CrearEntrenamiento = () => {
   
   return (
     <div id={styles.content}>
+        <Head>
+          <title>Crear entrenamiento</title>
+          <meta name="description" content="pagina de creacion de entrenamientos" />
+        </Head>
         <NavBar/>
         <NavNarSesion />
         <BackArrow />
