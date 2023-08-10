@@ -110,7 +110,7 @@
     font-family: var(--textNunito);
     font-size: var(--ft_card_title);
     text-align: center;
-    color: var(--textLight);
+    color: var(--darker);
 }
 
 .carValor{

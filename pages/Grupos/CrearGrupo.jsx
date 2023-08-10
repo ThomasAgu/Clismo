@@ -137,7 +137,7 @@ const CrearGrupo = ({grupos}) => {
             <InputComponent label={'Descripcion'} type={'text'} valor={groupDescription} setValue={handleChangeGroupDescription} ariaLabel={'Ingresa la descripcion de un nuevo grupo'}/>
             <InputComponent label={'Capacidad'} type={'number'} valor={capacidad} setValue={handleChangeCapacidad} ariaLabel={'Ingresa la capacidad maxima del grupo'} min={1}/>
             {/* Radio dificultard */}
-            <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={6} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
+            <label htmlFor="" className='pt-3' id={styles.labelForRol} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
               <div className='' id={styles.radiogroupDificultad}>
                 <label for="opcion1" className={nivel === 'EASY' ? styles.labelRadioActive : styles.labelRadio}>Principiante
                   <input type="radio" id="opcion1" name="dificultad" value="EASY" className={styles.radio} aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
@@ -150,7 +150,7 @@ const CrearGrupo = ({grupos}) => {
                 </label>
             </div>
           {/* Radio de privacidad */}
-            <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={10} ariaLabel={'Selecciona la privacidad'}>Privacidad</label>
+            <label htmlFor="" className='pt-3' id={styles.labelForRol}  ariaLabel={'Selecciona la privacidad'}>Privacidad</label>
               <div className='d-flex w-100 justify-content-center  pb-3'>
                 <label for="opcion5" className={privacidad === 'PUBLIC' ? styles.labelRadioActive : styles.labelRadio}>Publico
                   <input type="radio" id="opcion5" name="privacidad" value="PUBLIC" className={styles.radio}  aria-label='Dificultad: principiante' onChange={handleChangeRadioPrivacidad}/>

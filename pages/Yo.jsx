@@ -50,19 +50,19 @@ const Yo = () => {
             <div className='col-7' id={styles.caracteristicas}>
               <div id={styles.caracteristicasContent}>
                 <div className={styles.carItem}>
-                  <p className={styles.carClave}>Peso</p>
+                  <h4 className={styles.carClave}>Peso</h4>
                   <p className={styles.carValor}>{user.weight === null ? "N/A": `${user.weight}Kgh.`}.</p>
                 </div>
                 <div className={styles.carItem}>
-                  <p className={styles.carClave}>Altura</p>
+                  <h4 className={styles.carClave}>Altura</h4>
                   <p className={styles.carValor}>{user.height === null ? "N/A": `${user.height}Cm.`}</p>
                 </div>
                 <div className={styles.carItem}>
-                  <p className={styles.carClave}>Edad</p>
+                  <h4 className={styles.carClave}>Edad</h4>
                   <p className={styles.carValor}>{user.age === null ? "N/A": user.age}</p>
                 </div>
                 <div className={styles.carItem}>
-                  <p className={styles.carClave}>Genero</p>
+                  <h4 className={styles.carClave}>Genero</h4>
                   <p className={styles.carValor}>{user.gender === undefined ? "N/A": user.gender}</p>
                 </div>
               </div>
@@ -73,13 +73,13 @@ const Yo = () => {
             <div className="col-8" id={styles.infoEstadisticas}>
               <StatGlobal name={'Dias completados'} value={350} color={'#4ED0A2'}/>
               <StatGlobal name={'Horas totales'} value={400} color={'#FFA62B'}/>
-              <StatGlobal name={'Max. Velocidad'} value={67} color={'#DC7F9B'}/>
+              <StatGlobal name={'Max. Velocidad'} value={67} color={'#FCF7F8'}/>
               <StatGlobal name={'Cant. Grupos'} value={12} color={'#FCF7F8'}/>
             </div>
             <div className="col-4" id={styles.infoEstadisticasComparadas}>
               <StatsComparadas nombre={'Velocidad Promedio'} valorAct={30} valorComparado={60} type={'Kmh'} valorMax={200} icon={faGaugeSimple} color={'#4ED0A2'}/>
               <StatsComparadas nombre={'Frec. Cardiaca'} valorAct={160} valorComparado={130} type={'BPM'} valorMax={220} icon={faHeart} color={'#DC7F9B'}/>
-              <StatsComparadas nombre={'Kcal quemadas'} valorAct={2000} valorComparado={1500} type={''} valorMax={10000} icon={faWeightScale} color={'#292424'}/>
+              <StatsComparadas nombre={'Kcal quemadas'} valorAct={2000} valorComparado={1500} type={''} valorMax={10000} icon={faWeightScale} color={'#FCF7F8'}/>
               <StatsComparadas nombre={'Tiempo'} valorAct={150} valorComparado={180} type={'Mins'} valorMax={300} icon={faClock} color={'#FFA62B'}/>
             </div>
           </div>
