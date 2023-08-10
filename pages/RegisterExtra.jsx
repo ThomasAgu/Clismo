@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Head from 'next/head'
 //URL
 import { BASE_URL } from './api/url';
 //components
@@ -60,17 +61,21 @@ const RegisterExtra = () => {
   const router = useRouter();
   return (
     <div id={styles.RegisterComponent}>
+      <Head>
+        <title>Datos opcionales</title>
+        <meta name="description" content="Datos opcionales de registro" />
+      </Head>
       <NavBar  />
       <div className='w-50 m-auto flex-column d-flex align-items-center' id={styles.mainContent}>
         <div>
           <Image src={logo}
                 width={100}
                 height={80} 
-                alt={'Logo'}/> 
+                alt={'Logo de clismo'}/> 
         </div>
           <div id={styles.content}>
             <div className='text-center'>
-              <h3 id={styles.contentTitle}>Clismo</h3>
+              <h1 id={styles.contentTitle}>Datos opcionales</h1>
               <p id={styles.contentParagraph}>Datos opcionales para optimizar tus estadisticas y entrenamientos</p>
             </div>
           <div id={styles.formDiv}>

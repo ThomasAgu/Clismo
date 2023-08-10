@@ -35,7 +35,7 @@
     font-family: var(--title);
     font-weight: 100;
     font-size: var(--ft_subTitle);
-    color: var(--accent-green);
+    color: var(--textBackGround);
 }
 
 #contentParagraph{
@@ -87,7 +87,7 @@
 }
 
 #footer{
-    color: var(--textBackGround);
+    color: var(--textLight);
     font-family: var(--textRoboto);
 }
 
