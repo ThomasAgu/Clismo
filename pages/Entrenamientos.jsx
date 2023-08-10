@@ -157,7 +157,7 @@ const Entrenamientos = () => {
   return (
     <div id={styles.content}>
       <Head>
-      <title>Entrenamientos</title>
+      <title>Clismo</title>
         <meta name="description" content="Entrenamientos de clismo." />
       </Head>
       <NavBar/>

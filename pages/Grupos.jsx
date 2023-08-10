@@ -78,7 +78,7 @@ const Grupos = () => {
   return (
     <div id={styles.bigDiv}>
         <Head>
-          <title>Grupos</title>
+          <title>Clismo</title>
           <meta name="description" content="grupos de clismo." />
         </Head>
         <NavBar/>

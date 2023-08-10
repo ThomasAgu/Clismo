@@ -97,7 +97,7 @@ const CrearEntrenamiento = () => {
   return (
     <div id={styles.content}>
         <Head>
-          <title>Crear entrenamiento</title>
+          <title>Clismo</title>
           <meta name="description" content="pagina de creacion de entrenamientos" />
         </Head>
         <NavBar/>
@@ -111,8 +111,8 @@ const CrearEntrenamiento = () => {
         </div>
         <div >
             <form action="" className='m-auto' id={styles.form}>
-                <InputComponent label={'Nombre'} type={'text'} valor={name} setValue={handleChangeName} tabIndex={4} ariaLabel={'Ingresa el nombre del nuevo entrenamiento'}/>
-                <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={handleChangeDescription} tabIndex={5} ariaLabel={'Ingresa la descripcion del nuevo entrenamiento'}/>
+                <InputComponent label={'Nombre'} type={'text'} valor={name} setValue={handleChangeName} ariaLabel={'Ingresa el nombre del nuevo entrenamiento'}/>
+                <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={handleChangeDescription} ariaLabel={'Ingresa la descripcion del nuevo entrenamiento'}/>
               
               {activate ? <h2 id={styles.h2Form}>Rutina</h2> : <></>}
               {activate ? 

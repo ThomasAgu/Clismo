@@ -121,7 +121,7 @@ const Home = () => {
   return (
     <div id={styles.content}>
        <Head>
-        <title>Home</title>
+        <title>Clismo</title>
         <meta name="description" content="Home de clismo." />
         </Head>
         <NavBar/>

@@ -10,7 +10,7 @@ const BackArrow = () => {
     const router = useRouter()
   return (
     <div id={styles.content}>
-        <button id={styles.btn} onClick={()=>{router.back()}}><FontAwesomeIcon icon={faArrowLeft} id={styles.icon}/></button>
+        <button id={styles.btn} onClick={()=>{router.back()}}><FontAwesomeIcon icon={faArrowLeft} id={styles.icon}/>back arrow</button>
     </div>
   )
 }

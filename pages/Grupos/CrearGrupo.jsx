@@ -121,7 +121,7 @@ const CrearGrupo = ({grupos}) => {
     
     <div id={styles.content}>
       <Head>
-        <title>Crear grupo</title>
+        <title>Clismo</title>
         <meta name="description" content="Pagina de creacion de grupos." />
       </Head>
       <NavBar />
@@ -133,26 +133,31 @@ const CrearGrupo = ({grupos}) => {
             <h1> Crear Grupo </h1>
         </div>
         <form className='m-auto' id={styles.form}>
-            <InputComponent label={'Nombre de grupo'} type={'text'} valor={groupName} setValue={handleChangeGroupName} tabIndex={4} ariaLabel={'Ingresa el nombre del nuevo grupo'}/>
-            <InputComponent label={'Descripcion'} type={'text'} valor={groupDescription} setValue={handleChangeGroupDescription} tabIndex={5} ariaLabel={'Ingresa la descripcion de un nuevo grupo'}/>
-            <InputComponent label={'Capacidad'} type={'number'} valor={capacidad} setValue={handleChangeCapacidad} tabIndex={5} ariaLabel={'Ingresa la capacidad maxima del grupo'} min={1}/>
+            <InputComponent label={'Nombre de grupo'} type={'text'} valor={groupName} setValue={handleChangeGroupName} ariaLabel={'Ingresa el nombre del nuevo grupo'}/>
+            <InputComponent label={'Descripcion'} type={'text'} valor={groupDescription} setValue={handleChangeGroupDescription} ariaLabel={'Ingresa la descripcion de un nuevo grupo'}/>
+            <InputComponent label={'Capacidad'} type={'number'} valor={capacidad} setValue={handleChangeCapacidad} ariaLabel={'Ingresa la capacidad maxima del grupo'} min={1}/>
             {/* Radio dificultard */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={6} ariaLabel={'Selecciona la dificultad'}>Dificultad</label>
               <div className='' id={styles.radiogroupDificultad}>
-                <input type="radio" id="opcion1" name="dificultad" value="EASY" className={styles.radio} tabIndex='7' aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
-                <label for="opcion1" className={styles.labelRadio}>Principiante</label>
-                <input type="radio" id="opcion2" name="dificultad" value="MIDDLE" className={styles.radio} tabIndex='8' aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
-                <label for="opcion2" className={styles.labelRadio}>Intermedio</label>
-                <input type="radio" id="opcion3" name="dificultad" value="HARD" className={styles.radio} tabIndex='9' aria-label='Dificultad: avanzado' onChange={handleChangeRadio}/>
-                <label for="opcion3" className={styles.labelRadio}>Avanzado</label>
+                <label for="opcion1" className={nivel === 'EASY' ? styles.labelRadioActive : styles.labelRadio}>Principiante
+                  <input type="radio" id="opcion1" name="dificultad" value="EASY" className={styles.radio} aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
+                </label>
+                <label for="opcion2" className={nivel === 'MIDDLE' ? styles.labelRadioActive : styles.labelRadio}>Intermedio
+                  <input type="radio" id="opcion2" name="dificultad" value="MIDDLE" className={styles.radio} aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
+                </label>
+                <label for="opcion3" className={nivel === 'HARD' ? styles.labelRadioActive : styles.labelRadio}>Avanzado
+                  <input type="radio" id="opcion3" name="dificultad" value="HARD" className={styles.radio} aria-label='Dificultad: avanzado' onChange={handleChangeRadio}/>
+                </label>
             </div>
           {/* Radio de privacidad */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={10} ariaLabel={'Selecciona la privacidad'}>Privacidad</label>
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <input type="radio" id="opcion5" name="privacidad" value="PUBLIC" className={styles.radio} tabIndex='11' aria-label='Dificultad: principiante' onChange={handleChangeRadioPrivacidad}/>
-                <label for="opcion5" className={styles.labelRadio}>Publico</label>
-                <input type="radio" id="opcion6" name="privacidad" value="PRIVATE" className={styles.radio} tabIndex='12' aria-label='Dificultad: intermedio' onChange={handleChangeRadioPrivacidad}/>
-                <label for="opcion6" className={styles.labelRadio}>Privado</label>
+                <label for="opcion5" className={privacidad === 'PUBLIC' ? styles.labelRadioActive : styles.labelRadio}>Publico
+                  <input type="radio" id="opcion5" name="privacidad" value="PUBLIC" className={styles.radio}  aria-label='Dificultad: principiante' onChange={handleChangeRadioPrivacidad}/>
+                </label>
+                <label for="opcion6" className={privacidad === 'PRIVATE' ? styles.labelRadioActive : styles.labelRadio}>Privado
+                  <input type="radio" id="opcion6" name="privacidad" value="PRIVATE" className={styles.radio}  aria-label='Dificultad: intermedio' onChange={handleChangeRadioPrivacidad}/>
+                </label>
               </div>
             <ElegirHorarios pasos={pasos} horarios={horarios} setHorarios={setHorarios} misEntrenamientos={misEntrenamientos}/>
         {pasos < 2 ? 

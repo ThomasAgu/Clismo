@@ -52,11 +52,24 @@
     width: 100%;
   }
   
-  .radio:checked + .labelRadio{
-      color: var(--light);
-      background-color: var(--accent-green); /* Cambiar el color del texto cuando está seleccionado */
-      box-shadow: 0px 2px 10px var(--accent-green);
-  }
+  .labelRadioActive{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+    width: 50%;
+    text-align: center;
+    border-radius: 20px;
+    height: 3rem;
+    font-family: var(--textNunito);
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+    color: var(--light);
+    background-color: var(--accent-green); /* Cambiar el color del texto cuando está seleccionado */
+    box-shadow: 0px 2px 10px var(--accent-green);
+}
+
 
   #radiogroupDificultad{
     display: flex;

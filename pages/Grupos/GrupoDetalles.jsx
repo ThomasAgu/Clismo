@@ -102,7 +102,7 @@ const GrupoDetalles = () => {
     return (
     <div id={styles.bigDiv}>
         <Head>
-            <title>Detalles grupo</title>
+            <title>Clismo</title>
             <meta name="description" content="Detalles del grupo." />
         </Head>
          <NavBar/>
@@ -115,10 +115,10 @@ const GrupoDetalles = () => {
         <div id={styles.mainContent}>
             {/* gRUPO CARD */}
             <div id={styles.grupoCard}>
-                <div id={styles.nameContent}><h4>{grupoAct.name}</h4></div>
+                <div id={styles.nameContent}><h2>{grupoAct.name}</h2></div>
                 <div id={styles.descContent}><p>{grupoAct.description}</p></div>
                 <div id={styles.difficultyContent}>
-                    <h5>Dificultad</h5>
+                    <h3>Dificultad</h3>
                     <div id={styles.labels}>
                         <div className={grupoAct.difficulty === 'EASY' ? styles.labelActive : styles.labelInactive }><div>Fácil</div></div>
                         <div className={grupoAct.difficulty === 'MIDDLE' ? styles.labelActive : styles.labelInactive }><div>Medio</div></div>
@@ -127,7 +127,7 @@ const GrupoDetalles = () => {
                 </div>
 
                 <div id={styles.privacyContent}>
-                    <h5>Privacidad</h5>
+                    <h3>Privacidad</h3>
                     <div id={styles.labels}>
                         <div className={grupoAct.privacy === 'PUBLIC' ? styles.labelActive : styles.labelInactive }><div>Público</div></div>
                         <div className={grupoAct.privacy === 'PRIVATE' ? styles.labelActive : styles.labelInactive }><div>Privado</div></div>
@@ -137,7 +137,7 @@ const GrupoDetalles = () => {
             {/* FIn grupo card */}
             {/* Integrantes e invitaciones */}
             <div id={styles.usersCard}>
-                <div id={styles.searchContent}><input type="text" name="" value={inputText} id={styles.inputUsuario} onChange={handleChangeSearchUser} placeholder='Buscar usuarios'/></div>
+                <div id={styles.searchContent}><label htmlFor="" id={styles.labelInput}><input type="text" name="" value={inputText} id={styles.inputUsuario} onChange={handleChangeSearchUser} placeholder='Buscar usuarios'/>Buscar Users</label></div>
                 <div id={styles.usuarios}>
                     {usersGrupo.map((u)=>{
                             return (<UserComponent key={u.id} name={u.username} esUser={true} uid={u.id} gid={grupoAct.id} setPopUp={setPopUp} setTodoBienOMal={setTodoBienOMal} setMsg={setMsg}/>)

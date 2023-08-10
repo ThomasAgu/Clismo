@@ -50,7 +50,7 @@
     justify-content: center;
 }
 
-#nameContent h4{
+#nameContent h2{
     color: var(--accent-green);
     font-family: var(--subtitles);
     font-size: var(--ft_card_title);
@@ -75,7 +75,7 @@
     justify-content: center;
     margin-top: 2vh;
 }
-#difficultyContent h5{
+#difficultyContent h3{
     text-align: left;
     width: 90%;
     color: var(--textBackGround);
@@ -87,7 +87,11 @@
     justify-content: space-around;
     
 }
-  
+
+#labelInput{
+    width: 100%;
+    font-size: 0;
+}
 .labelActive{
     background-color: var(--accent-green);
     border-radius: 2px;
@@ -122,7 +126,7 @@
     margin-top: 2vh;
 }
 
-#privacyContent h5{
+#privacyContent h3{
     text-align: left;
     width: 90%;
     color: var(--textBackGround);

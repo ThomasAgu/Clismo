@@ -98,7 +98,7 @@ const ProxEntrenamiento = ({primerEntrenamiento, historial ,setHistorial}) => {
         <div id={styles.circle}>
             <div id={styles.circleContent}>
                 <FontAwesomeIcon icon={faCalendar} id={styles.icon}/>
-                <p id={styles.day}>{primerEntrenamiento == undefined ? "": calendarioFormateado(primerEntrenamiento.day)}</p>
+                <h3 id={styles.day}>{primerEntrenamiento == undefined ? "": calendarioFormateado(primerEntrenamiento.day)}</h3>
             </div>
         </div>
         <h3 id={styles.nombre}>{dataT == undefined ? '': dataT.name}</h3>

@@ -27,7 +27,7 @@ const Yo = () => {
   return (
     <div id={styles.content}>
       <Head>
-        <title>Yo</title>
+        <title>Clismo</title>
         <meta name="description" content="Seccion del usuario." />
       </Head>
       <NavBar/>
