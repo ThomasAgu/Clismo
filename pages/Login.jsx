@@ -88,14 +88,14 @@ const Login = () => {
             <Image src={logo}
               width={100}
               height={80} 
-              alt={'Logo'}/>  
+              alt={'Logo de la aplicacion'}/>  
           </div>
           <div id={styles.content}>
-            <h3 id={styles.contentTitle}>Clismo</h3>
+            <h1 id={styles.contentTitle}>Login</h1>
             <div id={styles.formDiv}>
               <form id={styles.form} className='d-flex flex-column justify-content-center'>
-                <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName} tabIndex={4} ariaLabel={'Ingresa tu nombre de usuario'}/>
-                <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword} tabIndex={5} ariaLabel={'Ingresa tu contraseña'}/>
+                <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName} ariaLabel={'Ingresa tu nombre de usuario'}/>
+                <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword}  ariaLabel={'Ingresa tu contraseña'}/>
                 <div className=' d-flex justify-content-center align-items-center mt-4'><button className='' id={styles.iniciarBtn} onClick={handleIniciarSesion} >Iniciar Sesion</button></div>
               </form>
           </div>

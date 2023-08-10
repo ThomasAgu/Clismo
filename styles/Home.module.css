@@ -24,6 +24,7 @@
 
 #strongNameTitle{
     color: var(--accent-green);
+    text-shadow: 2px 2px 2px var(--darker);
 }
 
 .icon{
