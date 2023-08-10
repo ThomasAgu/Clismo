@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Head from 'next/head'
 //components
 import NavBar from './components/NavBar'
 import InputComponent from './components/InputComponent'
@@ -90,6 +91,10 @@ const Register = () => {
 
   return (
     <div id={styles.RegisterComponent}>
+      <Head>
+        <title>Registrarse</title>
+        <meta name="description" content="Registro de la pagina de clismo." />
+      </Head>
       <NavBar />
       <div className=' w-50 m-auto flex-column d-flex align-items-center' id={styles.mainContent}>
         <div id={styles.logo}>
@@ -99,7 +104,7 @@ const Register = () => {
               alt={'Logo'}/> 
         </div>
         <div id={styles.content}>
-          <h3 id={styles.contentTilte}>Clismo</h3>
+          <h1 id={styles.contentTilte}>Registrarse</h1>
           <div id={styles.formDiv}>
             <form id={styles.form} className='d-flex flex-column justify-content-center'>
               <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName} tabIndex={4} ariaLabel={'Ingresa tu nombre de usuario'}/>

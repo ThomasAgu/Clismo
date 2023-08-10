@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import Image from 'next/image'
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 //components
 import NavBar from './components/NavBar'
 import InputComponent from './components/InputComponent'
@@ -82,6 +83,10 @@ const Login = () => {
 
   return (
     <div id={styles.loginComponent}>
+      <Head>
+        <title>Iniciar sesion</title>
+        <meta name="description" content="Login de la pagina de clismo." />
+      </Head>
       <NavBar />
       <div className='w-50 m-auto flex-column d-flex align-items-center' id={styles.mainContent}>
           <div id={styles.logo}>

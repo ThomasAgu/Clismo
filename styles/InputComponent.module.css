@@ -1,12 +1,18 @@
 #inputDiv{
     color: var(--textBackGround);
-    
     margin-bottom: 1vh;
     font-size:var(--ft_labels);
     font-family: var(--roboto);
 }
 
+.label{
+    display: block;
+
+}
+
 #input{
+    display: block;
+    width: 100%;
     outline: none;
     font-family: var(--roboto);
     border: 1px solid var(--backGround);
