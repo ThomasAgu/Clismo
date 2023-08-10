@@ -36,7 +36,7 @@
     font-family: var(--title);
     font-weight: 100;
     font-size: var(--ft_subTitle);
-    color: var(--accent-green);
+    color: var(--textBackGround);
 }
 
 #formDiv{
@@ -81,6 +81,7 @@
 
 #linktologin{
     color: var(--textBackGround);
+    font-size: var(--ft_card_title);
 }
 
 #registrarseBtn:hover{
@@ -116,7 +117,19 @@
   transition: all 0.2s ease;
 }
 
-.radio:checked + .labelRadio{
+.labelRadioActive{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+    width: 50%;
+    text-align: center;
+    border-radius: 20px;
+    height: 3rem;
+    font-family: var(--textNunito);
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
     color: var(--light);
     background-color: var(--accent-green); /* Cambiar el color del texto cuando está seleccionado */
     box-shadow: 0px 2px 10px var(--accent-green);

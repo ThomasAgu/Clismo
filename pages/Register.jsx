@@ -101,28 +101,31 @@ const Register = () => {
         <Image src={logo}
               width={100}
               height={80} 
-              alt={'Logo'}/> 
+              alt={'Logo de clismo'}/> 
         </div>
         <div id={styles.content}>
           <h1 id={styles.contentTilte}>Registrarse</h1>
           <div id={styles.formDiv}>
             <form id={styles.form} className='d-flex flex-column justify-content-center'>
-              <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName} tabIndex={4} ariaLabel={'Ingresa tu nombre de usuario'}/>
-              <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword} tabIndex={5} ariaLabel={'Ingresa tu contraseña'}/>
-              <InputComponent label={'Repetir contraseña'} type={'password'} valor={repeatedPassword} setValue={handleChangeRepeaterPassword} tabIndex={6} ariaLabel={'Repetir contraseña'}/>
-              <label htmlFor="" className='pt-3' id={styles.labelForRol} tabIndex={7} ariaLabel={'Selecciona tu rol'}>Rol</label>
+              <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName}ariaLabel={'Ingresa tu nombre de usuario'}/>
+              <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword}  ariaLabel={'Ingresa tu contraseña'}/>
+              <InputComponent label={'Repetir contraseña'} type={'password'} valor={repeatedPassword} setValue={handleChangeRepeaterPassword} ariaLabel={'Repetir contraseña'}/>
+              <label htmlFor="" className='pt-3' id={styles.labelForRol}  ariaLabel={'Selecciona tu rol'}>Rol
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <input type="radio" id="opcion1" name="opciones" value="STUDENT" className={styles.radio} tabIndex='8' aria-label='Rol de alumno' onChange={handleChangeSetRadio}/>
-                <label for="opcion1" className={styles.labelRadio}>Alumno</label>
-                <input type="radio" id="opcion2" name="opciones" value="TEACHER" className={styles.radio} tabIndex='9' aria-label='Rol de profesor' onChange={handleChangeSetRadio}/>
-                <label for="opcion2" className={styles.labelRadio}>Profesor</label>
+                <label for="opcion1" className={role === 'STUDENT' ? styles.labelRadioActive : styles.labelRadio}>Alumno
+                  <input type="radio" id="opcion1" name="opciones" value="STUDENT" className={styles.radio} aria-label='Rol de alumno' onChange={handleChangeSetRadio}/>
+                </label>
+                <label for="opcion2" className={role === 'TEACHER' ? styles.labelRadioActive : styles.labelRadio}>Profesor
+                  <input type="radio" id="opcion2" name="opciones" value="TEACHER" className={styles.radio} aria-label='Rol de profesor' onChange={handleChangeSetRadio}/>
+                </label>
               </div>
+              </label>
             </form>
           </div>
           <div className=' d-flex justify-content-center'><button id={styles.registrarseBtn} onClick={handleClickRegister} >Registrarse</button></div>
           <hr />
           <Link href={'/Login'}>
-            <p className='text-center' id={styles.linktologin}>¿Ya tenes cuenta? <a onClick={() => router.push('/Login')}>Iniciar Sesion</a></p>
+            <p className='text-center' id={styles.linktologin}>¿Ya tenes cuenta? <a onClick={() => router.push('/Login')}>Iniciar</a> sesion</p>
           </Link>
         </div>
       </div>
