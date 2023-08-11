@@ -53,31 +53,34 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina, misEntrenam
   return (
     <div >
         {dia !== ''?
-            <form action="" id={styles.formActive}>
+            <div action="" id={styles.formActive}>
                 <div id={styles.fromContent}>
                     <div id={styles.formFistColum}>
-                        <label htmlFor="">Hora inicio: </label>
-                        <input type="time" name="" id="" value={hora_ini}  onChange={(e)=> setHora_ini(e.target.value)}/>
+                        <label htmlFor="">Hora inicio:   </label>
+                        <input type="time" name="" id="" value={hora_ini}  onChange={(e)=> setHora_ini(e.target.value)}  />
+                       
                         <label htmlFor="">Hora fin</label>
-                        <input type="time" name="" id="" value={hora_fin}  onChange={(e)=> setHora_fin(e.target.value)}/>
+                        <input type="time" name="" id="" value={hora_fin}  onChange={(e)=> setHora_fin(e.target.value)} />
+                        
                     </div>
                     <div id={styles.formSecondColumn}>
                         <label htmlFor="">Seleccionar entrenamiento</label>
-                        <select name="" id="" value={entrenamiento} onChange={handleChangeSelect}>
-                            <option value="" >Seleccionar</option>
-                            {Array.isArray(misEntrenamientos) && misEntrenamientos.length > 0
-                                ? misEntrenamientos.map((e) => (
-                                    <option key={e.name} value={e.id}>{e.name}</option>
-                                ))
-                            : ""}
-                        </select>
+                            <select name="" id="" value={entrenamiento} onChange={handleChangeSelect} >
+                                <option value="" >Seleccionar</option>
+                                {Array.isArray(misEntrenamientos) && misEntrenamientos.length > 0
+                                    ? misEntrenamientos.map((e) => (
+                                        <option key={e.name} value={e.id}>{e.name}</option>
+                                    ))
+                                : ""}
+                            </select>
+                        
                     </div>
                 </div>
                 <div className='d-flex justify-content-end'><button onClick={handleClickSave} id={styles.formGuardarBtn}>Guardar</button></div>
 
-            </form>
+            </div>
         :
-            <form id={styles.formInactive}></form>
+            <div id={styles.formInactive}></div>
         }
     </div>
   )

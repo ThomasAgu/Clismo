@@ -84,10 +84,14 @@
     text-align: center;
 }
 
+
 #profileData h3{
     font-size: var(--ft_subTitle);
     color: var(--accent-green);
     font-weight: 600;
+    background-color: var(--darker);
+    width: 100%;
+    border-radius: 5px;
 }
 
 #profileData p{
