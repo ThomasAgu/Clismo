@@ -75,7 +75,7 @@ const NavBar = () => {
             : 
               <></>
             }
-            <button onClick={() => setActiveMenu(value => !value)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye} id={styles.iconAccesibility} />Modo oscuro </button>
+            <button onClick={() => setActiveMenu(value => !value)} id={styles.accesibilityBtn}><FontAwesomeIcon icon={faEye} id={styles.iconAccesibility} /> Configuracion de apariencia </button>
             <AccesibilityMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu}/>
           </div>
         </div>
