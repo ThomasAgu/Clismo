@@ -170,14 +170,14 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
   return (
     <div className='mx-auto' id={styles.content}>
       <div id={styles.firstColumn}>
-        <div id={styles.groupName}>{nombre}</div>
-        <div id={styles.description}>{descripcion}</div>
+        <div id={styles.groupName} tabIndex={0}>{nombre}</div>
+        <div id={styles.description} tabIndex={0}>{descripcion}</div>
         {mostrarBotonSegunEstadoDelGrupo()}
         
       </div>
       <div className="" id={styles.secondColumn}>
         <div>
-          <p id={styles.horarios}>Horarios</p>
+          <p id={styles.horarios} tabIndex={0}>Horarios</p>
           <div id={styles.horariosBigDiv}>
             <div id={styles.horariosDiv}>
               <button onClick={handleSelecDia} className={dia.day === 'MONDAY' ? styles.btnDayActive : handleDelegateClass('MONDAY')}  id='L' value={'MONDAY'}>L</button>
@@ -191,7 +191,7 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
           <MostrarHoras dia={dia} setDia={setDia} horarioCompleto={horarioCompleto}/>
           </div>
         </div>
-        <div id={styles.aditionalInfo}>
+        <div id={styles.aditionalInfo} tabIndex={0}>
           <div id={styles.textNivel}>{handleDificultad()}</div>
           <div  id={styles.textCapacidad}><FontAwesomeIcon icon={faPersonBiking} id={styles.biciIcon}/><div>Capacidad {cantIntegrantes}/{capacidad}</div></div>
         </div>

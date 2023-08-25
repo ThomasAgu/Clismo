@@ -97,7 +97,7 @@ const Grupos = () => {
 
             {gruposProfe.length !== 0?
             <div>
-              <h2 className={styles.subtitle}> Soy profe de</h2>
+              <h2 className={styles.subtitle} tabIndex={0}> Soy profe de</h2>
               <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
                 {gruposProfe.map((g) => {
                   return (
@@ -127,7 +127,7 @@ const Grupos = () => {
 
             {misGrupos.length !== 0? 
               <div>
-                <h2 className={styles.subtitle}>Mis grupos</h2>
+                <h2 className={styles.subtitle} tabIndex={0}>Mis grupos</h2>
                 <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
                     {misGrupos.map((g) => {
                       return (
@@ -153,7 +153,7 @@ const Grupos = () => {
             <></>}
             {gruposDisponibles.length !== 0? 
               <div>
-                <h2 className={styles.subtitle}>Grupos publicos</h2>
+                <h2 className={styles.subtitle} tabIndex={0}>Grupos publicos</h2>
               <div className='d-flex flex-row flex-wrap gap-2 justify-content-center'>
                 {gruposDisponibles.map((g) => {
                     return(  
