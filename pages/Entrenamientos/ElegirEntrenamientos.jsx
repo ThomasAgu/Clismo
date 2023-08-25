@@ -125,9 +125,9 @@ const ElegirEntrenamientos = ({activate, pasos, ejercicios, setEjercicios, actEx
     <div id={styles.secondPartFirstColumn}>
         {pasos > 1? 
             <div id={styles.secondForm}>
-                <h3  className='text-center' id={styles.newExerciseTitle}>{actEx === undefined ? 'Nuevo ' : 'Modificando '} ejercicio</h3>
-                <InputComponent label={'Nombre'} type={'text'} valor={nombre} setValue={onChangeNombre}/>
-                <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={onChangeDescription}/>
+                <h3  className='text-center' id={styles.newExerciseTitle} tabIndex={0}>{actEx === undefined ? 'Nuevo ' : 'Modificando '} ejercicio</h3>
+                <InputComponent label={'Nombre'} type={'text'} valor={nombre} setValue={onChangeNombre} ariaLabel={'Ingresa el nombre del ejercicio a agregar'}/>
+                <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={onChangeDescription} ariaLabel={'Ingresa la descripcion del ejercicio a agregar'}/>
 
                 <div className='d-flex justify-content-between'>
                     <div className='d-flex flex-column' id={styles.parametersBigDiv}>

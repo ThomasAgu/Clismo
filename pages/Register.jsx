@@ -107,15 +107,15 @@ const Register = () => {
           <h1 id={styles.contentTilte}>Registrarse</h1>
           <div id={styles.formDiv}>
             <form id={styles.form} className='d-flex flex-column justify-content-center'>
-              <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName}ariaLabel={'Ingresa tu nombre de usuario'}/>
-              <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword}  ariaLabel={'Ingresa tu contraseña'}/>
-              <InputComponent label={'Repetir contraseña'} type={'password'} valor={repeatedPassword} setValue={handleChangeRepeaterPassword} ariaLabel={'Repetir contraseña'}/>
-              <label htmlFor="" className='pt-3' id={styles.labelForRol}  ariaLabel={'Selecciona tu rol'}>Rol
+              <InputComponent label={'Nombre de usuario'} type={'text'} valor={userName} setValue={handleChangeUserName}ariaLabel={'Ingresa tu nombre de usuario'} tabIndex={0}/>
+              <InputComponent label={'Contraseña'} type={'password'} valor={password} setValue={handleChangePassword}  ariaLabel={'Ingresa tu contraseña'} tabIndex={0}/>
+              <InputComponent label={'Repetir contraseña'} type={'password'} valor={repeatedPassword} setValue={handleChangeRepeaterPassword} ariaLabel={'Repetir contraseña'} tabIndex={0}/>
+              <label htmlFor="" className='pt-3' id={styles.labelForRol}  ariaLabel={'Selecciona tu rol'} tabIndex={0}>Rol
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <label for="opcion1" className={role === 'STUDENT' ? styles.labelRadioActive : styles.labelRadio}>Alumno
+                <label for="opcion1" className={role === 'STUDENT' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Alumno
                   <input type="radio" id="opcion1" name="opciones" value="STUDENT" className={styles.radio} aria-label='Rol de alumno' onChange={handleChangeSetRadio}/>
                 </label>
-                <label for="opcion2" className={role === 'TEACHER' ? styles.labelRadioActive : styles.labelRadio}>Profesor
+                <label for="opcion2" className={role === 'TEACHER' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Profesor
                   <input type="radio" id="opcion2" name="opciones" value="TEACHER" className={styles.radio} aria-label='Rol de profesor' onChange={handleChangeSetRadio}/>
                 </label>
               </div>

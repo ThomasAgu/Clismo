@@ -8,7 +8,7 @@ import styles from '../../styles/CrearEntrenamiento.module.css'
 
 const ExerciseItem = ({ex, click, actEx}) => {
   return (
-    <FontAwesomeIcon icon={faCircle} id={actEx === ex ? styles.circlesActive :styles.circles} onClick={()=> click(ex)}/>
+    <FontAwesomeIcon icon={faCircle} id={actEx === ex ? styles.circlesActive :styles.circles} onClick={()=> click(ex)} tabIndex={0} ariaLabel={"ejercicio "+actEx}/>
   )
 }
 

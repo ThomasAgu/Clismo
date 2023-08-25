@@ -174,7 +174,7 @@ const Entrenamientos = () => {
           }
         </div> 
         
-        {primerEntrenamiento == undefined ? <div id={styles.noHayNadaContent}> {user_role !== "TEACHER" ? <h2 id={styles.noHayNadaTitle}>Actualmente, no estas anotado en ningún grupo...</h2>: <h2 id={styles.noHayNadaTitle}>Actualmente,no creaste ningún grupo...</h2>}</div>:<h2 className={styles.subtitle}>Proximo entrenamiento</h2>}
+        {primerEntrenamiento == undefined ? <div id={styles.noHayNadaContent}> {user_role !== "TEACHER" ? <h2 id={styles.noHayNadaTitle} tabIndex={0}>Actualmente, no estas anotado en ningún grupo...</h2>: <h2 id={styles.noHayNadaTitle} tabIndex={0}>Actualmente,no creaste ningún grupo...</h2>}</div>:<h2 className={styles.subtitle} tabIndex={0}>Proximo entrenamiento</h2>}
         {primerEntrenamiento !== undefined ? 
         <section id={styles.firstSection}>
           <div id={styles.fsFirstElement}>
@@ -188,7 +188,7 @@ const Entrenamientos = () => {
         :
         <></>
         }
-        {user_role === 'TEACHER' && misEntrenamientos.length > 0 ? <h2 className={styles.subtitle}>Entrenamientos creados</h2> : <></>}
+        {user_role === 'TEACHER' && misEntrenamientos.length > 0 ? <h2 className={styles.subtitle} tabIndex={0}>Entrenamientos creados</h2> : <></>}
         {user_role === 'TEACHER' ? 
           <section id={styles.misEntrenamientosSection}>
             {misEntrenamientos.map((el) => <EntrenamientoCard key={el.id} props={el} setActiveDel={setActivateDel} setName={setName}/>)}

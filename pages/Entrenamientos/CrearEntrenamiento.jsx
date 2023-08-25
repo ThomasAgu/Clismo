@@ -114,7 +114,7 @@ const CrearEntrenamiento = () => {
                 <InputComponent label={'Nombre'} type={'text'} valor={name} setValue={handleChangeName} ariaLabel={'Ingresa el nombre del nuevo entrenamiento'}/>
                 <InputComponent label={'Descripcion'} type={'text'} valor={descripcion} setValue={handleChangeDescription} ariaLabel={'Ingresa la descripcion del nuevo entrenamiento'}/>
               
-              {activate ? <h2 id={styles.h2Form}>Rutina</h2> : <></>}
+              {activate ? <h2 id={styles.h2Form} tabIndex={0}>Conjunto de Ejercicios</h2> : <></>}
               {activate ? 
               
                 <div id={styles.secondPartContainer}>
@@ -126,7 +126,7 @@ const CrearEntrenamiento = () => {
                           <ExerciseItem key={ex.nombre} ex={ex} click={handleClickSetearEntrenamiento} actEx={actEx}/>
                         )
                       })}
-                      {actEx === undefined  ? <FontAwesomeIcon icon={faSquare} id={styles.squares}/> : '' 
+                      {actEx === undefined  ? <FontAwesomeIcon icon={faSquare} id={styles.squares} tabIndex={0} ariaLabel={"ejercicio actualmente seleccionado"}/> : '' 
 }
                     </div>
                     <div id={styles.exerciseTotalStadistics}>
@@ -139,7 +139,7 @@ const CrearEntrenamiento = () => {
               <></>}
               
               {(pasos < 2) ?
-                <div className='d-flex justify-content-center'><button onClick={handleClickSiguiente} id={styles.siguienteBtn} >Rutina</button></div>
+                <div className='d-flex justify-content-center'><button onClick={handleClickSiguiente} id={styles.siguienteBtn} >Listo</button></div>
                 :
                 <div className='d-flex justify-content-center'><button onClick={handleClickAddEntrenamiento} id={styles.finalizarBtn} > Finalizar </button></div>
               }
