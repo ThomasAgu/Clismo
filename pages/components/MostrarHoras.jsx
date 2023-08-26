@@ -13,7 +13,7 @@ const MostrarHoras = ({dia, setDia, horarioCompleto}) => {
   return (
     <div>
         {dia !== '' ?
-            <div id={styles.activeDiv}>
+            <div id={styles.activeDiv} tabIndex={0}>
                 <p>Desde: {dia == undefined  ? '' : handleShowTime(dia.starttime)}</p>
                 <p>Hasta: {dia == undefined  ? '' : handleShowTime(dia.endingtime)}</p>
             </div>

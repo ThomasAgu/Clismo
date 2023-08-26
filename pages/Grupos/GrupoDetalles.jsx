@@ -118,19 +118,19 @@ const GrupoDetalles = () => {
                 <div id={styles.nameContent}><h2>{grupoAct.name}</h2></div>
                 <div id={styles.descContent}><p>{grupoAct.description}</p></div>
                 <div id={styles.difficultyContent}>
-                    <h3>Dificultad</h3>
+                    <h3 tabIndex={0}>Dificultad</h3>
                     <div id={styles.labels}>
-                        <div className={grupoAct.difficulty === 'EASY' ? styles.labelActive : styles.labelInactive }><div>Fácil</div></div>
-                        <div className={grupoAct.difficulty === 'MIDDLE' ? styles.labelActive : styles.labelInactive }><div>Medio</div></div>
-                        <div className={grupoAct.difficulty === 'HARD' ? styles.labelActive : styles.labelInactive }><div>Difícil</div></div>
+                        <div className={grupoAct.difficulty === 'EASY' ? styles.labelActive : styles.labelInactive } tabIndex={0}><div>Fácil</div></div>
+                        <div className={grupoAct.difficulty === 'MIDDLE' ? styles.labelActive : styles.labelInactive } tabIndex={0}><div>Medio</div></div>
+                        <div className={grupoAct.difficulty === 'HARD' ? styles.labelActive : styles.labelInactive } tabIndex={0}><div>Difícil</div></div>
                     </div>
                 </div>
 
                 <div id={styles.privacyContent}>
-                    <h3>Privacidad</h3>
+                    <h3 tabIndex={0}>Privacidad</h3>
                     <div id={styles.labels}>
-                        <div className={grupoAct.privacy === 'PUBLIC' ? styles.labelActive : styles.labelInactive }><div>Público</div></div>
-                        <div className={grupoAct.privacy === 'PRIVATE' ? styles.labelActive : styles.labelInactive }><div>Privado</div></div>
+                        <div className={grupoAct.privacy === 'PUBLIC' ? styles.labelActive : styles.labelInactive } tabIndex={0}><div>Público</div></div>
+                        <div className={grupoAct.privacy === 'PRIVATE' ? styles.labelActive : styles.labelInactive } tabIndex={0}><div>Privado</div></div>
                     </div>
                 </div>
             </div>

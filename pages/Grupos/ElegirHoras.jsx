@@ -69,7 +69,7 @@ const ElegirHoras = ({dia, setDia,setHorarios,horarios ,horaYRutina, misEntrenam
                                 <option value="" >Seleccionar</option>
                                 {Array.isArray(misEntrenamientos) && misEntrenamientos.length > 0
                                     ? misEntrenamientos.map((e) => (
-                                        <option key={e.name} value={e.id}>{e.name}</option>
+                                        <option key={e.name} value={e.id} tabIndex={0}>{e.name}</option>
                                     ))
                                 : ""}
                             </select>

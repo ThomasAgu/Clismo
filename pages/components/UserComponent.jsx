@@ -54,12 +54,12 @@ const UserComponent = ({name, esUser, uid, gid, setPopUp, setTodoBienOMal, setMs
         }
   return (
     <div id={esUser ? styles.userContent : styles.notUser} className={styles.user}>
-        <div id={styles.userName}>{name} </div>
+        <div id={styles.userName} tabIndex={0}>{name} </div>
         <div>
             {esUser ? 
-                <button id={styles.kickBtn} onClick={handleClickKickUser}><FontAwesomeIcon icon={faSquareMinus} id={styles.iconQuit}/></button>
+                <button id={styles.kickBtn} onClick={handleClickKickUser} aria-label='Invitar'><FontAwesomeIcon icon={faSquareMinus} id={styles.iconQuit}/></button>
             :
-                <button id={styles.inviteBtn} onClick={handleClickInviteUser}><FontAwesomeIcon icon={faEnvelope} id={styles.iconInvite}/></button>
+                <button id={styles.inviteBtn} onClick={handleClickInviteUser} aria-label='Sacar del grupo'><FontAwesomeIcon icon={faEnvelope} id={styles.iconInvite}/></button>
             }
         </div>
         </div>
