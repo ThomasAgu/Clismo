@@ -180,13 +180,13 @@ const GrupoCard = ({nombre, descripcion, privacidad, cantIntegrantes, capacidad,
           <p id={styles.horarios} tabIndex={0}>Horarios</p>
           <div id={styles.horariosBigDiv}>
             <div id={styles.horariosDiv}>
-              <button onClick={handleSelecDia}   className={dia.day === 'MONDAY' ? styles.btnDayActive : handleDelegateClass('MONDAY')}  id='L' value={'MONDAY'}>L</button>
-              <button onClick={handleSelecDia} className={dia.day === 'TUESDAY' ? styles.btnDayActive : handleDelegateClass('TUESDAY')}  id='M' value={'TUESDAY'}>M</button>
-              <button onClick={handleSelecDia} className={dia.day === 'WEDNESDAY' ? styles.btnDayActive : handleDelegateClass('WEDNESDAY')}  id='X' value={'WEDNESDAY'}>X</button>
-              <button onClick={handleSelecDia} className={dia.day === 'THURSDAY' ? styles.btnDayActive : handleDelegateClass('THURSDAY')}  id='J' value={'THURSDAY'}>J</button>
-              <button onClick={handleSelecDia} className={dia.day === 'FRIDAY' ? styles.btnDayActive : handleDelegateClass('FRIDAY')}  id='V' value={'FRIDAY'}>V</button>
-              <button onClick={handleSelecDia} className={dia.day === 'SATURDAY' ? styles.btnDayActive : handleDelegateClass('SATURDAY')}  id='S' value={'SATURDAY'}>S</button>
-              <button onClick={handleSelecDia} className={dia.day === 'SUNDAY' ? styles.btnDayActive : handleDelegateClass('SUNDAY')}  id='D' value={'SUNDAY'}>D</button>
+              <button onClick={handleSelecDia}   className={dia.day === 'MONDAY' ? styles.btnDayActive : handleDelegateClass('MONDAY')}  id='L' value={'MONDAY'} aria-label={handleDelegateClass('MONDAY') === `${styles.btnDayInactive}` ? 'No hay horario el lunes' : (dia.day === 'MONDAY' ? "Lunes horario activo": "Lunes horario inactivo")}>L</button>
+              <button onClick={handleSelecDia} className={dia.day === 'TUESDAY' ? styles.btnDayActive : handleDelegateClass('TUESDAY')}  id='M' value={'TUESDAY'} aria-label={handleDelegateClass('TUESDAY') === `${styles.btnDayInactive}` ? 'No hay horario el martes' : (dia.day === 'TUESDAY' ? "Martes horario activo": "Martes horario inactivo")}>M</button>
+              <button onClick={handleSelecDia} className={dia.day === 'WEDNESDAY' ? styles.btnDayActive : handleDelegateClass('WEDNESDAY')}  id='X' value={'WEDNESDAY'} aria-label={handleDelegateClass('WEDNESDAY') === `${styles.btnDayInactive}` ? 'No hay horario el miercoles' : (dia.day === 'WEDNESDAY' ? "Miercoles horario activo": "Miercoles horario inactivo")}>X</button>
+              <button onClick={handleSelecDia} className={dia.day === 'THURSDAY' ? styles.btnDayActive : handleDelegateClass('THURSDAY')}  id='J' value={'THURSDAY'} aria-label={handleDelegateClass('THURSDAY') === `${styles.btnDayInactive}` ? 'No hay horario el jueves' : (dia.day === 'THURSDAY' ? "jueves horario activo": "jueves horario inactivo")}>J</button>
+              <button onClick={handleSelecDia} className={dia.day === 'FRIDAY' ? styles.btnDayActive : handleDelegateClass('FRIDAY')}  id='V' value={'FRIDAY'} aria-label={handleDelegateClass('FRIDAY') === `${styles.btnDayInactive}` ? 'No hay horario el viernes' : (dia.day === 'FRIDAY' ? "viernes horario activo": "viernes horario inactivo")}>V</button>
+              <button onClick={handleSelecDia} className={dia.day === 'SATURDAY' ? styles.btnDayActive : handleDelegateClass('SATURDAY')}  id='S' value={'SATURDAY'} aria-label={handleDelegateClass('SATURDAY') === `${styles.btnDayInactive}` ? 'No hay horario el sabado' : (dia.day === 'SATURDAY' ? "sabado horario activo": "sabado horario inactivo")}>S</button>
+              <button onClick={handleSelecDia} className={dia.day === 'SUNDAY' ? styles.btnDayActive : handleDelegateClass('SUNDAY')}  id='D' value={'SUNDAY'} aria-label={handleDelegateClass('SUNDAY') === `${styles.btnDayInactive}` ? 'No hay horario el domingo' : (dia.day === 'SUNDAY' ? "domingo horario activo": "domingo horario inactivo")}>D</button>
             </div>
           <MostrarHoras dia={dia} setDia={setDia} horarioCompleto={horarioCompleto}/>
           </div>
