@@ -18,8 +18,18 @@ const dispatch = useDispatch()
     dispatch(set_route(ruta))
     router.push(ruta)
   }
+
+  const handleClickNavigate = (e) => {  
+    console.log('navegar')
+    console.log(e.which)
+    if(e.which === 13){
+      dispatch(set_route(ruta))
+      router.push(ruta)
+      
+    }
+  }
     return (
-    <div id={styles.content} onClick={handleClickChangeRoute} tabIndex={0}>
+    <div id={styles.content} onClick={handleClickChangeRoute} tabIndex={0} onKeyDown={handleClickNavigate}>
         {orientation === 'left' ? <div id={styles.weirdBar}><FontAwesomeIcon icon={icon} id={styles.icon}/></div> : <></>}
         <div id={styles.text}>
             <h5>{name}</h5>
