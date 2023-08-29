@@ -15,8 +15,15 @@ const Notifications = ({invitations}) => {
     setActive(active => !active)
     setInvitacionesValidas(invitations.filter((i) => i.accepted == false))
   }
+
+  const handleKeyDown =(event) => {
+    if (event.keyCode === 13) {;
+      setActive(active => !active)
+      setInvitacionesValidas(invitations.filter((i) => i.accepted == false))
+      }
+    }
     return (
-    <div id={styles.notifificationContent} onClick={handleClickActivate}>
+    <div id={styles.notifificationContent} onClick={handleClickActivate} tabIndex={0} onKeyDown={handleKeyDown} >
         {Array.isArray(invitations) && invitations.length > 0 ? 
           invitations.filter((i) => i.accepted == false).length > 0 ? 
             <div id={styles.roundenNotificationActive}><FontAwesomeIcon icon={faBell} id={styles.bellActive}/> <div id={styles.notCant}>{invitations.filter((i) => i.accepted == false).length}</div></div>

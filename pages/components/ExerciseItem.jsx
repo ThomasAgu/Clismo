@@ -8,7 +8,7 @@ import styles from '../../styles/CrearEntrenamiento.module.css'
 
 const ExerciseItem = ({ex, click, actEx}) => {
   return (
-    <FontAwesomeIcon icon={faCircle} id={actEx === ex ? styles.circlesActive :styles.circles} onClick={()=> click(ex)} tabIndex={0} ariaLabel={"ejercicio "+actEx}/>
+    <FontAwesomeIcon icon={faCircle} id={actEx === ex ? styles.circlesActive :styles.circles} onClick={()=> click(ex)} tabIndex={0} ariaLabel={"ejercicio "+actEx} onKeyDown={(e) => e.keyCode === 13 ? click(ex) : ''} />
   )
 }
 

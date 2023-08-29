@@ -117,6 +117,22 @@ const CrearGrupo = ({grupos}) => {
       });  
     }
 
+    const handleKeyDown =(event) => {
+      if (event.keyCode === 13) {
+        const labelForAttribute = event.target.getAttribute('aria-labelledby');
+        setNivel(labelForAttribute)
+
+      }
+    }
+
+    const handleKeyDownPrivacy = (event) => {
+      if (event.keyCode === 13) {
+        const labelForAttribute = event.target.getAttribute('aria-labelledby');
+        setPrivacidad(labelForAttribute)
+      }
+    }
+  
+
   return (
     
     <div id={styles.content}>
@@ -139,23 +155,23 @@ const CrearGrupo = ({grupos}) => {
             {/* Radio dificultard */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol} ariaLabel={'Selecciona la dificultad'} tabIndex={0}>Dificultad</label>
               <div className='' id={styles.radiogroupDificultad}>
-                <label for="opcion1" className={nivel === 'EASY' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Principiante
+                <label for="opcion1" className={nivel === 'EASY' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0} onKeyDown={handleKeyDown} aria-labelledby='EASY'>Principiante
                   <input type="radio" id="opcion1" name="dificultad" value="EASY" className={styles.radio} aria-label='Dificultad: principiante' onChange={handleChangeRadio}/>
                 </label>
-                <label for="opcion2" className={nivel === 'MIDDLE' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Intermedio
+                <label for="opcion2" className={nivel === 'MIDDLE' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0} onKeyDown={handleKeyDown} aria-labelledby='MIDDLE'>Intermedio
                   <input type="radio" id="opcion2" name="dificultad" value="MIDDLE" className={styles.radio} aria-label='Dificultad: intermedio' onChange={handleChangeRadio}/>
                 </label>
-                <label for="opcion3" className={nivel === 'HARD' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Avanzado
+                <label for="opcion3" className={nivel === 'HARD' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0} onKeyDown={handleKeyDown} aria-labelledby='HARD'>Avanzado
                   <input type="radio" id="opcion3" name="dificultad" value="HARD" className={styles.radio} aria-label='Dificultad: avanzado' onChange={handleChangeRadio}/>
                 </label>
             </div>
           {/* Radio de privacidad */}
             <label htmlFor="" className='pt-3' id={styles.labelForRol}  ariaLabel={'Selecciona la privacidad'} tabIndex={0}>Privacidad</label>
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <label for="opcion5" className={privacidad === 'PUBLIC' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Publico
+                <label for="opcion5" className={privacidad === 'PUBLIC' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0} onKeyDown={handleKeyDownPrivacy} aria-labelledby='PUBLIC'>Publico
                   <input type="radio" id="opcion5" name="privacidad" value="PUBLIC" className={styles.radio}  aria-label='Dificultad: principiante' onChange={handleChangeRadioPrivacidad}/>
                 </label>
-                <label for="opcion6" className={privacidad === 'PRIVATE' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Privado
+                <label for="opcion6" className={privacidad === 'PRIVATE' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0} onKeyDown={handleKeyDownPrivacy} aria-labelledby='PRIVATE'>Privado
                   <input type="radio" id="opcion6" name="privacidad" value="PRIVATE" className={styles.radio}  aria-label='Dificultad: intermedio' onChange={handleChangeRadioPrivacidad}/>
                 </label>
               </div>

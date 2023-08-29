@@ -50,15 +50,26 @@ const Invitation = ({gui, uid, id, setActive, setInvitacionesValidas, invitacion
             const invitacionesAct = invitacionesValidas.map((inv) => {if (inv.id === id) {inv.accepted = true}} )
             console.log(invitacionesAct)
             setInvitacionesValidas(invitacionesAct)
-            //aca poner notificacion
           })
         }       
+
+    const handleKeyAceptar = (event) => {
+      if (event.keyCode === 13) {;
+        handleClickAccept()
+      }  
+    }
+
+    const handleKeyRechazar = (event) => {
+      if (event.keyCode === 13) {;
+        handleClickReject()
+      } 
+    }
    return (
     <div id={styles.content}>
-        <h6>Usted ha sido invitado al grupo {grupo.name}</h6>
+        <h6 aria-label={`Usted ha sido invitado al grupo ${grupo.name}`}>Usted ha sido invitado al grupo {grupo.name}</h6>
         <div id={styles.btns}>
-            <div><button id={styles.btnAccept} onClick={handleClickAccept}><FontAwesomeIcon icon={faCheck} /></button></div>
-            <div><button id={styles.btnCancel} onClick={handleClickReject}><FontAwesomeIcon icon={faX} /></button></div>
+            <div><button id={styles.btnAccept} onClick={handleClickAccept} aria-label="Aceptar invitacion" onKeyDown={handleKeyAceptar}><FontAwesomeIcon icon={faCheck} /></button></div>
+            <div><button id={styles.btnCancel} onClick={handleClickReject} aria-label="Rechazar invitacion" onKeyDown={handleKeyRechazar}><FontAwesomeIcon icon={faX} /></button></div>
         </div>
     </div>
   )

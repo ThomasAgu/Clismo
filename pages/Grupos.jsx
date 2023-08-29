@@ -25,8 +25,6 @@ const Grupos = () => {
   const user_role = useSelector(state=> state.login.user.role) //trae el rol del usuario
   const user_id = useSelector(state=> state.login.user.id) //trae el id del usuario
   const dispatch = useDispatch();
-  
- 
 
   const [gruposDisponibles, setGruposDisponibles] = useState([]);
   const [misGrupos, setMisGrupos] = useState([])

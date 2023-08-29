@@ -19,7 +19,7 @@ const dispatch = useDispatch()
     router.push(ruta)
   }
     return (
-    <div id={styles.content} onClick={handleClickChangeRoute}>
+    <div id={styles.content} onClick={handleClickChangeRoute} tabIndex={0}>
         {orientation === 'left' ? <div id={styles.weirdBar}><FontAwesomeIcon icon={icon} id={styles.icon}/></div> : <></>}
         <div id={styles.text}>
             <h5>{name}</h5>

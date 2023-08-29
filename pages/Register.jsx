@@ -28,6 +28,7 @@ const Register = () => {
   const [role, setRole] = useState();
 
   const [popUp, setPopUp] = useState(false)
+  const [feedBackMsg, setFeedBackMsg] = useState('')
 
   const handleChangeUserName = (e) => {
     setUserName(userName => e.target.value);
@@ -42,6 +43,7 @@ const Register = () => {
   }
 
   const handleChangeSetRadio = (e) =>{
+    console.log(e.target.value)
     setRole(e.target.value)
   }
 
@@ -49,10 +51,14 @@ const Register = () => {
     //const response = register({user: userName, pass: password, role: role })
     //chequear si no existe 
     if(userName === ''){
+      setFeedBackMsg('No ha ingresado nombre de usuario')
+      setPopUp(true)
       console.log('ingrese nombre de usuario')
     }
     
     else if(password === ''){
+      setFeedBackMsg('No ha ingresado ninguna contraseña')
+      setPopUp(true)
       console.log('ingrese nombre de contrasenia')
       //falt aocntorllar que se repita la conmtrase;a repetida
     }
@@ -87,6 +93,14 @@ const Register = () => {
     }
   }
 
+  const handleKeyDown =(event) => {
+    if (event.keyCode === 13) {
+      const labelForAttribute = event.target.getAttribute('aria-labelledby');
+      setRole(labelForAttribute)
+      /* handleChangeSetRadio(event.target.for) */
+    }
+
+  }
 
 
   return (
@@ -112,11 +126,11 @@ const Register = () => {
               <InputComponent label={'Repetir contraseña'} type={'password'} valor={repeatedPassword} setValue={handleChangeRepeaterPassword} ariaLabel={'Repetir contraseña'} tabIndex={0}/>
               <label htmlFor="" className='pt-3' id={styles.labelForRol}  ariaLabel={'Selecciona tu rol'} tabIndex={0}>Rol
               <div className='d-flex w-100 justify-content-center  pb-3'>
-                <label for="opcion1" className={role === 'STUDENT' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Alumno
-                  <input type="radio" id="opcion1" name="opciones" value="STUDENT" className={styles.radio} aria-label='Rol de alumno' onChange={handleChangeSetRadio}/>
+                <label for="opcion1" className={role === 'STUDENT' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0} onKeyDown={handleKeyDown} aria-labelledby='STUDENT'>Alumno
+                  <input type="radio" id="opcion1" name="opciones" value="STUDENT" className={styles.radio} aria-label='Rol de alumno' aria-labelledby='opcion1' onChange={handleChangeSetRadio}  />
                 </label>
-                <label for="opcion2" className={role === 'TEACHER' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0}>Profesor
-                  <input type="radio" id="opcion2" name="opciones" value="TEACHER" className={styles.radio} aria-label='Rol de profesor' onChange={handleChangeSetRadio}/>
+                <label for="opcion2" className={role === 'TEACHER' ? styles.labelRadioActive : styles.labelRadio} tabIndex={0} onKeyDown={handleKeyDown} aria-labelledby='TEACHER'>Profesor
+                  <input type="radio" id="opcion2" name="opciones" value="TEACHER" className={styles.radio} aria-label='Rol de profesor' aria-labelledby='opcion2' onChange={handleChangeSetRadio} />
                 </label>
               </div>
               </label>
@@ -128,7 +142,7 @@ const Register = () => {
         </div>
       </div>
       { popUp ?
-        <PopupMessage msg={'El nombre de usuario ya existe'} todoBienOtodoMal={'todoMal'} active={popUp} setActive={setPopUp} tiempo={10}/>
+        <PopupMessage msg={feedBackMsg} todoBienOtodoMal={'todoMal'} active={popUp} setActive={setPopUp} tiempo={10}/>
       :
         <></>
       }
