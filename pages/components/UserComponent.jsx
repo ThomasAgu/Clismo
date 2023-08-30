@@ -57,9 +57,9 @@ const UserComponent = ({name, esUser, uid, gid, setPopUp, setTodoBienOMal, setMs
         <div id={styles.userName} tabIndex={0}>{name} </div>
         <div>
             {esUser ? 
-                <button id={styles.kickBtn} onClick={handleClickKickUser} aria-label='Invitar'><FontAwesomeIcon icon={faSquareMinus} id={styles.iconQuit}/></button>
+                <button id={styles.kickBtn} onClick={handleClickKickUser} aria-label='Sacar del grupo'><FontAwesomeIcon icon={faSquareMinus} id={styles.iconQuit}/></button>
             :
-                <button id={styles.inviteBtn} onClick={handleClickInviteUser} aria-label='Sacar del grupo'><FontAwesomeIcon icon={faEnvelope} id={styles.iconInvite}/></button>
+                <button id={styles.inviteBtn} onClick={handleClickInviteUser} aria-label='Invitar'><FontAwesomeIcon icon={faEnvelope} id={styles.iconInvite}/></button>
             }
         </div>
         </div>
