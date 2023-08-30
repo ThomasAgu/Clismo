@@ -66,7 +66,7 @@ const Invitation = ({gui, uid, id, setActive, setInvitacionesValidas, invitacion
     }
    return (
     <div id={styles.content}>
-        <h6 aria-label={`Usted ha sido invitado al grupo ${grupo.name}`}>Usted ha sido invitado al grupo {grupo.name}</h6>
+        <h6 aria-label={`Usted ha sido invitado al grupo ${grupo.name}`} tabIndex={0}>Usted ha sido invitado al grupo {grupo.name}</h6>
         <div id={styles.btns}>
             <div><button id={styles.btnAccept} onClick={handleClickAccept} aria-label="Aceptar invitacion" onKeyDown={handleKeyAceptar}><FontAwesomeIcon icon={faCheck} /></button></div>
             <div><button id={styles.btnCancel} onClick={handleClickReject} aria-label="Rechazar invitacion" onKeyDown={handleKeyRechazar}><FontAwesomeIcon icon={faX} /></button></div>
